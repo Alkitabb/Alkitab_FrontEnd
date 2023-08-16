@@ -1,25 +1,48 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react'
+import { Route, Routes } from 'react-router-dom'
+// import UserRegistration from './authentication/pages/UserRegistration'
+import UserRegistration from './authentication/pages/UserRegistration'
+import UserLogin from './authentication/pages/UserLogin'
+import UserDashboard from './dashboard/UserDashboard'
+import Sales from './dashboard/pages/Sales'
+import Staffs from './dashboard/pages/Staffs'
+import Inventory from './dashboard/pages/Inventory'
+import Notifications from './dashboard/pages/Notifications'
+import Settings from './dashboard/pages/Settings'
+import Dashboard from './dashboard/pages/Dashboard'
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <>
+
+      <Routes>
+
+        <Route path='/UserLogin' element={<UserLogin />} />
+
+        <Route path='/UserRegistration' element={<UserRegistration />} />
+
+        {/* <<<<<<<<<<========== Dashboard ==========>>>>>>>>>> */}
+        {/* <<<<<<<<<<===============================>>>>>>>>>> */}
+        <Route path='/' element={<UserDashboard />} children={[
+
+          <Route path='/' element={<Dashboard />} />,
+
+          <Route path='/Sales' element={<Sales />} />,
+
+          <Route path='/Staffs' element={<Staffs />} />,
+
+          <Route path='/Inventory' element={<Inventory />} />,
+
+          <Route path='/Notifications' element={<Notifications />} />,
+          
+          <Route path='/Settings' element={<Settings />} />,
+
+        ]} />
+
+      </Routes>
+
+    </>
+  )
 }
 
-export default App;
+export default App
