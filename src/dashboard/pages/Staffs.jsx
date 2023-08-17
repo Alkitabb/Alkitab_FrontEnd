@@ -1,5 +1,6 @@
 import React from 'react'
 import DashboardSummaryCard from '../components/DashboardSummaryCard'
+import ListTable from '../../reusableComponents/ListTable'
 
 function Staffs() {
   return (
@@ -48,6 +49,10 @@ function Staffs() {
               <path d="M15.8878 17.2515H15.8496" stroke="#130F26" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
             </svg>
           } />
+      </div>
+
+      <div className='mt-5'>
+        <ListTable/>
       </div>
     </div>
   )
