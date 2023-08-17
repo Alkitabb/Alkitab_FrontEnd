@@ -87,7 +87,7 @@ export default function Settings() {
   // console.log(userCountry);
 
   return (
-    <section className='px-10 py-2 bg-white rounded-2xl w-full'>
+    <section className='px-10 py-2 bg-white rounded-2xl w-full mb-36'>
 
         {/* <Box>
           <Tabs value={value} onChange={handleChange} aria-label="basic tabs example">
@@ -285,6 +285,8 @@ export default function Settings() {
           </Box>
 
         </Box>
+
+
     </section>
 
   );

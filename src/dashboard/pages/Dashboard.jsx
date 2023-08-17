@@ -3,12 +3,20 @@ import React from 'react'
 import DashboardSummaryCard from '../components/DashboardSummaryCard'
 import Doughnut from '../charts/Doughnut'
 import ActivityLogs from '../../reusableComponents/ActivityLogs'
+import BarChart from '../charts/Bar'
 
 function Dashboard() {
   return (
     <section className='flex flex-col gap-5 h-fit'>
       <div className='grid lg:grid-cols-3 gap-5'>
+        {/* <<<<<<<<<<========== Sales Summary card =========>>>>>>>>> */}
         <DashboardSummaryCard
+          cardInfoOneTitle={'Sales'}
+          clickToPage={'/Sales'}
+          infoOneVolume={'₦4,000,000.00'}
+          cardInfoTwoTitle={'Volume'}
+          infoTwoVolume={'450'}
+          infoTwoPercentage={'+20.00%'}
           icon={
             <svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
               <rect width="36" height="36" rx="8" fill="#5570F1" fill-opacity="0.12" />
@@ -17,7 +25,16 @@ function Dashboard() {
             </svg>
           } />
 
+
+        {/* <<<<<<<<<<========== Staff Summary card =========>>>>>>>>> */}
         <DashboardSummaryCard
+          cardInfoOneTitle={'Staffs'}
+          clickToPage={'/Staffs'}
+          infoOneVolume={'1,250'}
+          infoOnePercentage={'+20.00%'}
+          cardInfoTwoTitle={'Active'}
+          infoTwoPercentage={'+20%'}
+          infoTwoVolume={'80'}
           icon={
             <svg width="37" height="36" viewBox="0 0 37 36" fill="none" xmlns="http://www.w3.org/2000/svg">
               <rect x="0.666992" width="36" height="36" rx="8" fill="#FFCC91" fill-opacity="0.16" />
@@ -28,7 +45,15 @@ function Dashboard() {
             </svg>
           } />
 
+        {/* <<<<<<<<<<========== Summary card =========>>>>>>>>> */}
         <DashboardSummaryCard
+          cardInfoOneTitle={'Sales'}
+          clickToPage={'/Sales'}
+          infoOneVolume={'450'}
+          cardInfoTwoTitle={'Pending'}
+          infoTwoVolume={'50'}
+          cardInfoThreeTitle={'Completed'}
+          infoThreeVolume={'445'}
           icon={
             <svg width="37" height="36" viewBox="0 0 37 36" fill="none" xmlns="http://www.w3.org/2000/svg">
               <rect x="0.333008" width="36" height="36" rx="8" fill="#FFCC91" fill-opacity="0.16" />
@@ -39,6 +64,8 @@ function Dashboard() {
             </svg>
           } />
       </div>
+
+
 
       <Box
         component="div"
@@ -54,6 +81,11 @@ function Dashboard() {
 
             <div className='flex flex-col justify-between gap-5'>
               <DashboardSummaryCard
+                cardInfoOneTitle={'Inventory'}
+                infoOneVolume={'45'}
+                cardInfoTwoTitle={'Active'}
+                infoTwoVolume={'32'}
+                infoTwoPercentage={'+24%'}
                 height={'159px'}
                 clickToPage={'/Inventory'}
                 className={' bg-primary-90 hover:bg-primary-100 transition-all duration-300 text-white'}
@@ -63,10 +95,15 @@ function Dashboard() {
                     <path fill-rule="evenodd" clip-rule="evenodd" d="M26.5191 21.1101C26.5191 24.0918 24.7616 25.8493 21.7799 25.8493H15.2949C12.3058 25.8493 10.5449 24.0918 10.5449 21.1101V14.6101C10.5449 11.6326 11.6399 9.87508 14.6224 9.87508H16.2891C16.8874 9.87592 17.4508 10.1568 17.8091 10.6359L18.5699 11.6476C18.9299 12.1259 19.4933 12.4076 20.0916 12.4084H22.4499C25.4391 12.4084 26.5424 13.9301 26.5424 16.9726L26.5191 21.1101Z" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
                     <path d="M14.9043 20.0525H22.1835" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
                   </svg>
-
                 }
               />
+
               <DashboardSummaryCard height={'159px'}
+                cardInfoOneTitle={'Abandoned Cart'}
+                infoOneVolume={'45%'}
+                infoOnePercentage={'+24%'}
+                cardInfoTwoTitle={'Customers'}
+                infoTwoVolume={'32'}
                 icon={
                   <svg width="37" height="36" viewBox="0 0 37 36" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <rect x="0.669922" width="36" height="36" rx="8" fill="#FFCC91" fill-opacity="0.16" />
@@ -84,6 +121,10 @@ function Dashboard() {
                 } />
             </div>
 
+          </div>
+
+          <div>
+            <BarChart />
           </div>
         </div>
 

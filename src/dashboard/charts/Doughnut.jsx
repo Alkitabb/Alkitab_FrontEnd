@@ -28,25 +28,28 @@ function DoughnutChart() {
         //     'Yellow'
         // ],
 
-        datasets: [
-            {
-                label: 'My First Dataset',
-                data: [300, 200, 100],
 
-                backgroundColor: [
-                    '#5570F1',
-                    '#FFCC91',
-                    '#97A5EB',
-                ],
+        datasets: [{
+            // borderRadius: 19,
+            // barPercentage: 0.5,
+            barThickness: 1,
+            maxBarThickness: 10,
+            // minBarLength: 20,
+            label: 'My First Dataset',
+            data: [300, 200, 100],
 
-                hoverOffset: 4,
+            backgroundColor: [
+                '#5570F1',
+                '#FFCC91',
+                '#97A5EB',
+            ],
 
-                borderWidth: 1,
-                
+            hoverOffset: 4,
 
-                // innerWidth: 200
-            }
-        ]
+            borderWidth: 1,
+
+            // innerWidth: 200
+        }]
 
     };
 

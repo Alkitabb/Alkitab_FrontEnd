@@ -397,7 +397,7 @@ export default function MiniDrawer() {
           </NavLink>
 
         </Toolbar>
-        <Divider />
+        {/* <Divider /> */}
 
       </AppBar>
       {renderMobileMenu}
@@ -710,7 +710,6 @@ export default function MiniDrawer() {
       <Box component="main" sx={{ flexGrow: 1, p: 3 }} className='bg-background min-h-screen h-fit'>
         <DrawerHeader className='mb-5' />
         <Outlet />
-        <DrawerHeader className='mb-16' />
       </Box>
     </Box>
   );
