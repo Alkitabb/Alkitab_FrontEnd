@@ -5,70 +5,70 @@ import { FormHelperText } from '@mui/material';
 
 
 export default function UseAutocomplete({ menuList, label, placeholder }) {
-    const [value, setValue] = React.useState(null);
+  const [value, setValue] = React.useState(null);
 
-    const {
-        getRootProps,
-        getInputLabelProps,
-        getInputProps,
-        getListboxProps,
-        getOptionProps,
-        groupedOptions,
-    } = useAutocomplete({
-        id: 'use-autocomplete-demo',
-        options: menuList,
-        getOptionLabel: (option) => option,
-        value,
-        onChange: (event, newValue) => setValue(newValue),
-    });
+  const {
+    getRootProps,
+    getInputLabelProps,
+    getInputProps,
+    getListboxProps,
+    getOptionProps,
+    groupedOptions,
+  } = useAutocomplete({
+    id: 'use-autocomplete-demo',
+    options: menuList,
+    getOptionLabel: (option) => option,
+    value,
+    onChange: (event, newValue) => setValue(newValue),
+  });
 
-    return (
-        <div>
-            <FormHelperText {...getInputLabelProps()}>{label ? label : 'Add form label'}</FormHelperText>
+  return (
+    <div>
+      <FormHelperText {...getInputLabelProps()}>{label ? label : null}</FormHelperText>
 
-            <StyledAutocompleteRoot {...getRootProps()}>
+      <StyledAutocompleteRoot {...getRootProps()}>
 
-                <StyledInput className='placeholder:text-paragraph-1 placeholder:text-black-30' placeholder={placeholder} {...getInputProps()} />
+        <StyledInput className='placeholder:text-paragraph-1 placeholder:text-black-30' placeholder={placeholder} {...getInputProps()} />
 
-            </StyledAutocompleteRoot>
+      </StyledAutocompleteRoot>
 
-            {groupedOptions.length > 0 && (
+      {groupedOptions.length > 0 && (
 
-                <StyledListbox {...getListboxProps()}>
+        <StyledListbox {...getListboxProps()}>
 
-                    {groupedOptions.map((option, index) => (
+          {groupedOptions.map((option, index) => (
 
-                        <StyledOption {...getOptionProps({ option, index })}>
-                            {option}
-                        </StyledOption>
+            <StyledOption {...getOptionProps({ option, index })}>
+              {option}
+            </StyledOption>
 
-                    ))}
-                </StyledListbox>
-            )}
-        </div>
-    );
+          ))}
+        </StyledListbox>
+      )}
+    </div>
+  );
 }
 
 const blue = {
-    100: '#DAECFF',
-    200: '#99CCF3',
-    400: '#3399FF',
-    500: '#007FFF',
-    600: '#0072E5',
-    900: '#003A75',
+  100: '#DAECFF',
+  200: '#99CCF3',
+  400: '#3399FF',
+  500: '#007FFF',
+  600: '#0072E5',
+  900: '#003A75',
 };
 
 const grey = {
-    50: '#f6f8fa',
-    100: '#eaeef2',
-    200: '#d0d7de',
-    300: '#afb8c1',
-    400: '#8c959f',
-    500: '#6e7781',
-    600: '#57606a',
-    700: '#424a53',
-    800: '#32383f',
-    900: '#24292f',
+  50: '#f6f8fa',
+  100: '#eaeef2',
+  200: '#d0d7de',
+  300: '#afb8c1',
+  400: '#8c959f',
+  500: '#6e7781',
+  600: '#57606a',
+  700: '#424a53',
+  800: '#32383f',
+  900: '#24292f',
 };
 
 // const label = styled('FormHelperText')`
@@ -80,7 +80,7 @@ const grey = {
 // `;
 
 const StyledAutocompleteRoot = styled('div')(
-    ({ theme }) => `
+  ({ theme }) => `
   font-family: IBM Plex Sans, sans-serif;
   font-weight: 400;
   border-radius: 12px;
@@ -112,7 +112,7 @@ margin-top: 5px;
 );
 
 const StyledInput = styled('input')(
-    ({ theme }) => `
+  ({ theme }) => `
   font-size: 0.875rem;
   font-family: inherit;
   font-weight: 400;
@@ -130,7 +130,7 @@ height:54px;
 );
 
 const StyledListbox = styled('ul')(
-    ({ theme }) => `
+  ({ theme }) => `
   font-family: IBM Plex Sans, sans-serif;
   font-size: 0.875rem;
   box-sizing: border-box;
@@ -152,7 +152,7 @@ const StyledListbox = styled('ul')(
 );
 
 const StyledOption = styled('li')(
-    ({ theme }) => `
+  ({ theme }) => `
   list-style: none;
   padding: 8px;
   border-radius: 8px;
@@ -188,3 +188,11 @@ const StyledOption = styled('li')(
   }
   `,
 );
+
+
+
+
+
+
+// Business Owner
+// HR

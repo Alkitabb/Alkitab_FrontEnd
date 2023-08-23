@@ -4,7 +4,7 @@ import React from 'react';
 function FormInput({ inputType, icon, placeholder, name, value, onChange, label }) {
     return (
         <div className='flex flex-col gap-1'>
-            <FormHelperText>{label ? label : 'Add form label'}</FormHelperText>
+            <FormHelperText>{label ? label : null}</FormHelperText>
             <TextField
                 name={name}
                 type={inputType}
