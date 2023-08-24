@@ -13,6 +13,7 @@ import Box from '@mui/material/Box';
 import FormInput from '../../../reusableComponents/FormInput';
 // import FormSelect from '../../../reusableComponents/FormAutoCompleteInput';
 import Button from '../../../reusableComponents/Button';
+import { addNewStaff } from '../../../schemas/StaffSchema';
 
 
 // const [rows, setRows] = useState([]);
@@ -29,7 +30,14 @@ function Staffs() {
   // ===================>>>>>>>>>>
   const [staffInformation, setStaffInformation] = useState([]);
 
-  const { values, handleChange } = useFormik({
+  const onSubmit = () => {
+    setStaffInformation(e => [...e, values]); // Use functional update
+    // console.log(values);
+
+    handleClose();
+  };
+
+  const { values, handleChange, handleBlur, handleSubmit, errors, touched } = useFormik({
     initialValues: {
       staffName: '',
       staffEmail: '',
@@ -42,17 +50,13 @@ function Staffs() {
       staffSince: dateStaffWassAdded,
       staffStatus: '',
     },
-
+    onSubmit,
     // onSubmit: () => handleSave(values)
+    validationSchema: addNewStaff
   })
-  console.log(values)
+  console.log(errors)
 
-  const handleSave = () => {
-    setStaffInformation(e => [...e, values]); // Use functional update
-    // console.log(values);
 
-    handleClose();
-  };
 
   const columns = [
     { field: 'id', headerName: 'ID', width: 70 },
@@ -188,6 +192,7 @@ function Staffs() {
           <DialogContent>
             <Box
               component="form"
+              onSubmit={handleSubmit}
               noValidate
               autoComplete="off"
               className='flex flex-col gap-3'
@@ -202,6 +207,9 @@ function Staffs() {
                 name={'staffName'}
                 value={values.staffName}
                 onChange={handleChange}
+                onBlur={handleBlur}
+                className={errors.staffName && touched.staffName ? "error" : ""}
+              // label={errors.staffName? errors : null}
               />
 
               <FormInput
@@ -210,6 +218,8 @@ function Staffs() {
                 name={'staffEmail'}
                 value={values.staffEmail}
                 onChange={handleChange}
+                onBlur={handleBlur}
+                className={errors.staffEmail && touched.staffEmail ? "error" : ""}
               />
 
 
@@ -224,6 +234,8 @@ function Staffs() {
                   name={'dailCode'}
                   value={values.dailCode}
                   onChange={handleChange}
+                  onBlur={handleBlur}
+                  className={errors.dailCode && touched.dailCode ? "error" : ""}
                 />
 
                 {/* Phone Number ==========>>>>>>>>>> */}
@@ -231,9 +243,10 @@ function Staffs() {
                   placeholder={'Phone'}
                   inputType={'number'}
                   name={'staffPhoneNumber'}
-                  // label={'Phone'}
                   value={values.staffPhoneNumber}
                   onChange={handleChange}
+                  onBlur={handleBlur}
+                  className={errors.staffPhoneNumber && touched.staffPhoneNumber ? "error" : ""}
                 />
 
               </section>
@@ -264,6 +277,8 @@ function Staffs() {
                     name={'staffStreet'}
                     value={values.staffStreet}
                     onChange={handleChange}
+                    onBlur={handleBlur}
+                    className={errors.staffStreet && touched.staffStreet ? "error" : ""}
                   />
 
                   <FormInput
@@ -272,6 +287,8 @@ function Staffs() {
                     name={'staffCity'}
                     value={values.staffCity}
                     onChange={handleChange}
+                    onBlur={handleBlur}
+                    className={errors.staffCity && touched.staffCity ? "error" : ""}
                   />
 
                   {/* <<<<<<<<<<========== Mobile Number Section ==========>>>>>>>>>> */}
@@ -285,6 +302,8 @@ function Staffs() {
                       name={'staffCountry'}
                       value={values.staffCountry}
                       onChange={handleChange}
+                      onBlur={handleBlur}
+                      className={errors.staffCountry && touched.staffCountry ? "error" : ""}
                     />
 
                     {/* State ==========>>>>>>>>>> */}
@@ -294,6 +313,8 @@ function Staffs() {
                       name={'staffState'}
                       value={values.staffState}
                       onChange={handleChange}
+                      onBlur={handleBlur}
+                      className={errors.staffState && touched.staffState ? "error" : ""}
                     />
 
                   </div>
@@ -308,7 +329,7 @@ function Staffs() {
 
               <Button onClick={handleClose} btnText={'Cancel'} />
 
-              <Button onClick={handleSave} btnText={'Add'} className={'bg-primary-90 text-white border-2 border-primary-100 hover:bg-primary-100'} />
+              <Button onClick={onSubmit} type={'submit'} btnText={'Add'} className={'bg-primary-90 text-white border-2 border-primary-100 hover:bg-primary-100'} />
 
             </span>
           </DialogActions>

@@ -1,12 +1,18 @@
 import * as yup from 'yup'
 
 
-const addNewStaff = yup.object().shape({
+export const addNewStaff = yup.object().shape({
 
-    staffName: yup.string().max(15, "Must the 15 or less").required("Required"),
+    staffName: yup.string().min(3).max(15, "Must the 15 or less").required("Required"),
 
     staffEmail: yup.string().email("Must be a Valid email").required('Required'),
 
-    staffPhoneNumber: yup.string().min(3).number()
+    staffPhoneNumber: yup.string().min(3).required("Add a contact number"),
+
+    staffCity: yup.string().required("Required").min(3, "Value must be 3 or more"),
+
+    staffStreet: yup.string().required("Required").min(3, "Value must be 3 or more"),
+
+    staffCountry: yup.string().required("Required").min(3, "Value must be 3 or more"),
 
 })
