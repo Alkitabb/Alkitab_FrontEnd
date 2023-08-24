@@ -29,55 +29,35 @@ import ListButton from './components/ListButton';
 
 // Drawer Section ==========>>>>>>>>>>
 const drawerWidth = 296;
-
 const openedMixin = (theme) => ({
-
   width: drawerWidth,
-     
   transition: theme.transitions.create('width', {
-
     easing: theme.transitions.easing.sharp,
-
     duration: theme.transitions.duration.enteringScreen,
-
   }),
 
   overflowX: 'hidden',
 });
 
 const closedMixin = (theme) => ({
-
   transition: theme.transitions.create('width', {
-
     easing: theme.transitions.easing.sharp,
-
     duration: theme.transitions.duration.leavingScreen,
-
   }),
 
   overflowX: 'hidden',
-
   width: `calc(${theme.spacing(11)} + 1px)`,
-
   [theme.breakpoints.up('sm')]: {
-
     width: `calc(${theme.spacing(11)} + 1px)`,
-
   },
 });
 
 const DrawerHeader = styled('div')(({ theme }) => ({
-
   display: 'flex',
-
   alignItems: 'center',
-
   justifyContent: 'flex-end',
-
   padding: theme.spacing(0, 1),
-
   // necessary for content to be below app bar
-
   ...theme.mixins.toolbar,
 }));
 
@@ -85,33 +65,20 @@ const DrawerHeader = styled('div')(({ theme }) => ({
 
 // AppBar Section ==========>>>>>>>>>>
 const AppBar = styled(MuiAppBar, {
-
   shouldForwardProp: (prop) => prop !== 'open',
-
 })(({ theme, open }) => ({
-
   zIndex: theme.zIndex.drawer + 1,
-
   transition: theme.transitions.create(['width', 'margin'], {
-
     easing: theme.transitions.easing.sharp,
-
     duration: theme.transitions.duration.leavingScreen,
-
   }),
 
   ...(open && {
-
     marginLeft: drawerWidth,
-
     width: `calc(100% - ${drawerWidth}px)`,
-
     transition: theme.transitions.create(['width', 'margin'], {
-
       easing: theme.transitions.easing.sharp,
-
       duration: theme.transitions.duration.enteringScreen,
-
     }),
   }),
 }));
@@ -122,39 +89,26 @@ const AppBar = styled(MuiAppBar, {
 const Drawer = styled(MuiDrawer, { shouldForwardProp: (prop) => prop !== 'open' })(
 
   ({ theme, open }) => ({
-
     width: drawerWidth,
-
     flexShrink: 0,
-
     whiteSpace: 'nowrap',
-
     boxSizing: 'border-box',
 
     ...(open && {
-
       ...openedMixin(theme),
-
       '& .MuiDrawer-paper': openedMixin(theme),
-
     }),
 
     ...(!open && {
-
       ...closedMixin(theme),
-
       '& .MuiDrawer-paper': closedMixin(theme),
-
     }),
   }),
 );
 
 export default function MiniDrawer() {
-
   const theme = useTheme();
-
-  const [open, setOpen] = React.useState(true);
-
+  const [open, setOpen] = React.useState(false);
   const handleDrawerOpen = () => {
     setOpen(true);
   };
@@ -189,6 +143,7 @@ export default function MiniDrawer() {
 
   const menuId = 'primary-search-account-menu';
   const renderMenu = (
+
     <Menu
       anchorEl={anchorEl}
       anchorOrigin={{
@@ -204,17 +159,13 @@ export default function MiniDrawer() {
       }}
       open={isMenuOpen}
       onClose={handleMenuClose}
-      // sx={{
-      //   maxHeight: 200, // Adjust as needed
-      //   borderRadius: '8px',
-      // }}
     >
       <MenuItem onClick={handleMenuClose}>Profile</MenuItem>
-      <MenuItem onClick={handleMenuClose}>
-        <NavLink to={'/Settings'}>
+      <NavLink to={'/Settings'}>
+        <MenuItem onClick={handleMenuClose}>
           My account
-        </NavLink>
-      </MenuItem>
+        </MenuItem>
+      </NavLink>
     </Menu>
   );
 
@@ -302,15 +253,6 @@ export default function MiniDrawer() {
           <Box sx={{ flexGrow: 1 }} />
           <Box sx={{ display: { xs: 'none', md: 'flex' } }}>
 
-            {/* <<<<<<<<<<========== Messages ==========>>>>>>>>>> */}
-            {/* <<<<<<<<<<====================>>>>>>>>>> */}
-            {/* <IconButton size="large" aria-label="show 4 new mails" color="inherit">
-              <Badge badgeContent={4} color="error">
-                <MailIcon />
-              </Badge>
-            </IconButton> */}
-
-
             {/* <<<<<<<<<<========== Notifications ==========>>>>>>>>>> */}
             {/* <<<<<<<<<<====================>>>>>>>>>> */}
             <IconButton
@@ -365,9 +307,10 @@ export default function MiniDrawer() {
           </Box>
 
         </Toolbar>
+
         <Divider />
 
-        {/* <<<<<<<<<<========== Second Toolbar ==========>>>>>>>>>> */}
+        {/* <<<<<<<<<<========== Second Toolbar ==========>>>>>>>>>> Start */}
         {/* <<<<<<<<<<==========
         
         This one shows file path:
@@ -384,7 +327,7 @@ export default function MiniDrawer() {
         >
 
           {/* <<<<<<<<<<========== This button would help to return to the main page (home page of your vurrent path) ==========>>>>>>>>> */}
-          <NavLink to={location.pathname}>
+          <NavLink to={'/'} title={'Home'}>
             <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path d="M6.09615 13.8548V11.8102C6.09614 11.2921 6.51744 10.8711 7.03928 10.8679H8.9554C9.47957 10.8679 9.9045 11.2898 9.9045 11.8102V13.8488C9.90449 14.2982 10.2697 14.6634 10.7223 14.6667H12.0295C12.6401 14.6682 13.2262 14.4285 13.6584 14.0005C14.0907 13.5724 14.3337 12.9912 14.3337 12.385V6.57724C14.3336 6.0876 14.115 5.62315 13.7367 5.30901L9.29564 1.78286C8.51933 1.16609 7.41057 1.18602 6.65725 1.83027L2.31167 5.30901C1.91549 5.61389 1.67869 6.07972 1.66699 6.57724V12.3791C1.66699 13.6425 2.69858 14.6667 3.97111 14.6667H5.24852C5.46644 14.6682 5.67598 14.5834 5.83064 14.431C5.9853 14.2785 6.07228 14.0711 6.07227 13.8548H6.09615Z" fill="#5570F1" />
             </svg>
@@ -405,6 +348,7 @@ export default function MiniDrawer() {
 
 
       {/* <<<<<<<<<<========== Side Menu section (Menu Buttons) ==========>>>>>>>>>> */}
+      {/* <<<<<<<<<<====================>>>>>>>>>> */}
       <Drawer variant="permanent" open={open} >
         <DrawerHeader>
           {
@@ -707,7 +651,7 @@ export default function MiniDrawer() {
 
       </Drawer>
 
-      <Box component="main" sx={{ flexGrow: 1, p: 3 }} className='bg-background min-h-screen h-fit'>
+      <Box component="main" sx={{ flexGrow: 1, py: 3, px: 2 }} className='bg-background min-h-screen h-fit'>
         <DrawerHeader className='mb-5' />
         <Outlet />
       </Box>

@@ -9,7 +9,7 @@ import InputAdornment from '@mui/material/InputAdornment';
 import { FiEye as SlEye } from 'react-icons/fi';
 import { FiEyeOff as LuEyeOff } from 'react-icons/fi';
 import { NavLink } from 'react-router-dom';
-import { signUpSchema } from '../ValidationSchema';
+import { signUpSchema } from '../../schemas/ValidationSchema';
 import { useFormik } from 'formik';
 import CustomizedSnackbars from '../../reusableComponents/CustomizedSnackbars';
 

@@ -11,12 +11,19 @@ import useMediaQuery from '@mui/material/useMediaQuery';
 import { useTheme } from '@mui/material/styles';
 import Box from '@mui/material/Box';
 import FormInput from '../../../reusableComponents/FormInput';
-import FormSelect from '../../../reusableComponents/FormAutoCompleteInput';
+// import FormSelect from '../../../reusableComponents/FormAutoCompleteInput';
 import Button from '../../../reusableComponents/Button';
 
 
 // const [rows, setRows] = useState([]);
 function Staffs() {
+
+  // <<<<<<<<<<========== Adding Date for when the staff was added ==========>>>>>>>>>> Start
+  // <<<<<<<<<<====================>>>>>>>>>>
+  const date = new Date();
+  const dateStaffWassAdded = date
+  // <<<<<<<<<<====================>>>>>>>>>> End
+
 
   // Staff Information ==========>>>>>>>>>> Start
   // ===================>>>>>>>>>>
@@ -26,12 +33,13 @@ function Staffs() {
     initialValues: {
       staffName: '',
       staffEmail: '',
+      dailCode: '',
       staffPhoneNumber: '',
       staffCity: '',
       staffStreet: '',
       staffState: '',
       staffCountry: '',
-      staffSince: '',
+      staffSince: dateStaffWassAdded,
       staffStatus: '',
     },
 
@@ -43,43 +51,42 @@ function Staffs() {
     setStaffInformation(e => [...e, values]); // Use functional update
     // console.log(values);
 
-    // Clear form values ==========>>>>>>>>>>
-    // values.staffName = '';
-    // values.staffEmail = '';
-    // values.staffPhoneNumber = '';
-    // values.staffSince = '';
-    // values.staffStatus = '';
-    // ==========>>>>>>>>>>
-
     handleClose();
   };
 
   const columns = [
     { field: 'id', headerName: 'ID', width: 70 },
-    { field: 'name', headerName: 'Name', width: 130 },
-    { field: 'email', headerName: 'Email', width: 130 },
+    { field: 'name', headerName: 'Full Name', width: 150 },
+    { field: 'email', headerName: 'Email', width: 150 },
     {
-      field: 'phoneNumber',
-      headerName: 'Phone',
-      // type: 'number',
-      width: 130,
+      field: 'phoneNumber', headerName: 'Phone', width: 130,
+      valueGetter: (params) =>
+        `+(${params.row.dailCode || ''}) ${params.row.phoneNumber || ''}`,
+    },
+    {
+      field: 'address', headerName: 'Address', sortable: false, width: 150,
+      valueGetter: (params) =>
+        `${params.row.staffStreet || ''} ${params.row.staffCity || ''} ${params.row.staffCountry || ''}`,
     },
     { field: 'staffSince', headerName: 'Staff Since', width: 130 },
-    { field: 'address', headerName: 'Address', width: 130 },
-    // {
-    //   field: 'fullName',
-    //   headerName: 'Full name',
-    //   description: 'This column has a value getter and is not sortable.',
-    //   sortable: false,
-    //   width: 160,
-    //   valueGetter: (params) =>
-    //     `${params.row.firstName || ''} ${params.row.lastName || ''}`,
-    // },
+    { field: 'staffStatus', headerName: 'Staff Status', width: 130 },
   ];
 
+
+
   const rows = staffInformation.map((staff, i) => (
-    { id: i + 1, name: staff.staffName, email: staff.staffEmail, phoneNumber: staff.staffPhoneNumber })
-  );
+    {
+      id: i + 1,
+      name: staff.staffName,
+      email: staff.staffEmail,
+      dailCode: staff.dailCode,
+      phoneNumber: staff.staffPhoneNumber,
+      staffStreet: staff.staffStreet,
+      staffCity: staff.staffCity,
+      staffCountry: staff.staffCountry,
+      staffSince: staff.staffSince,
+    }
+  ));
 
 
 
@@ -96,38 +103,16 @@ function Staffs() {
   const handleClose = () => {
 
     setOpen(false);
+
+    // Clear form values ==========>>>>>>>>>>
+    // values.staffName = '';
+    // values.staffEmail = '';
+    // values.staffPhoneNumber = '';
+    // values.staffSince = '';
+    // values.staffStatus = '';
+    // ==========>>>>>>>>>>
   };
   // <<<<<<<<<<=====================>>>>>>>>>> End
-
-
-
-  // <<<<<<<<<<=========== Country Lisy, Fetching from github ==========>>>>>>>>>> Start
-  // <<<<<<<<<<=====================>>>>>>>>>>
-
-  const [areaCode, setAreaCode] = React.useState([])
-  const [userCountry, setUserCountry] = React.useState([])
-
-  React.useEffect(() => {
-
-    fetch('https://restcountries.com/v3.1/all')
-      .then(response => response.json())
-      .then(data => {
-
-        const dailCode = data.map(item => item.ccn3);
-        setAreaCode(dailCode);
-
-        const country = data.map(item => item.name.common);
-        setUserCountry(country);
-
-      })
-      .catch(err => console.error(err));
-
-  }, []);
-
-  // console.log(userCountry);
-
-  // <<<<<<<<<<=====================>>>>>>>>>> End
-
 
 
   //<<<<<<<<<<============ Fotm Switch ==========>>>>>>>>>> Start
@@ -162,6 +147,7 @@ function Staffs() {
     // <<<<<<<<<<=====================>>>>>>>>>> */}
         <Dialog
           fullScreen={fullScreen}
+          // open={true}
           open={open}
           onClose={handleClose}
           aria-labelledby="responsive-dialog-title"
@@ -205,7 +191,6 @@ function Staffs() {
               noValidate
               autoComplete="off"
               className='flex flex-col gap-3'
-            // onSubmit={handleSubmit}
             >
               <header>
                 <p className='text-paragraph-1 font-medium text-black-30'>Staff Information</p>
@@ -232,16 +217,18 @@ function Staffs() {
               {/* <<<<<<<<<<====================>>>>>>>>>> */}
               <section className='grid grid-cols-[1fr,2fr] gap-3'>
 
-                {/* Area code ==========>>>>>>>>>> */}
-                <FormSelect
-                  // label={'Dail code'}
-                  placeholder={'Select an option'}
-                  menuList={areaCode}
+                {/* Dail code ==========>>>>>>>>>> */}
+                <FormInput
+                  placeholder={'+1'}
+                  inputType={'number'}
+                  name={'dailCode'}
+                  value={values.dailCode}
+                  onChange={handleChange}
                 />
 
                 {/* Phone Number ==========>>>>>>>>>> */}
                 <FormInput
-                  placeholder={'44 - 444 - 444'}
+                  placeholder={'Phone'}
                   inputType={'number'}
                   name={'staffPhoneNumber'}
                   // label={'Phone'}
@@ -264,8 +251,6 @@ function Staffs() {
                   size='small'
                 />
               </span>
-
-
 
               {
                 checked &&
@@ -294,20 +279,21 @@ function Staffs() {
                   <div className='grid grid-cols-[1fr,2fr] gap-3'>
 
                     {/* Country ==========>>>>>>>>>> */}
-                    <FormSelect
-                      // label={'Dail code'}
+                    <FormInput
                       placeholder={'Country'}
-                      menuList={areaCode}
+                      inputType={'text'}
+                      name={'staffCountry'}
+                      value={values.staffCountry}
+                      onChange={handleChange}
                     />
 
-                    {/* PState ==========>>>>>>>>>> */}
+                    {/* State ==========>>>>>>>>>> */}
                     <FormInput
                       placeholder={'State'}
                       inputType={'text'}
                       name={'staffState'}
-                    // label={'Phone'}
-                    // value={formik.values.staffState}
-                    // onChange={formik.handleChange}
+                      value={values.staffState}
+                      onChange={handleChange}
                     />
 
                   </div>
@@ -385,52 +371,53 @@ function Staffs() {
       {/* <<<<<<<<<<========== Table Resndering Staff Information =========>>>>>>>>> Start */}
       {/* <<<<<<<<<<===================>>>>>>>>> */}
       <section className='mt-5'>
-        {
-          staffInformation.length > 0 ?
+        {staffInformation.length > 0 ?
 
-            <div style={{ height: '100%', width: '100%', border: 'none' }} className='bg-white rounded-2xl'>
-              <header className='p-5'>
-                <h3 className="text-sub-heading-3 font-medium">Staff</h3>
-              </header>
-              <DataGrid
-                rows={rows}
-                columns={columns}
-                initialState={{
-                  pagination: {
-                    paginationModel: { page: 0, pageSize: 5 },
-                  },
-                }}
-                pageSizeOptions={[5, 10, 15]}
-                checkboxSelection
-              />
-            </div>
+          <div style={{ height: '100%', width: '100%', border: 'none' }} className='bg-white rounded-2xl'>
+            <header className='p-5'>
+              <h3 className="text-sub-heading-3 font-medium">Staff</h3>
+            </header>
+            <DataGrid
+              rows={rows}
+              columns={columns}
+              initialState={{
+                pagination: {
+                  paginationModel: { page: 0, pageSize: 5 },
+                },
+              }}
+              pageSizeOptions={[5, 10, 15]}
+              checkboxSelection
+              sx={{
+                width: '100%'
+              }}
+            />
+          </div>
+          :
+          <section className='p-5 py-20 bg-white rounded-2xl w-full h-full grid place-content-center'>
+            <div className='w-[262px] flex flex-col gap-5'>
 
-            :
-            <section className='p-5 py-20 bg-white rounded-2xl w-full h-full grid place-content-center'>
-              <div className='w-[262px] flex flex-col gap-5'>
+              {/* Images ==========>>>>>>>>>> */}
+              <span className='w-[140px] h-[140px] bg-center bg-contain mx-auto bg-[url("https://res.cloudinary.com/dnzi0xxtx/image/upload/v1692783193/portfolioImages/inventoryApp/staffIcon_h0syk7.png")]'></span>
 
-                {/* Images ==========>>>>>>>>>> */}
-                <span className='w-[140px] h-[140px] bg-center bg-contain mx-auto bg-[url("https://res.cloudinary.com/dnzi0xxtx/image/upload/v1692783193/portfolioImages/inventoryApp/staffIcon_h0syk7.png")]'></span>
+              <div className='text-center'>
+                <span className='flex flex-col gap-2'>
+                  <h3 className='text-sub-heading-3 font-medium'>No Staffs Yet?</h3>
+                  <p className='text-black-30 text-paragraph-2'>Add products to your store and start selling to see orders here.</p>
+                </span>
 
-                <div className='text-center'>
-                  <span className='flex flex-col gap-2'>
-                    <h3 className='text-sub-heading-3 font-medium'>No Staffs Yet?</h3>
-                    <p className='text-black-30 text-paragraph-2'>Add products to your store and start selling to see orders here.</p>
+                {/* Button ==========>>>>>>>>>> */}
+                <button className='bg-primary-90 hover:bg-primary-100 transition-all duration-300 rounded-[12px] py-2 px-6 text-paragraph-2 text-white mt-4' onClick={handleClickOpen}>
+                  <span className='flex items-center gap-3'>
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M12 5V19" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                      <path d="M5 12H19" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                    </svg>
+                    Add Staff
                   </span>
-
-                  {/* Button ==========>>>>>>>>>> */}
-                  <button className='bg-primary-90 hover:bg-primary-100 transition-all duration-300 rounded-[12px] py-2 px-6 text-paragraph-2 text-white mt-4' onClick={handleClickOpen}>
-                    <span className='flex items-center gap-3'>
-                      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M12 5V19" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                        <path d="M5 12H19" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                      </svg>
-                      Add Staff
-                    </span>
-                  </button>
-                </div>
+                </button>
               </div>
-            </section>
+            </div>
+          </section>
         }
       </section>
       {/* <<<<<<<<<<===================>>>>>>>>> End */}

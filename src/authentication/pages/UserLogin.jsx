@@ -11,7 +11,7 @@ import { SlEye } from 'react-icons/sl'
 import { LuEyeOff } from 'react-icons/lu'
 import { NavLink } from 'react-router-dom';
 import { useFormik } from 'formik';
-import { loginSchema } from '../ValidationSchema';
+import { loginSchema } from '../../schemas/ValidationSchema';
 import CustomizedSnackbars from '../../reusableComponents/CustomizedSnackbars';
 
 function UserLogin() {
