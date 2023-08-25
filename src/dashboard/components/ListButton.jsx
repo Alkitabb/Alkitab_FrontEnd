@@ -2,7 +2,7 @@ import { Badge, ListItemButton, ListItemIcon, ListItemText } from '@mui/material
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 
-function ListButton({ to, inactiveIcon, activeIcon, open, location, primaryItemText, secondaryItemText, notification }) {
+function ListButton({ to, inactiveIcon, activeIcon, open, location, primaryItemText, secondaryItemText, notification, onClick }) {
     const isSelected = location.pathname === to;
 
     return (
@@ -26,6 +26,7 @@ function ListButton({ to, inactiveIcon, activeIcon, open, location, primaryItemT
                     // },
                 }}
                 selected={isSelected}
+                onClick={onClick}
             >
                 <ListItemIcon
                     sx={{

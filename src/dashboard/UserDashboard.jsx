@@ -268,15 +268,29 @@ export default function MiniDrawer() {
           color: '#45464E',
           boxShadow: 'none',
           // width: `calc(100% - ${open ? '' :  89}px)`,
-          width: '100%', // Set width to 100% on mobile screens
+          // width: '100%', // Set width to 100% on mobile screens
           [theme.breakpoints.up('md')]: {
-            width: `calc(100% - ${open? drawerWidth : 89}px)`, // Set width for larger screens
+            width: `calc(100% - ${open ? drawerWidth : 89}px)`, // Set width for larger screens
           },
         }}
       >
         <Toolbar>
+
+          <span className='lg:hidden md:hidden flex'>
+            <IconButton onClick={handleDrawerOpen}
+              sx={{
+                mx: 'auto',
+                ...(open && { display: 'none' }),
+                padding: 1,
+                mr: 0.5
+              }}
+            >
+              <MenuIcon />
+            </IconButton>
+          </span>
+
           <Typography variant="h3" noWrap component="div">
-            <h3 className='text-sub-heading-3 font-medium'>
+            <h3 className='text-paragraph-1 lg:text-sub-heading-3 font-medium'>
               {location.pathname.slice(1)}
             </h3>
           </Typography>
@@ -322,11 +336,11 @@ export default function MiniDrawer() {
             </IconButton>
 
           </Box>
-          
+
 
           {/* <<<<<<<<<<========== Mobile Menu ==========>>>>>>>>>> */}
           {/* <<<<<<<<<<====================>>>>>>>>>> */}
-          <Box sx={{ display: { xs: 'flex', md: 'none' } }}>
+          <Box sx={{ display: { xs: 'flex', md: 'none'} }}>
             <IconButton
               aria-label="show more"
               size="large"
@@ -334,6 +348,9 @@ export default function MiniDrawer() {
               aria-haspopup="true"
               onClick={handleMobileMenuOpen}
               color="inherit"
+              sx={{
+                padding: 1
+              }}
             >
               <MoreIcon />
             </IconButton>
@@ -383,7 +400,7 @@ export default function MiniDrawer() {
       {/* <<<<<<<<<<========== Side Menu section (Menu Buttons) ==========>>>>>>>>>> */}
       {/* <<<<<<<<<<====================>>>>>>>>>> */}
       <Drawer variant="permanent" open={open}>
-        <DrawerHeader>
+        <DrawerHeader className='transition-all duration-300'>
           {
             open ?
 
@@ -420,6 +437,7 @@ export default function MiniDrawer() {
               primaryItemText={'Dashboard'}
               open={open}
               location={location}
+              onClick={open ? handleDrawerClose : null}
               inactiveIcon={
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <path fillRule="evenodd" clipRule="evenodd" d="M3 6.5C3 3.87479 3.02811 3 6.5 3C9.97189 3 10 3.87479 10 6.5C10 9.12521 10.0111 10 6.5 10C2.98893 10 3 9.12521 3 6.5Z" stroke="#53545C" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
@@ -444,6 +462,7 @@ export default function MiniDrawer() {
               notification={3}
               open={open}
               location={location}
+              onClick={open ? handleDrawerClose : null}
               inactiveIcon={
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <path fillRule="evenodd" clipRule="evenodd" d="M16.5134 21.5H8.16555C5.09919 21.5 2.74679 20.3925 3.41498 15.9348L4.19301 9.8936C4.60491 7.66934 6.02367 6.81808 7.26852 6.81808H17.447C18.7102 6.81808 20.0466 7.73342 20.5225 9.8936L21.3006 15.9348C21.8681 19.889 19.5797 21.5 16.5134 21.5Z" stroke="#53545C" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
@@ -466,6 +485,7 @@ export default function MiniDrawer() {
               primaryItemText={'Staffs'}
               open={open}
               location={location}
+              onClick={open ? handleDrawerClose : null}
               inactiveIcon={
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <path fillRule="evenodd" clipRule="evenodd" d="M9.59102 15.2068C13.28 15.2068 16.433 15.7658 16.433 17.9988C16.433 20.2318 13.301 20.8068 9.59102 20.8068C5.90102 20.8068 2.74902 20.2528 2.74902 18.0188C2.74902 15.7848 5.88002 15.2068 9.59102 15.2068Z" stroke="#53545C" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
@@ -490,6 +510,7 @@ export default function MiniDrawer() {
               primaryItemText={'Inventory'}
               open={open}
               location={location}
+              onClick={open ? handleDrawerClose : null}
               inactiveIcon={
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <path fillRule="evenodd" clipRule="evenodd" d="M21.419 15.7321C21.419 19.3101 19.31 21.4191 15.732 21.4191H7.95C4.363 21.4191 2.25 19.3101 2.25 15.7321V7.9321C2.25 4.3591 3.564 2.2501 7.143 2.2501H9.143C9.861 2.2511 10.537 2.5881 10.967 3.1631L11.88 4.3771C12.312 4.9511 12.988 5.2891 13.706 5.2901H16.536C20.123 5.2901 21.447 7.1161 21.447 10.7671L21.419 15.7321Z" stroke="#53545C" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
@@ -511,6 +532,7 @@ export default function MiniDrawer() {
               notification={16}
               open={open}
               location={location}
+              onClick={open ? handleDrawerClose : null}
               inactiveIcon={
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <path fillRule="evenodd" clipRule="evenodd" d="M19.0714 19.0699C16.0152 22.1263 11.4898 22.7867 7.78642 21.074C7.23971 20.8539 6.79148 20.676 6.36537 20.676C5.17849 20.683 3.70117 21.8339 2.93336 21.067C2.16555 20.2991 3.31726 18.8206 3.31726 17.6266C3.31726 17.2004 3.14642 16.7602 2.92632 16.2124C1.21283 12.5096 1.87411 7.98269 4.93026 4.92721C8.8316 1.02443 15.17 1.02443 19.0714 4.9262C22.9797 8.83501 22.9727 15.1681 19.0714 19.0699Z" stroke="#53545C" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
@@ -533,6 +555,7 @@ export default function MiniDrawer() {
               primaryItemText={'Settings'}
               open={open}
               location={location}
+              onClick={open ? handleDrawerClose : null}
               inactiveIcon={
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <path fillRule="evenodd" clipRule="evenodd" d="M20.8064 7.62386L20.184 6.54377C19.6574 5.62985 18.4905 5.31456 17.5753 5.83896V5.83896C17.1397 6.09559 16.6198 6.1684 16.1305 6.04133C15.6411 5.91427 15.2224 5.59776 14.9666 5.16162C14.8021 4.88439 14.7137 4.56864 14.7103 4.24628V4.24628C14.7251 3.72947 14.5302 3.22865 14.1698 2.85791C13.8094 2.48718 13.3143 2.27811 12.7973 2.27832H11.5433C11.0367 2.27831 10.5511 2.48016 10.1938 2.83919C9.83644 3.19822 9.63693 3.68484 9.63937 4.19136V4.19136C9.62435 5.23717 8.77224 6.07706 7.72632 6.07695C7.40397 6.0736 7.08821 5.98519 6.81099 5.82065V5.82065C5.89582 5.29626 4.72887 5.61154 4.20229 6.52546L3.5341 7.62386C3.00817 8.53664 3.31916 9.70285 4.22975 10.2326V10.2326C4.82166 10.5743 5.18629 11.2058 5.18629 11.8893C5.18629 12.5728 4.82166 13.2043 4.22975 13.5461V13.5461C3.32031 14.0722 3.00898 15.2356 3.5341 16.1456V16.1456L4.16568 17.2348C4.4124 17.68 4.82636 18.0085 5.31595 18.1477C5.80554 18.2868 6.3304 18.2251 6.77438 17.9763V17.9763C7.21084 17.7216 7.73094 17.6518 8.2191 17.7824C8.70725 17.9131 9.12299 18.2333 9.37392 18.6719C9.53845 18.9491 9.62686 19.2649 9.63021 19.5872V19.5872C9.63021 20.6438 10.4867 21.5003 11.5433 21.5003H12.7973C13.8502 21.5003 14.7053 20.6494 14.7103 19.5964V19.5964C14.7079 19.0883 14.9086 18.6003 15.2679 18.241C15.6272 17.8817 16.1152 17.6809 16.6233 17.6834C16.9449 17.692 17.2594 17.78 17.5387 17.9396V17.9396C18.4515 18.4656 19.6177 18.1546 20.1474 17.244V17.244L20.8064 16.1456C21.0615 15.7077 21.1315 15.1863 21.001 14.6966C20.8704 14.207 20.55 13.7896 20.1108 13.5369V13.5369C19.6715 13.2842 19.3511 12.8668 19.2206 12.3772C19.09 11.8875 19.16 11.3661 19.4151 10.9282C19.581 10.6386 19.8211 10.3984 20.1108 10.2326V10.2326C21.0159 9.70314 21.3262 8.54374 20.8064 7.63301V7.63301V7.62386Z" stroke="#53545C" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
