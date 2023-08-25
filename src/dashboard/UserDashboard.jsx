@@ -13,7 +13,7 @@ import MenuIcon from '@mui/icons-material/Menu';
 import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 import ListItem from '@mui/material/ListItem';
-import MailIcon from '@mui/icons-material/Mail';
+// import MailIcon from '@mui/icons-material/Mail';
 import Badge from '@mui/material/Badge';
 import NotificationsIcon from '@mui/icons-material/Notifications';
 import MenuItem from '@mui/material/MenuItem';
@@ -83,28 +83,6 @@ const AppBar = styled(MuiAppBar, {
 }));
 
 
-
-// Drawer ==========>>>>>>>>>>
-// const Drawer = styled(MuiDrawer, { shouldForwardProp: (prop) => prop !== 'open' })(
-
-//   ({ theme, open }) => ({
-//     width: drawerWidth,
-//     flexShrink: 0,
-//     whiteSpace: 'nowrap',
-//     boxSizing: 'border-box',
-
-//     ...(open && {
-//       ...openedMixin(theme),
-//       '& .MuiDrawer-paper': openedMixin(theme),
-//     }),
-
-//     ...(!open && {
-//       ...closedMixin(theme),
-//       '& .MuiDrawer-paper': closedMixin(theme),
-//     }),
-//   }),
-// );
-
 const Drawer = styled(MuiDrawer, { shouldForwardProp: (prop) => prop !== 'open' })(
   ({ theme, open }) => ({
     width: drawerWidth,
@@ -172,7 +150,7 @@ export default function MiniDrawer() {
   const menuId = 'primary-search-account-menu';
   const renderMenu = (
 
-    <Menu
+    <Menu 
       anchorEl={anchorEl}
       anchorOrigin={{
         vertical: 'top',
