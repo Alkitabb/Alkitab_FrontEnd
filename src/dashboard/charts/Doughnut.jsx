@@ -54,12 +54,14 @@ function DoughnutChart() {
     };
 
     const options = {
+        responsive: true,
+        maintainAspectRatio: false, // Allow the chart to adjust its size
         innerHeight: 5,
         innerWidth: 20
     }
 
     return (
-        <div className='p-5 bg-white h-[337px] rounded-2xl w-full flex flex-col justify-between transition-all duration-300'>
+        <div className='p-3 lg:p-5 bg-white h-[337px] rounded-2xl w-full flex flex-col justify-between transition-all duration-300 border-primary-10 border border-opacity-80'>
             <header className='flex items-center justify-between'>
                 <h3 className='text-paragraph-1 font-medium'>
                     Marketting
@@ -68,7 +70,7 @@ function DoughnutChart() {
                 <p className='text-label-1 text-black-10'>This Week</p>
             </header>
             <div className='grid place-content-center h-full'>
-                <div className="w-[250px] h-[250px] rounded-full bg-background relative">
+                <div className="min-w-[250px] h-[250px] w-full rounded-full bg-background relative">
                     <div className='p-10 bg-white rounded-full absolute z-5 top-[36%] left-[34%]'></div>
                     <Doughnut data={data} options={options} className='absolute p-3 z-10' />
                 </div>

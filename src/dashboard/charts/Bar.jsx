@@ -21,12 +21,6 @@ function BarChart() {
         BarElement,
     )
 
-    // const today = new Date();
-    // const labels = Array.from({ length: 7 }, (_, i) => {
-    //     const date = new Date(today.getMonth(), today.getDay() - i, 1);
-    //     return date.toLocaleString('default', { date: 'short' });
-    // }).reverse();
-
     const today = new Date();
     const labels = Array.from({ length: 7 }, (_, i) => {
         const date = new Date(today);
@@ -93,7 +87,7 @@ function BarChart() {
     }
 
     return (
-        <div className='p-5 pb-10 bg-white w-full h-[369px] rounded-2xl flex flex-col justify-between transition-all duration-300' >
+        <div className='p-5 pb-10 bg-white w-full h-[369px] rounded-2xl flex flex-col justify-between transition-all duration-300 border-primary-10 border border-opacity-80' >
             <header className='flex items-center justify-between'>
                 <h3 className='text-paragraph-1 font-medium'>
                     Summary

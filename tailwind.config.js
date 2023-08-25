@@ -7,43 +7,36 @@ module.exports = {
     fontSize: {
 
       // Headers ==========>>>>>>>>>>
-
-      'h1': '64px',
-      'h2': '52px',
-      'h3': '44px',
-
+      'h1': '4rem',
+      'h2': '3.25rem',
+      'h3': '2.75rem',
 
       // Sub Headers ==========>>>>>>>>>>
-
-      'sub-heading-1': '32px',
-      'sub-heading-2': '28px',
-      'sub-heading-3': '20px',
-
+      'sub-heading-1': '2rem',
+      'sub-heading-2': '1.75rem',
+      'sub-heading-3': '1.25rem',
 
       // Paragraph ==========>>>>>>>>>>
-      'paragraph-1': '16px',
-      'paragraph-2': '14px',
-
-
-      // Label ==========>>>>>>>>>>
-      'label-1': '12px',
-      'label-2': '11px',
-      'label-3': '10px',
-
+      'paragraph-1': '1rem',
+      'paragraph-2': '0.875rem',
 
       // Label ==========>>>>>>>>>>
-      'label-1': '12px',
-      'label-2': '11px',
+      'label-1': '0.75rem',
+      'label-2': '0.6875rem',
+      'label-3': '0.625rem',
 
-
+      // Label ==========>>>>>>>>>>
+      'label-1': '0.75rem',
+      'label-2': '0.6875rem',
 
       'sm': '1rem',
       'md': '1.25rem',
       'xl': '2.75rem',
-      '2xl': '64px',
+      '2xl': '4rem',
       '3xl': '1.953rem',
       '4xl': '2.441rem',
       '5xl': '3.052rem',
+
     },
 
     colors: {

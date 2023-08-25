@@ -7,13 +7,13 @@ import BarChart from '../charts/Bar'
 
 function Dashboard() {
   return (
-    <section className='flex flex-col gap-5 h-fit'>
-      <div className='grid lg:grid-cols-3 gap-5'>
+    <section className='flex flex-col gap-5 md:gap-5 sm:gap-3 h-fit'>
+      <div className='grid lg:grid-cols-3 gap-3 lg:gap-5 sm:gap-3'>
         {/* <<<<<<<<<<========== Sales Summary card =========>>>>>>>>> */}
         <DashboardSummaryCard
           cardInfoOneTitle={'Sales'}
           clickToPage={'/Sales'}
-          infoOneVolume={'₦4,000,000.00'}
+          infoOneVolume={'₦4,000'}
           cardInfoTwoTitle={'Volume'}
           infoTwoVolume={'450'}
           infoTwoPercentage={'+20.00%'}
@@ -72,14 +72,14 @@ function Dashboard() {
         className='lg:grid lg:grid-cols-[4fr,1.95fr] lg:gap-5 md:flex md:flex-col sm:flex sm:flex-col h-full'
       >
 
-        <div className='flex flex-col gap-5'>
-          <div className='lg:grid lg:grid-cols-2 lg:gap-5 md:flex md:flex-col sm:flex sm:flex-col'>
+        <div className='flex flex-col gap-3 lg:gap-5 md:gap-5'>
+          <div className='lg:grid lg:grid-cols-2 gap-5 md:flex md:flex-col sm:flex sm:flex-col'>
 
-            <div className='flex flex-col lg:mb-0 md:mb-5 sm:mb-5'>
+            <div className='flex flex-col mb-3 lg:mb-0 md:mb-5 sm:mb-5'>
               <Doughnut />
             </div>
 
-            <div className='flex flex-col justify-between gap-5'>
+            <div className='flex flex-col justify-between gap-3 lg:gap-5'>
               <DashboardSummaryCard
                 cardInfoOneTitle={'Inventory'}
                 infoOneVolume={'45'}

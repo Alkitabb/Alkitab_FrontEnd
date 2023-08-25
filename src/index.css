@@ -8,6 +8,30 @@
 /* Inter ==========>>>>>>>>>> */
 @import url('https://fonts.cdnfonts.com/css/inter');
 
+/* Custom scrollbar style */
+/* You can adjust these styles to match your site's design */
+/* This example uses a simple dark background with light thumb */
+
+/* WebKit browsers */
+@media (max-width: 767px) {
+  body {
+    scrollbar-width: thin; /* For Firefox support */
+    scrollbar-color: #ccc #f0f0f0; /* thumb color track color */
+  }
+
+  body::-webkit-scrollbar {
+    width: 3px; /* width of the scrollbar */
+  }
+
+  body::-webkit-scrollbar-thumb {
+    background-color: #ccc; /* color of the thumb */
+    border-radius: 4px; /* rounded corners for the thumb */
+  }
+
+  body::-webkit-scrollbar-track {
+    background-color: #f0f0f0; /* color of the track */
+  }
+}
 
 
 * {
@@ -21,6 +45,8 @@
   /* outline: 1px solid silver; */
 
 }
+
+
 
 
 

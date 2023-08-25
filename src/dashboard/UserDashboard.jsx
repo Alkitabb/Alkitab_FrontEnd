@@ -62,7 +62,6 @@ const DrawerHeader = styled('div')(({ theme }) => ({
 }));
 
 
-
 // AppBar Section ==========>>>>>>>>>>
 const AppBar = styled(MuiAppBar, {
   shouldForwardProp: (prop) => prop !== 'open',
@@ -86,8 +85,27 @@ const AppBar = styled(MuiAppBar, {
 
 
 // Drawer ==========>>>>>>>>>>
-const Drawer = styled(MuiDrawer, { shouldForwardProp: (prop) => prop !== 'open' })(
+// const Drawer = styled(MuiDrawer, { shouldForwardProp: (prop) => prop !== 'open' })(
 
+//   ({ theme, open }) => ({
+//     width: drawerWidth,
+//     flexShrink: 0,
+//     whiteSpace: 'nowrap',
+//     boxSizing: 'border-box',
+
+//     ...(open && {
+//       ...openedMixin(theme),
+//       '& .MuiDrawer-paper': openedMixin(theme),
+//     }),
+
+//     ...(!open && {
+//       ...closedMixin(theme),
+//       '& .MuiDrawer-paper': closedMixin(theme),
+//     }),
+//   }),
+// );
+
+const Drawer = styled(MuiDrawer, { shouldForwardProp: (prop) => prop !== 'open' })(
   ({ theme, open }) => ({
     width: drawerWidth,
     flexShrink: 0,
@@ -100,11 +118,20 @@ const Drawer = styled(MuiDrawer, { shouldForwardProp: (prop) => prop !== 'open' 
     }),
 
     ...(!open && {
-      ...closedMixin(theme),
-      '& .MuiDrawer-paper': closedMixin(theme),
+      [theme.breakpoints.down('sm')]: {
+        width: 0,
+        '& .MuiDrawer-paper': {
+          width: 0,
+        },
+      },
+      [theme.breakpoints.up('sm')]: {
+        ...closedMixin(theme),
+        '& .MuiDrawer-paper': closedMixin(theme),
+      },
     }),
   }),
 );
+
 
 export default function MiniDrawer() {
   const theme = useTheme();
@@ -140,6 +167,7 @@ export default function MiniDrawer() {
   const handleMobileMenuOpen = (event) => {
     setMobileMoreAnchorEl(event.currentTarget);
   };
+
 
   const menuId = 'primary-search-account-menu';
   const renderMenu = (
@@ -238,8 +266,11 @@ export default function MiniDrawer() {
           backgroundColor: 'white',
           color: '#45464E',
           boxShadow: 'none',
-          width: `calc(100% - ${open ? '' : 89}px)`, // Adjust as needed
-          // marginLeft: open ? 240 : 64, // Adjust as needed
+          // width: `calc(100% - ${open ? '' :  89}px)`,
+          width: '100%', // Set width to 100% on mobile screens
+          [theme.breakpoints.up('md')]: {
+            width: `calc(100% - ${open? drawerWidth : 89}px)`, // Set width for larger screens
+          },
         }}
       >
         <Toolbar>
@@ -290,6 +321,7 @@ export default function MiniDrawer() {
             </IconButton>
 
           </Box>
+          
 
           {/* <<<<<<<<<<========== Mobile Menu ==========>>>>>>>>>> */}
           {/* <<<<<<<<<<====================>>>>>>>>>> */}
@@ -349,7 +381,7 @@ export default function MiniDrawer() {
 
       {/* <<<<<<<<<<========== Side Menu section (Menu Buttons) ==========>>>>>>>>>> */}
       {/* <<<<<<<<<<====================>>>>>>>>>> */}
-      <Drawer variant="permanent" open={open} >
+      <Drawer variant="permanent" open={open}>
         <DrawerHeader>
           {
             open ?
@@ -651,7 +683,7 @@ export default function MiniDrawer() {
 
       </Drawer>
 
-      <Box component="main" sx={{ flexGrow: 1, py: 3, px: 2 }} className='bg-background min-h-screen h-fit'>
+      <Box component="main" sx={{ flexGrow: 1, py: 3, px: 2 }} className='bg-background w-full min-h-screen h-fit'>
         <DrawerHeader className='mb-5' />
         <Outlet />
       </Box>
