@@ -206,6 +206,7 @@ export default function MiniDrawer() {
       anchorOrigin={{
         vertical: 'top',
         horizontal: 'right',
+        boxShadow: '0px 4px 6px rgba(0, 0, 0, 0.1)', // Customize the dropdown's box shadow here
       }}
       id={mobileMenuId}
       keepMounted
@@ -216,14 +217,14 @@ export default function MiniDrawer() {
       open={isMobileMenuOpen}
       onClose={handleMobileMenuClose}
     >
-      <MenuItem>
+      {/* <MenuItem>
         <IconButton size="large" aria-label="show 4 new mails" color="inherit">
           <Badge badgeContent={4} color="error">
             <MailIcon />
           </Badge>
         </IconButton>
         <p>Messages</p>
-      </MenuItem>
+      </MenuItem> */}
       <MenuItem>
         <IconButton
           size="large"

@@ -133,11 +133,11 @@ function Staffs() {
 
   return (
     <div>
-      <header className='flex items-center justify-between  mb-4'>
-        <p className="text-paragraph-1 font-medium">Staff Summary</p>
+      <header className='flex items-center justify-end  mb-4'>
+ 
 
-        <button className='bg-primary-90 hover:bg-primary-100 transition-all duration-300 rounded-[12px] py-2 px-6 text-paragraph-2 text-white' onClick={handleClickOpen}>
-          <span className='flex items-center gap-3'>
+        <button className='bg-primary-90 hover:bg-primary-100 transition-all duration-300 rounded-[12px] py-2 px-3 lg:px-6 text-label-1 lg:text-paragraph-2 text-white' onClick={handleClickOpen}>
+          <span className='flex items-center gap-2 lg:gap-3'>
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path d="M12 5V19" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
               <path d="M5 12H19" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
@@ -155,7 +155,7 @@ function Staffs() {
           open={open}
           onClose={handleClose}
           aria-labelledby="responsive-dialog-title"
-          className='w-[500px] mx-auto place-content-center grid'
+          className='w-full lg:w-[500px] mx-auto place-content-center grid'
           // fullWidth
           // Adding Blur to the back drop ==========>>>>>>>>>>
           BackdropProps={{
@@ -415,20 +415,20 @@ function Staffs() {
           </div>
           :
           <section className='p-5 py-20 bg-white rounded-2xl w-full h-full grid place-content-center'>
-            <div className='w-[262px] flex flex-col gap-5'>
+            <div className='max-w-[262px] w-full flex flex-col gap-5'>
 
               {/* Images ==========>>>>>>>>>> */}
               <span className='w-[140px] h-[140px] bg-center bg-contain mx-auto bg-[url("https://res.cloudinary.com/dnzi0xxtx/image/upload/v1692783193/portfolioImages/inventoryApp/staffIcon_h0syk7.png")]'></span>
 
               <div className='text-center'>
                 <span className='flex flex-col gap-2'>
-                  <h3 className='text-sub-heading-3 font-medium'>No Staffs Yet?</h3>
-                  <p className='text-black-30 text-paragraph-2'>Add products to your store and start selling to see orders here.</p>
+                  <h3 className='text-paragraph-2 lg:text-sub-heading-3 font-medium'>No Staffs Yet?</h3>
+                  <p className='text-black-30 text-label-1 lg:text-paragraph-2'>Add products to your store and start selling to see orders here.</p>
                 </span>
 
                 {/* Button ==========>>>>>>>>>> */}
-                <button className='bg-primary-90 hover:bg-primary-100 transition-all duration-300 rounded-[12px] py-2 px-6 text-paragraph-2 text-white mt-4' onClick={handleClickOpen}>
-                  <span className='flex items-center gap-3'>
+                <button className='bg-primary-90 hover:bg-primary-100 transition-all duration-300 rounded-[12px] py-2 px-6 text-label-1 lg:text-paragraph-2 text-white mt-4' onClick={handleClickOpen}>
+                  <span className='flex items-center gap-2 lg:gap-3'>
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                       <path d="M12 5V19" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
                       <path d="M5 12H19" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
