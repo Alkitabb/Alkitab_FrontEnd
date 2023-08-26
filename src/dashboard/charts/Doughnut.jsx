@@ -22,11 +22,11 @@ function DoughnutChart() {
 
     const data = {
 
-        // labels: [
-        //     'Red',
-        //     'Blue',
-        //     'Yellow'
-        // ],
+        labels: [
+            'Red',
+            'Blue',
+            'Yellow'
+        ],
 
 
         datasets: [{
@@ -39,8 +39,8 @@ function DoughnutChart() {
             data: [300, 200, 100],
 
             backgroundColor: [
-                '#5570F1',
-                '#FFCC91',
+                '#7017E0',
+                '#89E100',
                 '#97A5EB',
             ],
 
@@ -61,7 +61,7 @@ function DoughnutChart() {
     }
 
     return (
-        <div className='p-3 lg:p-5 bg-white h-[337px] rounded-2xl w-full flex flex-col justify-between transition-all duration-300 border-primary-10 border border-opacity-80'>
+        <div className='p-3 lg:p-5 bg-white h-[337px] rounded-xl w-full flex flex-col justify-between transition-all duration-300 border-primary-10 border border-opacity-20'>
             <header className='flex items-center justify-between'>
                 <h3 className='text-paragraph-1 font-medium'>
                     Marketting

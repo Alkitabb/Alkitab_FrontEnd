@@ -133,8 +133,8 @@ function Staffs() {
 
   return (
     <div>
-      <header className='flex items-center justify-end  mb-4'>
- 
+      <header className='flex items-center justify-end mb-4'>
+
 
         <button className='bg-primary-90 hover:bg-primary-100 transition-all duration-300 rounded-[12px] py-2 px-3 lg:px-6 text-label-1 lg:text-paragraph-2 text-white' onClick={handleClickOpen}>
           <span className='flex items-center gap-2 lg:gap-3'>
@@ -151,7 +151,6 @@ function Staffs() {
     // <<<<<<<<<<=====================>>>>>>>>>> */}
         <Dialog
           fullScreen={fullScreen}
-          // open={true}
           open={open}
           onClose={handleClose}
           aria-labelledby="responsive-dialog-title"
@@ -194,7 +193,7 @@ function Staffs() {
               component="form"
               onSubmit={handleSubmit}
               noValidate
-              autoComplete="off"
+              autoComplete="on"
               className='flex flex-col gap-3'
             >
               <header>
@@ -205,6 +204,7 @@ function Staffs() {
                 placeholder={'Staff Name'}
                 inputType={'text'}
                 name={'staffName'}
+                label={'Full Name'}
                 value={values.staffName}
                 onChange={handleChange}
                 onBlur={handleBlur}
@@ -214,8 +214,9 @@ function Staffs() {
 
               <FormInput
                 placeholder={'Staff Email'}
-                inputType={'text'}
+                inputType={'email'}
                 name={'staffEmail'}
+                label={'Email'}
                 value={values.staffEmail}
                 onChange={handleChange}
                 onBlur={handleBlur}
@@ -232,6 +233,7 @@ function Staffs() {
                   placeholder={'+1'}
                   inputType={'number'}
                   name={'dailCode'}
+                  label={'Dail Code'}
                   value={values.dailCode}
                   onChange={handleChange}
                   onBlur={handleBlur}
@@ -243,6 +245,7 @@ function Staffs() {
                   placeholder={'Phone'}
                   inputType={'number'}
                   name={'staffPhoneNumber'}
+                  label={'Phone'}
                   value={values.staffPhoneNumber}
                   onChange={handleChange}
                   onBlur={handleBlur}
@@ -262,6 +265,7 @@ function Staffs() {
                   onChange={handleSwitchChange}
                   inputProps={{ 'aria-label': 'controlled' }}
                   size='small'
+                  color='secondary'
                 />
               </span>
 
@@ -274,6 +278,7 @@ function Staffs() {
                   <FormInput
                     placeholder={'Building No., Street Address'}
                     inputType={'text'}
+                    label={'Address'}
                     name={'staffStreet'}
                     value={values.staffStreet}
                     onChange={handleChange}
@@ -285,6 +290,7 @@ function Staffs() {
                     placeholder={'City'}
                     inputType={'text'}
                     name={'staffCity'}
+                    label={'City'}
                     value={values.staffCity}
                     onChange={handleChange}
                     onBlur={handleBlur}
@@ -300,6 +306,7 @@ function Staffs() {
                       placeholder={'Country'}
                       inputType={'text'}
                       name={'staffCountry'}
+                      label={'Country'}
                       value={values.staffCountry}
                       onChange={handleChange}
                       onBlur={handleBlur}
@@ -311,6 +318,7 @@ function Staffs() {
                       placeholder={'State'}
                       inputType={'text'}
                       name={'staffState'}
+                      label={'State'}
                       value={values.staffState}
                       onChange={handleChange}
                       onBlur={handleBlur}
@@ -341,7 +349,7 @@ function Staffs() {
 
       {/* <<<<<<<<<<========== Dashboard Summary card  Section =========>>>>>>>>> Start */}
       {/* <<<<<<<<<<===================>>>>>>>>> */}
-      <section className='grid lg:grid-cols-2 gap-5'>
+      <section className='grid lg:grid-cols-2 gap-3'>
 
         {/* <<<<<<<<<<========== Sales Summary card =========>>>>>>>>> */}
         {/* <<<<<<<<<<===================>>>>>>>>> */}
@@ -391,10 +399,10 @@ function Staffs() {
 
       {/* <<<<<<<<<<========== Table Resndering Staff Information =========>>>>>>>>> Start */}
       {/* <<<<<<<<<<===================>>>>>>>>> */}
-      <section className='mt-5'>
+      <section className='mt-3'>
         {staffInformation.length > 0 ?
 
-          <div style={{ height: '100%', width: '100%', border: 'none' }} className='bg-white rounded-2xl'>
+          <div style={{ height: '100%', width: '100%', border: 'none' }} className='bg-white rounded-xl'>
             <header className='p-5'>
               <h3 className="text-sub-heading-3 font-medium">Staff</h3>
             </header>
@@ -414,7 +422,7 @@ function Staffs() {
             />
           </div>
           :
-          <section className='p-5 py-20 bg-white rounded-2xl w-full h-full grid place-content-center'>
+          <section className='p-5 py-20 bg-white rounded-xl w-full h-full grid place-content-center'>
             <div className='max-w-[262px] w-full flex flex-col gap-5'>
 
               {/* Images ==========>>>>>>>>>> */}

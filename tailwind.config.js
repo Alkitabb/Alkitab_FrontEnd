@@ -41,18 +41,22 @@ module.exports = {
 
     colors: {
 
-      // Primary #5570F1 ==========>>>>>>>>>>
+      // Primary #7017E0 ==========>>>>>>>>>>
 
-      'primary-100': '#5570F1',
-      'primary-90': '#6078EC',
-      'primary-80': '#6D83EC',
-      'primary-70': '#7C8FEC',
-      'primary-60': '#8899E9',
-      'primary-50': '#97A5EB',
-      'primary-40': '#ABB5E9',
-      'primary-30': '#B6BFE8',
-      'primary-20': '#C4CAE8',
-      'primary-10': '#DBDEEE',
+      // 'primary-100': '#',
+      'primary-100': '#7017E0',
+      'primary-90': '#7725E8',
+      'primary-80': '#7E32F0',
+      'primary-70': '#8540F7',
+      'primary-60': '#8C4EFF',
+      'primary-50': '#935DFF',
+      'primary-40': '#9A6BFF',
+      'primary-30': '#A179FF',
+      'primary-20': '#A886FF',
+      'primary-10': '#AF94FF',
+      
+      
+      
 
 
       // Secondary #FFCC91 ==========>>>>>>>>>>
@@ -88,9 +92,9 @@ module.exports = {
 
       // Actions ==========>>>>>>>>>>
 
-      'go': '#519C66',
-      'stop': '#CC5F5F',
-      'background': '#F4F5FA',
+      'go': '#89E100',
+      'stop': '#FD2A82',
+      'background': '#F8F9F9',
 
 
     },

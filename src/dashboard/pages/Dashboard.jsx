@@ -7,8 +7,8 @@ import BarChart from '../charts/Bar'
 
 function Dashboard() {
   return (
-    <section className='flex flex-col gap-5 md:gap-5 sm:gap-3 h-fit'>
-      <div className='grid lg:grid-cols-3 gap-3 lg:gap-5 sm:gap-3'>
+    <section className='flex flex-col gap-3 md:gap-3 sm:gap-3 h-fit'>
+      <div className='grid lg:grid-cols-3 gap-3 lg:gap-3 sm:gap-3'>
         {/* <<<<<<<<<<========== Sales Summary card =========>>>>>>>>> */}
         <DashboardSummaryCard
           cardInfoOneTitle={'Sales'}
@@ -19,9 +19,9 @@ function Dashboard() {
           infoTwoPercentage={'+20.00%'}
           icon={
             <svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <rect width="36" height="36" rx="8" fill="#5570F1" fillOpacity="0.12" />
-              <path fillRule="evenodd" clipRule="evenodd" d="M22.3986 19.5743C22.9609 19.5743 23.4328 20.0384 23.3468 20.5936C22.8424 23.8603 20.0459 26.2857 16.6731 26.2857C12.9416 26.2857 9.91699 23.2612 9.91699 19.5305C9.91699 16.4568 12.2521 13.5936 14.881 12.9462C15.4459 12.8068 16.0249 13.2041 16.0249 13.7857C16.0249 17.7261 16.1573 18.7454 16.9056 19.2998C17.6538 19.8541 18.5337 19.5743 22.3986 19.5743Z" stroke="#5570F1" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-              <path fillRule="evenodd" clipRule="evenodd" d="M26.0778 16.293C26.1225 13.7614 23.0128 9.68072 19.2234 9.75089C18.9286 9.75616 18.6927 10.0018 18.6795 10.2956C18.5839 12.3772 18.7129 15.0746 18.7848 16.2974C18.8067 16.6781 19.1058 16.9772 19.4857 16.9991C20.7427 17.0711 23.5383 17.1693 25.59 16.8588C25.869 16.8167 26.0734 16.5746 26.0778 16.293Z" stroke="#5570F1" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+              <rect width="36" height="36" rx="8" fill="#7017E0" fillOpacity="0.12" />
+              <path fillRule="evenodd" clipRule="evenodd" d="M22.3986 19.5743C22.9609 19.5743 23.4328 20.0384 23.3468 20.5936C22.8424 23.8603 20.0459 26.2857 16.6731 26.2857C12.9416 26.2857 9.91699 23.2612 9.91699 19.5305C9.91699 16.4568 12.2521 13.5936 14.881 12.9462C15.4459 12.8068 16.0249 13.2041 16.0249 13.7857C16.0249 17.7261 16.1573 18.7454 16.9056 19.2998C17.6538 19.8541 18.5337 19.5743 22.3986 19.5743Z" stroke="#7017E0" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+              <path fillRule="evenodd" clipRule="evenodd" d="M26.0778 16.293C26.1225 13.7614 23.0128 9.68072 19.2234 9.75089C18.9286 9.75616 18.6927 10.0018 18.6795 10.2956C18.5839 12.3772 18.7129 15.0746 18.7848 16.2974C18.8067 16.6781 19.1058 16.9772 19.4857 16.9991C20.7427 17.0711 23.5383 17.1693 25.59 16.8588C25.869 16.8167 26.0734 16.5746 26.0778 16.293Z" stroke="#7017E0" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
             </svg>
           } />
 
@@ -69,17 +69,17 @@ function Dashboard() {
 
       <Box
         component="div"
-        className='lg:grid lg:grid-cols-[4fr,1.95fr] lg:gap-5 md:flex md:flex-col sm:flex sm:flex-col h-full'
+        className='lg:grid lg:grid-cols-[4fr,1.95fr] lg:gap-3 md:flex md:flex-col sm:flex sm:flex-col h-full'
       >
 
-        <div className='flex flex-col gap-3 lg:gap-5 md:gap-5'>
-          <div className='lg:grid lg:grid-cols-2 gap-5 md:flex md:flex-col sm:flex sm:flex-col'>
+        <div className='flex flex-col gap-3 lg:gap-3 md:gap-3'>
+          <div className='lg:grid lg:grid-cols-2 gap-3 md:flex md:flex-col sm:flex sm:flex-col'>
 
             <div className='flex flex-col mb-3 lg:mb-0 md:mb-5 sm:mb-5'>
               <Doughnut />
             </div>
 
-            <div className='flex flex-col justify-between gap-3 lg:gap-5'>
+            <div className='flex flex-col justify-between gap-3 lg:gap-3'>
               <DashboardSummaryCard
                 cardInfoOneTitle={'Inventory'}
                 infoOneVolume={'45'}

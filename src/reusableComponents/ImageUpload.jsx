@@ -17,7 +17,7 @@ function ImageUpload() {
     const handleImageDelete = () => { setSelectedImage(null) }
 
     return (
-        <div className="bg-background w-[172px] h-[172px] flex flex-col justify-center items-center gap-5 rounded-xl border border-primary-10 relative">
+        <div className="bg-background w-[172px] h-[172px] flex flex-col justify-center items-center gap-3 rounded-xl border border-[#E0E3E7] relative">
 
             <span className={`${selectedImage ? 'flex' : 'hidden'} absolute gap-1 top-3 right-3 transition-all duration-300`}>
                 <label label htmlFor="image-upload-input" title='Upload avatar' className='cursor-pointer'>
@@ -50,17 +50,17 @@ function ImageUpload() {
             {selectedImage ?
                 <img className="w-[90%] rounded-xl transition-all duration-300" src={selectedImage} alt="Uploaded" />
                 :
-                <img className="w-[46px] h-[46px]" htmlFor="image-upload-input" src='https://res.cloudinary.com/dnzi0xxtx/image/upload/v1691800086/portfolioImages/inventoryApp/Image_ghzops.png' alt="Uploaded" />
+                <img className="w-[65px] h-[65px]" htmlFor="image-upload-input" src="https://res.cloudinary.com/dnzi0xxtx/image/upload/v1693074768/portfolioImages/inventoryApp/Image_xc9ufw.png" alt="Uploaded" />
             }
 
-            <label label htmlFor="image-upload-input" className={`${selectedImage ? 'hidden' : 'flex'} text-primary-100 text-paragraph-2 font-medium items-center gap-3 cursor-pointer`}>
+            <label label htmlFor="image-upload-input" className={`${selectedImage ? 'hidden' : 'flex'} text-[#6F7E8C] text-paragraph-2 font-medium items-center gap-2 cursor-pointer`}>
                 <svg width="17" height="16" viewBox="0 0 17 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <svg width="17" height="16" viewBox="0 0 17 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <g clipPath="url(#clip0_181_8058)">
-                            <path d="M11.1663 10.6667L8.49967 8L5.83301 10.6667" stroke="#5570F1" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                            <path d="M8.5 8V14" stroke="#5570F1" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                            <path d="M14.0933 12.2598C14.7435 11.9053 15.2572 11.3444 15.5532 10.6656C15.8493 9.98674 15.9108 9.22865 15.7281 8.51095C15.5454 7.79326 15.129 7.15683 14.5444 6.70212C13.9599 6.24741 13.2406 6.00032 12.5 5.99983H11.66C11.4582 5.21932 11.0821 4.49472 10.5599 3.88049C10.0378 3.26626 9.3832 2.77839 8.64537 2.45356C7.90754 2.12874 7.10567 1.9754 6.30005 2.00508C5.49443 2.03476 4.70602 2.24669 3.99409 2.62494C3.28216 3.00318 2.66525 3.5379 2.18972 4.18888C1.7142 4.83987 1.39243 5.59018 1.24863 6.38342C1.10482 7.17666 1.14271 7.99218 1.35945 8.76867C1.57619 9.54515 1.96613 10.2624 2.49997 10.8665" stroke="#5570F1" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                            <path d="M11.1663 10.6667L8.49967 8L5.83301 10.6667" stroke="#5570F1" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                            <path d="M11.1663 10.6667L8.49967 8L5.83301 10.6667" stroke="#6F7E8C" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                            <path d="M8.5 8V14" stroke="#6F7E8C" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                            <path d="M14.0933 12.2598C14.7435 11.9053 15.2572 11.3444 15.5532 10.6656C15.8493 9.98674 15.9108 9.22865 15.7281 8.51095C15.5454 7.79326 15.129 7.15683 14.5444 6.70212C13.9599 6.24741 13.2406 6.00032 12.5 5.99983H11.66C11.4582 5.21932 11.0821 4.49472 10.5599 3.88049C10.0378 3.26626 9.3832 2.77839 8.64537 2.45356C7.90754 2.12874 7.10567 1.9754 6.30005 2.00508C5.49443 2.03476 4.70602 2.24669 3.99409 2.62494C3.28216 3.00318 2.66525 3.5379 2.18972 4.18888C1.7142 4.83987 1.39243 5.59018 1.24863 6.38342C1.10482 7.17666 1.14271 7.99218 1.35945 8.76867C1.57619 9.54515 1.96613 10.2624 2.49997 10.8665" stroke="#6F7E8C" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                            <path d="M11.1663 10.6667L8.49967 8L5.83301 10.6667" stroke="#6F7E8C" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
                         </g>
                         <defs>
                             <clipPath id="clip0_181_8058">
@@ -68,7 +68,6 @@ function ImageUpload() {
                             </clipPath>
                         </defs>
                     </svg>
-
                 </svg>
                 Upload Image
             </label>

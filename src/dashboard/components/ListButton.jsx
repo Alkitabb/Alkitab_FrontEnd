@@ -12,7 +12,7 @@ function ListButton({ to, inactiveIcon, activeIcon, open, location, primaryItemT
                     py: 1.5,
                     borderRadius: 3,
                     "&.Mui-selected": {
-                        backgroundColor: "#5570F1",
+                        backgroundColor: "#7017E0",
                         color: '#ffffff'
                     },
                     "&.Mui-focusVisible": {
@@ -21,7 +21,7 @@ function ListButton({ to, inactiveIcon, activeIcon, open, location, primaryItemT
                         color: '#ffffff'
                     },
                     // ":hover": {
-                    //     backgroundColor: "#5570F1",
+                    //     backgroundColor: "#7017E0",
                     //     color: '#ffffff'
                     // },
                 }}

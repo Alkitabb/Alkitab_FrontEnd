@@ -40,7 +40,7 @@ function BarChart() {
             label: 'Sales',
             data: [75, 99, 80, 70, 56, 55, 70],
             backgroundColor: [
-                '#6078EC',
+                '#7017E0',
             ],
             borderColor: [
                 '#6078EC',
@@ -87,7 +87,7 @@ function BarChart() {
     }
 
     return (
-        <div className='p-5 pb-10 bg-white w-full h-[369px] rounded-2xl flex flex-col justify-between transition-all duration-300 border-primary-10 border border-opacity-80' >
+        <div className='p-5 pb-10 bg-white w-full h-[369px] rounded-xl flex flex-col justify-between transition-all duration-300 border-primary-10 border border-opacity-20' >
             <header className='flex items-center justify-between'>
                 <h3 className='text-paragraph-1 font-medium'>
                     Summary
