@@ -1,9 +1,8 @@
 import * as React from 'react';
 import TextField from '@mui/material/TextField';
 import { outlinedInputClasses } from '@mui/material/OutlinedInput';
-import Box from '@mui/material/Box';
 import { createTheme, ThemeProvider, useTheme } from '@mui/material/styles';
-import { InputAdornment } from '@mui/material';
+// import { InputAdornment } from '@mui/material';
 
 const customTheme = (outerTheme) =>
     createTheme({

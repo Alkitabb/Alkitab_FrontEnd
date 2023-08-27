@@ -10,13 +10,17 @@ import Inventory from './dashboard/pages/Inventory'
 import Notifications from './dashboard/pages/Notifications'
 import Settings from './dashboard/pages/Settings'
 import Dashboard from './dashboard/pages/Dashboard'
+import InternetConnectionChecker from './reusableComponents/InternetConnectionChecker'
 
 function App() {
+
+
   return (
     <>
 
+      <InternetConnectionChecker />
+      
       <Routes>
-
         <Route path='/UserLogin' element={<UserLogin />} />
 
         <Route path='/UserRegistration' element={<UserRegistration />} />
@@ -34,7 +38,7 @@ function App() {
           <Route path='/Inventory' element={<Inventory />} />,
 
           <Route path='/Notifications' element={<Notifications />} />,
-          
+
           <Route path='/Settings' element={<Settings />} />,
 
         ]} />

@@ -1,13 +1,12 @@
 import * as React from 'react';
 import PropTypes from 'prop-types';
-import Tabs from '@mui/material/Tabs';
-import Tab from '@mui/material/Tab';
+// import Tabs from '@mui/material/Tabs';
+// import Tab from '@mui/material/Tab';
 import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
 // import { InputAdornment, TextField } from '@mui/material';
 import FormInput from '../../reusableComponents/FormInput';
 import { useFormik } from 'formik';
-import FormSelect from '../../reusableComponents/FormAutoCompleteInput';
 import ImageUpload from '../../reusableComponents/ImageUpload';
 
 function CustomTabPanel(props) {
@@ -36,20 +35,20 @@ CustomTabPanel.propTypes = {
   value: PropTypes.number.isRequired,
 };
 
-function a11yProps(index) {
-  return {
-    id: `simple-tab-${index}`,
-    'aria-controls': `simple-tabpanel-${index}`,
-  };
-}
+// function a11yProps(index) {
+//   return {
+//     id: `simple-tab-${index}`,
+//     'aria-controls': `simple-tabpanel-${index}`,
+//   };
+// }
 
 export default function Settings() {
 
-  const [value, setValue] = React.useState(0);
+  const [value, ] = React.useState(0);
 
-  const handleChange = (event, newValue) => {
-    setValue(newValue);
-  };
+  // const handleChange = (event, newValue) => {
+  //   setValue(newValue);
+  // };
 
 
 
@@ -63,29 +62,6 @@ export default function Settings() {
     },
   });
   // console.log(formik.values);
-
-  // <<<<<<<<<<=========== Country Lisy, Fetching from github ==========>>>>>>>>>>
-  // <<<<<<<<<<=====================>>>>>>>>>>
-  const [areaCode, setAreaCode] = React.useState([])
-  const [userCountry, setUserCountry] = React.useState([])
-
-  React.useEffect(() => {
-
-    fetch('https://restcountries.com/v3.1/all')
-      .then(response => response.json())
-      .then(data => {
-
-        const dailCode = data.map(item => item.ccn3);
-        setAreaCode(dailCode);
-
-        const country = data.map(item => item.name.common);
-        setUserCountry(country);
-
-      })
-      .catch(err => console.error(err));
-
-  }, []);
-  // console.log(userCountry);
 
   return (
     <section className='lg:px-10 md:px-10 px-3 py-2 bg-white rounded-xl w-full border-primary-10 border border-opacity-20'>

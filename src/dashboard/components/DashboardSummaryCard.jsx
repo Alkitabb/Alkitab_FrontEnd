@@ -23,7 +23,7 @@ const DashboardSummaryCard = ({
     return (
         <NavLink
             to={clickToPage}
-            className={`${cardHeight} ${className || 'bg-white'} rounded-xl w-full flex flex-col justify-between p-5 md:p-5 sm:p-3 border-primary-10 border border-opacity-20`}
+            className={`${cardHeight} ${className || 'bg-white hover:bg-[#FBFCFC]'} rounded-xl w-full flex flex-col justify-between p-5 md:p-5 sm:p-3 border-primary-10 border border-opacity-20 transition-all duration-300`}
             title={cardTitle}
         >
             <header className='flex items-center justify-between w-full'>

@@ -22,11 +22,11 @@ function DoughnutChart() {
 
     const data = {
 
-        labels: [
-            'Red',
-            'Blue',
-            'Yellow'
-        ],
+        // labels: [
+        //     'Red',
+        //     'Blue',
+        //     'Yellow'
+        // ],
 
 
         datasets: [{
