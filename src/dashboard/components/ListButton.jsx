@@ -15,7 +15,7 @@ function ListButton({ to, inactiveIcon, activeIcon, open, location, primaryItemT
                         backgroundColor: "#7017E0",
                         color: '#ffffff'
                     },
-                    "&.Mui-focusVisible": {
+                    "&.Mui-hover": {
                         backgroundColor: "#6D83EC",
                         outline: 'none',
                         color: '#ffffff'

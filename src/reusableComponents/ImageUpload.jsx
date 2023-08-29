@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
 
 function ImageUpload() {
+
     const [selectedImage, setSelectedImage] = useState(null);
 
     const handleImageChange = (event) => {
+
         const file = event.target.files[0];
         if (file) {
             const reader = new FileReader();
@@ -46,13 +48,12 @@ function ImageUpload() {
                     </svg>
                 </label>
             </span>
-
-            {selectedImage ?
-                <img className="w-[90%] rounded-xl transition-all duration-300" src={selectedImage} alt="Uploaded" />
-                :
-                <img className="w-[65px] h-[65px]" htmlFor="image-upload-input" src="https://res.cloudinary.com/dnzi0xxtx/image/upload/v1693074768/portfolioImages/inventoryApp/Image_xc9ufw.png" alt="Uploaded" />
+            {
+                selectedImage ?
+                    <img className="w-[90%] rounded-xl transition-all duration-300" src={selectedImage} alt="Uploaded" />
+                    :
+                    <img className="w-[65px] h-[65px]" htmlFor="image-upload-input" src="https://res.cloudinary.com/dnzi0xxtx/image/upload/v1693074768/portfolioImages/inventoryApp/Image_xc9ufw.png" alt="Uploaded" />
             }
-
             <label label htmlFor="image-upload-input" className={`${selectedImage ? 'hidden' : 'flex'} text-[#6F7E8C] text-paragraph-2 font-medium items-center gap-2 cursor-pointer`}>
                 <svg width="17" height="16" viewBox="0 0 17 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <svg width="17" height="16" viewBox="0 0 17 16" fill="none" xmlns="http://www.w3.org/2000/svg">
