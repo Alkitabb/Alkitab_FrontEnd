@@ -1,12 +1,9 @@
 import React, { useState } from 'react'
 import DashboardSummaryCard from '../../components/DashboardSummaryCard'
-import { DataGrid } from '@mui/x-data-grid';
-import { useFormik } from 'formik';
-import useMediaQuery from '@mui/material/useMediaQuery';
-import { useTheme } from '@mui/material/styles';
+// import { DataGrid } from '@mui/x-data-grid';
+// import { useFormik } from 'formik';
+// import { useTheme } from '@mui/material/styles';
 // import FormSelect from '../../../reusableComponents/FormAutoCompleteInput';
-import { addNewStaff } from '../../../schemas/StaffSchema';
-import { NavLink } from 'react-router-dom';
 import AddInventory from './pages/AddInventory';
 
 
@@ -15,114 +12,46 @@ function Staffs() {
 
   // <<<<<<<<<<========== Adding Date for when the staff was added ==========>>>>>>>>>> Start
   // <<<<<<<<<<====================>>>>>>>>>>
-  const date = new Date();
-  const dateStaffWassAdded = date
+
+  // const date = new Date();
+  // const dateStaffWassAdded = date
+  
   // <<<<<<<<<<====================>>>>>>>>>> End
 
 
-  // Staff Information ==========>>>>>>>>>> Start
-  // ===================>>>>>>>>>>
-  const [staffInformation, setStaffInformation] = useState([]);
-
-  const onSubmit = () => {
-    setStaffInformation(e => [...e, values]); // Use functional update
-    // console.log(values);
-
-    handleClose();
-  };
-
-  const { values, handleChange, handleBlur, handleSubmit, errors, touched } = useFormik({
-    initialValues: {
-      staffName: '',
-      staffEmail: '',
-      dailCode: '',
-      staffPhoneNumber: '',
-      staffCity: '',
-      staffStreet: '',
-      staffState: '',
-      staffCountry: '',
-      staffSince: dateStaffWassAdded,
-      staffStatus: '',
-    },
-    onSubmit,
-    // onSubmit: () => handleSave(values)
-    validationSchema: addNewStaff
-  })
-  console.log(errors)
+  // const columns = [
+  //   { field: 'id', headerName: 'ID', width: 70 },
+  //   { field: 'name', headerName: 'Full Name', width: 150 },
+  //   { field: 'email', headerName: 'Email', width: 150 },
+  //   {
+  //     field: 'phoneNumber', headerName: 'Phone', width: 130,
+  //     valueGetter: (params) =>
+  //       `+(${params.row.dailCode || ''}) ${params.row.phoneNumber || ''}`,
+  //   },
+  //   {
+  //     field: 'address', headerName: 'Address', sortable: false, width: 150,
+  //     valueGetter: (params) =>
+  //       `${params.row.staffStreet || ''} ${params.row.staffCity || ''} ${params.row.staffCountry || ''}`,
+  //   },
+  //   { field: 'staffSince', headerName: 'Staff Since', width: 130 },
+  //   { field: 'staffStatus', headerName: 'Staff Status', width: 130 },
+  // ];
 
 
 
-  const columns = [
-    { field: 'id', headerName: 'ID', width: 70 },
-    { field: 'name', headerName: 'Full Name', width: 150 },
-    { field: 'email', headerName: 'Email', width: 150 },
-    {
-      field: 'phoneNumber', headerName: 'Phone', width: 130,
-      valueGetter: (params) =>
-        `+(${params.row.dailCode || ''}) ${params.row.phoneNumber || ''}`,
-    },
-    {
-      field: 'address', headerName: 'Address', sortable: false, width: 150,
-      valueGetter: (params) =>
-        `${params.row.staffStreet || ''} ${params.row.staffCity || ''} ${params.row.staffCountry || ''}`,
-    },
-    { field: 'staffSince', headerName: 'Staff Since', width: 130 },
-    { field: 'staffStatus', headerName: 'Staff Status', width: 130 },
-  ];
-
-
-
-  const rows = staffInformation.map((staff, i) => (
-    {
-      id: i + 1,
-      name: staff.staffName,
-      email: staff.staffEmail,
-      dailCode: staff.dailCode,
-      phoneNumber: staff.staffPhoneNumber,
-      staffStreet: staff.staffStreet,
-      staffCity: staff.staffCity,
-      staffCountry: staff.staffCountry,
-      staffSince: staff.staffSince,
-    }
-  ));
-
-
-
-  // <<<<<<<<<<=========== Dialog Customization ==========>>>>>>>>>>
-  // <<<<<<<<<<=====================>>>>>>>>>>
-  const [open, setOpen] = React.useState(false);
-  const theme = useTheme();
-  const fullScreen = useMediaQuery(theme.breakpoints.down('md'));
-
-  const handleClickOpen = () => {
-    setOpen(true);
-  };
-
-  const handleClose = () => {
-
-    setOpen(false);
-
-    // Clear form values ==========>>>>>>>>>>
-    // values.staffName = '';
-    // values.staffEmail = '';
-    // values.staffPhoneNumber = '';
-    // values.staffSince = '';
-    // values.staffStatus = '';
-    // ==========>>>>>>>>>>
-  };
-  // <<<<<<<<<<=====================>>>>>>>>>> End
-
-
-  //<<<<<<<<<<============ Fotm Switch ==========>>>>>>>>>> Start
-  //<<<<<<<<<<======================>>>>>>>>>>
-  const [checked, setChecked] = React.useState(false);
-
-  const handleSwitchChange = (event) => {
-
-    setChecked(event.target.checked);
-
-  };
-  //<<<<<<<<<<======================>>>>>>>>>> End
+  // const rows = staffInformation.map((staff, i) => (
+  //   {
+  //     id: i + 1,
+  //     name: staff.staffName,
+  //     email: staff.staffEmail,
+  //     dailCode: staff.dailCode,
+  //     phoneNumber: staff.staffPhoneNumber,
+  //     staffStreet: staff.staffStreet,
+  //     staffCity: staff.staffCity,
+  //     staffCountry: staff.staffCountry,
+  //     staffSince: staff.staffSince,
+  //   }
+  // ));
 
 
   const [page, setPage] = useState(1)
@@ -193,54 +122,55 @@ function Staffs() {
 
           {/* <<<<<<<<<<========== Table Resndering Staff Information =========>>>>>>>>> Start */}
           {/* <<<<<<<<<<===================>>>>>>>>> */}
-          <section className='mt-3'> {
-            staffInformation.length > 0 ?
-              <div style={{ height: '100%', width: '100%', border: 'none' }} className='bg-white rounded-xl'>
-                <header className='p-5'>
-                  <h3 className="text-sub-heading-3 font-medium">Inventory Items</h3>
-                </header>
-                <DataGrid
-                  rows={rows}
-                  columns={columns}
-                  initialState={{
-                    pagination: {
-                      paginationModel: { page: 0, pageSize: 5 },
-                    },
-                  }}
-                  pageSizeOptions={[5, 10, 15]}
-                  checkboxSelection
-                  sx={{
-                    width: '100%'
-                  }}
-                />
-              </div>
-              :
-              <section className='p-5 py-20 bg-white rounded-xl w-full h-full grid place-content-center'>
-                <div className='max-w-[262px] w-full flex flex-col gap-5'>
+          <section className='mt-3'>
+            {
+              // staffInformation.length > 0 ?
+              //   <div style={{ height: '100%', width: '100%', border: 'none' }} className='bg-white rounded-xl'>
+              //     <header className='p-5'>
+              //       <h3 className="text-sub-heading-3 font-medium">Inventory Items</h3>
+              //     </header>
+              //     <DataGrid
+              //       rows={rows}
+              //       columns={columns}
+              //       initialState={{
+              //         pagination: {
+              //           paginationModel: { page: 0, pageSize: 5 },
+              //         },
+              //       }}
+              //       pageSizeOptions={[5, 10, 15]}
+              //       checkboxSelection
+              //       sx={{
+              //         width: '100%'
+              //       }}
+              //     />
+              //   </div>
+              //   :
+                <section className='p-5 py-20 bg-white rounded-xl w-full h-full grid place-content-center'>
+                  <div className='max-w-[262px] w-full flex flex-col gap-5'>
 
-                  {/* Images ==========>>>>>>>>>> */}
-                  <span className='w-[140px] h-[140px] bg-center bg-contain mx-auto bg-[url("https://res.cloudinary.com/dnzi0xxtx/image/upload/v1692783193/portfolioImages/inventoryApp/staffIcon_h0syk7.png")]'></span>
+                    {/* Images ==========>>>>>>>>>> */}
+                    <span className='w-[140px] h-[140px] bg-center bg-contain mx-auto bg-[url("https://res.cloudinary.com/dnzi0xxtx/image/upload/v1692783193/portfolioImages/inventoryApp/staffIcon_h0syk7.png")]'></span>
 
-                  <div className='text-center'>
-                    <span className='flex flex-col gap-2'>
-                      <h3 className='text-paragraph-2 lg:text-sub-heading-3 font-medium'>No Staffs Yet?</h3>
-                      <p className='text-black-30 text-label-1 lg:text-paragraph-2'>Add products to your store and start selling to see orders here.</p>
-                    </span>
-
-                    {/* Button ==========>>>>>>>>>> */}
-                    <button className='bg-primary-90 hover:bg-primary-100 transition-all duration-300 rounded-[12px] py-2 px-6 text-label-1 lg:text-paragraph-2 text-white mt-4' onClick={handleClickOpen}>
-                      <span className='flex items-center gap-2 lg:gap-3'>
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                          <path d="M12 5V19" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                          <path d="M5 12H19" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                        </svg>
-                        Add Staff
+                    <div className='text-center'>
+                      <span className='flex flex-col gap-2'>
+                        <h3 className='text-paragraph-2 lg:text-sub-heading-3 font-medium'>No Items Yet?</h3>
+                        <p className='text-black-30 text-label-1 lg:text-paragraph-2'>Add products to your store to see Products here.</p>
                       </span>
-                    </button>
+
+                      {/* Button ==========>>>>>>>>>> */}
+                      <button className='bg-primary-90 hover:bg-primary-100 transition-all duration-300 rounded-[12px] py-2 px-6 text-label-1 lg:text-paragraph-2 text-white mt-4' onClick={() => setPage(2)}>
+                        <span className='flex items-center gap-2 lg:gap-3'>
+                          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M12 5V19" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                            <path d="M5 12H19" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                          </svg>
+                          Add Item
+                        </span>
+                      </button>
+                    </div>
                   </div>
-                </div>
-              </section>
-          } </section>
+                </section>
+            } </section>
           {/* <<<<<<<<<<===================>>>>>>>>> End */}
 
         </section >

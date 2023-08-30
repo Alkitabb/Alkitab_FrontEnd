@@ -2,7 +2,7 @@ import * as React from 'react';
 import TextField from '@mui/material/TextField';
 import { outlinedInputClasses } from '@mui/material/OutlinedInput';
 import { createTheme, ThemeProvider, useTheme } from '@mui/material/styles';
-// import { InputAdornment } from '@mui/material';
+import { InputAdornment } from '@mui/material';
 
 const customTheme = (outerTheme) =>
     createTheme({
@@ -56,12 +56,12 @@ export default function CustomizedInputsStyleOverrides({ inputType, icon, placeh
                 autoComplete='on'
                 fullWidth
                 // className='bg-background'
-                // InputProps={{
-                //     startAdornment: icon ?
-                //         <InputAdornment position="start">
-                //             {icon}
-                //         </InputAdornment> : null,
-                // }}
+                InputProps={{
+                    startAdornment: icon ?
+                        <InputAdornment position="start">
+                            {icon}
+                        </InputAdornment> : null,
+                }}
             />
         </ThemeProvider>
     );

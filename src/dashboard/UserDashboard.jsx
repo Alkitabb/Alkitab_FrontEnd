@@ -368,7 +368,7 @@ export default function MiniDrawer() {
           </NavLink>
 
         </Toolbar>
-        {/* <Divider /> */}
+        <Divider />
 
       </AppBar>
       {renderMobileMenu}

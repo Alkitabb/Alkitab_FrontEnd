@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-function ImageUpload() {
+function ImageUpload({ variant }) {
 
     const [selectedImage, setSelectedImage] = useState(null);
 
@@ -19,7 +19,7 @@ function ImageUpload() {
     const handleImageDelete = () => { setSelectedImage(null) }
 
     return (
-        <div className="bg-background w-[172px] h-[172px] flex flex-col justify-center items-center gap-3 rounded-xl border border-[#E0E3E7] relative">
+        <div className={`${variant ? 'lg:w-full md:w-[372px] h-[302px] px-8' : 'w-[172px] h-[172px] '} bg-background flex flex-col justify-center items-center gap-3 rounded-xl border border-[#E0E3E7] relative`}>
 
             <span className={`${selectedImage ? 'flex' : 'hidden'} absolute gap-1 top-3 right-3 transition-all duration-300`}>
                 <label label htmlFor="image-upload-input" title='Upload avatar' className='cursor-pointer'>
@@ -72,6 +72,14 @@ function ImageUpload() {
                 </svg>
                 Upload Image
             </label>
+
+            {
+                variant &&
+                <p className={`${selectedImage ? 'hidden' : 'flex'} text-center text-label-1 text-black-30`}>
+                    Upload a cover image for your product.
+                    File Format jpeg, png Recommened Size 600x600 (1:1)
+                </p>
+            }
 
             <input
                 id="image-upload-input"
