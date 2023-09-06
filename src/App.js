@@ -21,9 +21,9 @@ function App() {
       <InternetConnectionChecker />
 
       <Routes>
-        <Route path='/UserLogin' element={<UserLogin />} />
+        <Route path='/login' element={<UserLogin />} />
 
-        <Route path='/UserRegistration' element={<UserRegistration />} />
+        <Route path='/register' element={<UserRegistration />} />
 
         {/* <<<<<<<<<<========== Dashboard ==========>>>>>>>>>> Start */}
         {/* <<<<<<<<<<===============================>>>>>>>>>> */}

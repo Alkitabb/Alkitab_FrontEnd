@@ -18,44 +18,26 @@ function UserLogin() {
 
   // Page Title ==========>>>>>>>>>>
   useEffect(() => {
-
     document.title = "Login to your Account"
-
   }, [])
-
-
 
   // Form Validation ==========>>>>>>>>>>
   const onSubmit = () => {
-
     if (values.email === 'test@mail.com' && values.password === 'testt') {
-
       handleAlert('Login successful', 'success');
-
     } else {
-
       handleAlert('Email or Password is incorrect, Try again', 'error');
-
     }
-
    console.log(values)
   };
 
-
   const { values, handleBlur, handleSubmit, handleChange, errors } = useFormik({
-
     initialValues: {
-
       email: '',
-
       password: '',
-
     },
-
     validationSchema: loginSchema, //Form Validation schema for Login page
-
     onSubmit,
-
   });
   console.log(errors);
 
@@ -188,7 +170,7 @@ function UserLogin() {
                 {/*  Password Input ==========>>>>>>>>>>*/}
                 <p className='text-paragraph-2 text-black-30 flex justify-center gap-1'>
                   Don’t have an account?
-                  <NavLink to={'/UserRegistration'} underline="hover" >
+                  <NavLink to={'/register'} underline="hover" >
                     <span className='text-primary-100 text-paragraph-2'>Sign Up</span>
                   </NavLink>
                 </p>

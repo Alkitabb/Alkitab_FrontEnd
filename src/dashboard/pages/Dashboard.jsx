@@ -13,9 +13,9 @@ function Dashboard() {
         <DashboardSummaryCard
           cardInfoOneTitle={'Sales'}
           clickToPage={'/Sales'}
-          infoOneVolume={'₦4,000'}
+          infoOneVolume={'₦4,000,000'}
           cardInfoTwoTitle={'Volume'}
-          infoTwoVolume={'450'}
+          infoTwoVolume={'200'}
           infoTwoPercentage={'+20.00%'}
           icon={
             <svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -30,11 +30,11 @@ function Dashboard() {
         <DashboardSummaryCard
           cardInfoOneTitle={'Staffs'}
           clickToPage={'/Staffs'}
-          infoOneVolume={'1,250'}
+          infoOneVolume={'25'}
           infoOnePercentage={'+20.00%'}
           cardInfoTwoTitle={'Active'}
           infoTwoPercentage={'+20%'}
-          infoTwoVolume={'80'}
+          infoTwoVolume={'8'}
           icon={
             <svg width="37" height="36" viewBox="0 0 37 36" fill="none" xmlns="http://www.w3.org/2000/svg">
               <rect x="0.666992" width="36" height="36" rx="8" fill="#FFCC91" fillOpacity="0.16" />
@@ -120,7 +120,6 @@ function Dashboard() {
                   </svg>
                 } />
             </div>
-
           </div>
 
           <div>

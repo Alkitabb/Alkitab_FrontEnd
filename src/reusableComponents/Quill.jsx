@@ -12,7 +12,7 @@ function Quill() {
 
     return (
         <div className='h-[163px]'>
-            <ReactQuill  theme="snow" value={value} onChange={setValue} placeholder='Your text goes here' className='h-full rounded-md border-[#E0E3E7] hover:border-[#B2BAC2] focus:border-[#6F7E8C]'/>
+            <ReactQuill theme="snow" value={value} onChange={setValue} placeholder='Your text goes here' className='h-full rounded-md border-[#E0E3E7] hover:border-[#B2BAC2] focus:border-[#6F7E8C]'/>
         </div>
     )
 }

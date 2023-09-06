@@ -108,7 +108,7 @@ function AddInventory() {
                                             onChange={handleDiscountSwitchChange}
                                             inputProps={{ 'aria-label': 'controlled' }}
                                             size='small'
-                                        // color='secondary'
+                                            color='secondary'
                                         />
                                     </span>
                                 </span>
@@ -143,7 +143,7 @@ function AddInventory() {
                                             onChange={handleExpirySwitchChange}
                                             inputProps={{ 'aria-label': 'controlled' }}
                                             size='small'
-                                        // color='secondary'
+                                            color='secondary'
                                         />
                                     </span>
                                 </span>
@@ -169,7 +169,7 @@ function AddInventory() {
 
                         <section className='flex flex-col gap-[20px] px-0'>
                             {/* <<<<<<<<<<========== Short Description Area ==========>>>>>>>>>> */}
-                            <textarea className='border border-[#E0E3E7] hover:border-[#B2BAC2] focus:border-[#6F7E8C] p-3 outline-none rounded-md' placeholder='Short Description' name="" id="" cols="30" rows="5"></textarea>
+                            <textarea className='border border-[#E0E3E7] hover:border-[#B2BAC2] focus:border-[#6F7E8C] p-3 outline-none rounded-md placeholder:text-label-1' placeholder='Short Description' name="" id="" cols="30" rows="3"></textarea>
 
                             {/* <<<<<<<<<<========== Long Description Area ==========>>>>>>>>>> */}
                             <span className='flex flex-col gap-2'>
