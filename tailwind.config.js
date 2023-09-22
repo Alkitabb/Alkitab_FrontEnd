@@ -44,17 +44,16 @@ module.exports = {
       // Primary #7017E0 ==========>>>>>>>>>>
 
       // 'primary-100': '#',
-      'primary-100': '#7017E0',
-      'primary-90': '#7725E8',
-      'primary-80': '#7E32F0',
-      'primary-70': '#8540F7',
-      'primary-60': '#8C4EFF',
-      'primary-50': '#935DFF',
-      'primary-40': '#9A6BFF',
-      'primary-30': '#A179FF',
-      'primary-20': '#A886FF',
-      'primary-10': '#AF94FF',
-      
+      'primary-100': '#6D5CD4',
+        'primary-90': '#7559D9',
+        'primary-80': '#7D57DE',
+        'primary-70': '#8554E3',
+        'primary-60': '#8D52E8',
+        'primary-50': '#955FED',
+        'primary-40': '#9D5DF2',
+        'primary-30': '#A55AF7',
+        'primary-20': '#AD58FC',
+        'primary-10': '#B556FF',
       
       
 

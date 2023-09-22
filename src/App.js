@@ -10,8 +10,7 @@ import Notifications from './dashboard/pages/Notifications'
 import Settings from './dashboard/pages/Settings'
 import Dashboard from './dashboard/pages/Dashboard'
 import InternetConnectionChecker from './reusableComponents/InternetConnectionChecker'
-import AddInventory from './dashboard/pages/inventory/pages/AddInventory'
-// import UserRegistration from './authentication/pages/UserRegistration'
+// import AddInventory from './dashboard/pages/inventory/pages/AddInventory'
 
 function App() {
 
@@ -25,25 +24,33 @@ function App() {
 
         <Route path='/register' element={<UserRegistration />} />
 
+
+
         {/* <<<<<<<<<<========== Dashboard ==========>>>>>>>>>> Start */}
         {/* <<<<<<<<<<===============================>>>>>>>>>> */}
-        <Route path='/' element={<UserDashboard />} children={[
-          <Route path='/' element={<Dashboard />} />,
-          <Route path='/Sales' element={<Sales />} />,
-          <Route path='/Staffs' element={<Staffs />} />,
 
-          // <Route path='/Inventory' element={<Inventory />} children={[
-          //   <Route path='/Inventory/AddInventory' element={<AddInventory />} />,
-          // ]}/>,
+        <Route path='/'
+          element={<UserDashboard />}
 
-          <Route path='/Inventory' element={<Inventory />} />,
+          children={[
 
+            <Route path='/' element={<Dashboard />} />,
 
+            <Route path='/Sales' element={<Sales />} />,
 
-          <Route path='/Notifications' element={<Notifications />} />,
-          <Route path='/Settings' element={<Settings />} />,
-        ]} />
+            <Route path='/Staffs' element={<Staffs />} />,
+
+            <Route path='/Inventory' element={<Inventory />} />,
+
+            <Route path='/Notifications' element={<Notifications />} />,
+
+            <Route path='/Settings' element={<Settings />} />,
+          ]}
+        />
+
         {/* <<<<<<<<<<===============================>>>>>>>>>> End */}
+
+
 
       </Routes>
     </>

@@ -88,7 +88,7 @@ function Dashboard() {
                 infoTwoPercentage={'+24%'}
                 height={'159px'}
                 clickToPage={'/Inventory'}
-                className={' bg-primary-90 hover:bg-primary-100 transition-all duration-300 text-white'}
+                className={' bg-primary-100 hover:bg-primary-90 transition-all duration-300 text-white'}
                 icon={
                   <svg width="37" height="36" viewBox="0 0 37 36" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <rect x="0.669922" width="36" height="36" rx="8" fill="white" fillOpacity="0.16" />

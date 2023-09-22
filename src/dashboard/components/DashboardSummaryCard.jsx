@@ -33,17 +33,29 @@ const DashboardSummaryCard = ({
 
             <div className='flex flex-wrap justify-between w-full'>
                 {[
+
                     { title: cardInfoOneTitle, volume: infoOneVolume, percentage: infoOnePercentage },
                     { title: cardInfoTwoTitle, volume: infoTwoVolume, percentage: infoTwoPercentage },
                     { title: cardInfoThreeTitle, volume: infoThreeVolume, percentage: infoThreePercentage },
-                ].map(({ title, volume, percentage }) => (
-                    <div key={title}>
-                        <label className={`${textColor} text-label-1 lg:text-paragraph-2`}>{title}</label>
-                        <span className='flex items-center gap-1'>
-                            <h3 className='text-paragraph-1 lg:text-sub-heading-3 font-medium'>{volume}</h3>
-                            <label className={`${className ? 'text-primary-10' : 'text-go'} text-label-2 lg:text-label-3`}>{percentage}</label>
-                        </span>
-                    </div>
+
+                ].map(({
+                    title,
+                    volume,
+                    percentage
+                }) => (
+
+                    <table className='table-auto' key={title}>
+                        <tr className='w-full'>
+                            <td className='w-full'>
+                                <label className={`${textColor} text-label-1 lg:text-paragraph-2`}>{title}</label>
+                                <span className='flex items-center gap-1'>
+                                    <h3 className='text-paragraph-1 lg:text-sub-heading-3 font-medium'>{volume}</h3>
+                                    <label className={`${className ? 'text-white' : 'text-go'} text-label-2 lg:text-label-3`}>{percentage}</label>
+                                </span>
+                            </td>
+                        </tr>
+                    </table>
+
                 ))}
             </div>
         </NavLink>

@@ -28,7 +28,6 @@ function DoughnutChart() {
         //     'Yellow'
         // ],
 
-
         datasets: [{
             // borderRadius: 19,
             // barPercentage: 0.5,
@@ -39,15 +38,13 @@ function DoughnutChart() {
             data: [300, 200, 100],
 
             backgroundColor: [
-                '#7017E0',
+                '#6D5CD4',
                 '#89E100',
                 '#97A5EB',
             ],
 
             hoverOffset: 4,
-
             borderWidth: 1,
-
             // innerWidth: 200
         }]
 
@@ -62,19 +59,19 @@ function DoughnutChart() {
 
     return (
         <div className='p-3 lg:p-5 bg-white h-[337px] rounded-xl w-full flex flex-col justify-between transition-all duration-300 border-primary-10 border border-opacity-20'>
-            <header className='flex items-center justify-between'>
-                <h3 className='text-paragraph-1 font-medium'>
-                    Marketting
-                </h3>
 
+            <header className='flex items-center justify-between'>
+                <h3 className='text-paragraph-1 font-medium'>Marketting</h3>
                 <p className='text-label-1 text-black-10'>This Week</p>
             </header>
+
             <div className='grid place-content-center h-full'>
                 <div className="min-w-[250px] h-[250px] w-full rounded-full bg-background relative">
                     <div className='p-10 bg-white rounded-full absolute z-5 top-[36%] left-[34%]'></div>
                     <Doughnut data={data} options={options} className='absolute p-3 z-10' />
                 </div>
             </div>
+
         </div>
     )
 }

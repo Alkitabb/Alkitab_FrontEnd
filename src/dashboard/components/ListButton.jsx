@@ -12,7 +12,7 @@ function ListButton({ to, inactiveIcon, activeIcon, open, location, primaryItemT
                     py: 1.5,
                     borderRadius: 3,
                     "&.Mui-selected": {
-                        backgroundColor: "#7017E0",
+                        backgroundColor: "#6D5CD4",
                         color: '#ffffff'
                     },
                     "&.Mui-hover": {

@@ -40,7 +40,7 @@ function BarChart() {
             label: 'Sales',
             data: [75, 99, 80, 70, 56, 55, 70],
             backgroundColor: [
-                '#7017E0',
+                '#6D5CD4',
             ],
             borderColor: [
                 '#6078EC',
