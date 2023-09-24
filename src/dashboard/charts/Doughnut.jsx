@@ -35,7 +35,7 @@ function DoughnutChart() {
             maxBarThickness: 10,
             // minBarLength: 20,
             label: 'My First Dataset',
-            data: [300, 200, 100],
+            data: [1, 2, 5],
 
             backgroundColor: [
                 '#6D5CD4',
@@ -66,7 +66,7 @@ function DoughnutChart() {
             </header>
 
             <div className='grid place-content-center h-full'>
-                <div className="min-w-[250px] h-[250px] w-full rounded-full bg-background relative">
+                <div className="min-w-[250px] h-[250px] w-full rounded-full bg-black-10 bg-opacity-20 relative">
                     <div className='p-10 bg-white rounded-full absolute z-5 top-[36%] left-[34%]'></div>
                     <Doughnut data={data} options={options} className='absolute p-3 z-10' />
                 </div>

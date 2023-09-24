@@ -10,6 +10,7 @@ import Notifications from './dashboard/pages/Notifications'
 import Settings from './dashboard/pages/Settings'
 import Dashboard from './dashboard/pages/Dashboard'
 import InternetConnectionChecker from './reusableComponents/InternetConnectionChecker'
+import ErrorPage from './reusableComponents/ErrorPage'
 // import AddInventory from './dashboard/pages/inventory/pages/AddInventory'
 
 function App() {
@@ -23,6 +24,9 @@ function App() {
         <Route path='/login' element={<UserLogin />} />
 
         <Route path='/register' element={<UserRegistration />} />
+
+        {/* Error Page */}
+        <Route path='*' element={<ErrorPage />} />
 
 
 
