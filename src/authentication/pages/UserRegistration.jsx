@@ -8,7 +8,6 @@ import FormInput from '../../reusableComponents/FormInput';
 import Stepper from '@mui/material/Stepper';
 import Step from '@mui/material/Step';
 import StepLabel from '@mui/material/StepLabel';
-import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import Cards from '../components/Cards';
 import PropTypes from 'prop-types';
@@ -22,23 +21,27 @@ import StepConnector, { stepConnectorClasses } from '@mui/material/StepConnector
 
 
 function UserRegistration() {
-
-    // Page Title ==========>>>>>>>>>>
-    useEffect(() => { document.title = "Get Started" }, [])
+    useEffect(() => { document.title = "Get started with Klusta" }, [])
 
     // SnackBar Alert ==========>>>>>>>>>>
     const [alert, setAlert] = useState(null);
-    // const handleAlert = (message, severity) => {
-    //     setAlert({ message, severity });
-    // };
+    const handleAlert = (message, severity) => {
+        setAlert({ message, severity });
+    };
 
     // To set Account Usage type
-    const [businessType, setBusinessType] = useState('single') //By default, every user is signed up to manage just one business, unless selected otherwise 
-    console.log(businessType);
+    const [businessType, setBusinessType] = useState('single')
+    const handleSelectBusiness = (buttonName) => {
+        setBusinessType(buttonName)
+    }
 
     // Form Validation ==========>>>>>>>>>>
     const onSubmit = () => {
         console.log("Submitted");
+        console.log(values);
+        handleNext()
+        handleAlert("Registration Successful", "success")
+        // location.href("/login")
     };
 
     const { values, handleBlur, handleSubmit, handleChange, errors } = useFormik({
@@ -53,14 +56,12 @@ function UserRegistration() {
         validationSchema: signUpSchema, //Form Validation schema for Login page
         onSubmit,
     });
-    console.log(values);
     console.log(errors);
 
 
     const areValuesFilled = () => {
-        // Check if any of the values in the form are empty
+        // Function to check if any values are empty (except for password and confirmPassword)
         for (const key in values) {
-            // This will check all input fields, exempting the password and confirmPassword fields on the first form iteration
             if (key !== 'password' && key !== 'confirmPassword' && values[key] === '') {
                 return false;
             }
@@ -68,17 +69,26 @@ function UserRegistration() {
         return true; // All values are filled
     };
 
+    const areAllValuesFilled = () => {
+        for (const key in values) {
+            if (values[key] === '') {
+                return false;
+            }
+        }
+        return true;
+    }
+
     // Check if password contains at least one capital letter
     const containsCapitalLetter = (password) => {
-        return /[A-Z]/.test(password) // Checks if the password contains at least one capital letter
+        return /[A-Z]/.test(password)
     }
     // Check if password contains at least one Number
     const containsNumber = (password) => {
-        return /[0-9]/.test(password) // Checks if the password contains at least one Number
+        return /[0-9]/.test(password)
     }
     // Check if password contains LowerCase
     const containsLowercaseLetters = (password) => {
-        return /[a-z]/.test(password) // Checks if the password contains Lower Case letters
+        return /[a-z]/.test(password)
     }
 
 
@@ -110,12 +120,9 @@ function UserRegistration() {
         setActiveStep((prevActiveStep) => prevActiveStep - 1);
     };
 
-    const handleReset = () => {
-        setActiveStep(0);
-    };
 
-    
-
+    // Custom Stepper Here ===========>>>>>>>>>> Start
+    // ==================================================
     const QontoConnector = styled(StepConnector)(({ theme }) => ({
         [`&.${stepConnectorClasses.alternativeLabel}`]: {
             top: 10,
@@ -142,8 +149,8 @@ function UserRegistration() {
     const QontoStepIconRoot = styled('div')(({ theme, ownerState }) => ({
         color: theme.palette.mode === 'dark' ? theme.palette.grey[700] : '#eaeaf0',
         display: 'flex',
-        justifyContent:'space-between',
-        width:'100%',
+        justifyContent: 'space-between',
+        width: '100%',
         height: 22,
         alignItems: 'center',
         ...(ownerState.active && {
@@ -189,7 +196,6 @@ function UserRegistration() {
          */
         completed: PropTypes.bool,
     };
-
 
     const ColorlibStepIconRoot = styled('div')(({ theme, ownerState }) => ({
         backgroundColor: theme.palette.mode === 'dark' ? theme.palette.grey[700] : '#ccc',
@@ -245,17 +251,29 @@ function UserRegistration() {
          */
         icon: PropTypes.node,
     };
+    // Custom Stepper Here ===========>>>>>>>>>> End
+    // ==================================================
 
 
     return (
         <>
+            {/* Render Snackbar if there's an alert */}
+            {alert && (
+                <CustomizedSnackbars
+                    open={alert !== null} // Open Snackbar when alert is not null
+                    message={alert?.message} // Pass the alert message
+                    severity={alert?.severity} // Pass the alert severity
+                    onClose={() => setAlert(null)} // Clear the alert when Snackbar is closed
+                />
+            )}
+
             <div className='bg-white h-screen grid place-content-center relative'>
                 <div className="fixed z-30 bottom-0 text-center w-full p-5 text-paragraph-2 font-thin">Klusta &copy 2023</div>
 
                 {/* <<<<<<<<<<========== Form Area ===========>>>>>>>>>> */}
                 <div className='flex flex-col px-[20px] py-[44px] gap-[60px] rounded-xl lg:w-[30vw] md:w-[50vw]'>
 
-                    <div className='flex flex-col gap-[30px]'>
+                    <div className='flex flex-col gap-[20px]'>
 
                         {/* <<<<<<<<<<========== Header Section ==========>>>>>>>>>> */}
                         <header>
@@ -270,7 +288,7 @@ function UserRegistration() {
                             </Box>
                         </header>
 
-                        {/* <<<<<<<<<<========== Form Area;The actual form  ===========>>>>>>>>>> */}
+                        {/* Form Area;The actual form  ===========>>>>>>>>>> Start */}
                         {/* <<<<<<<<<<=====================>>>>>>>>>> */}
                         <Box
                             component="form"
@@ -332,7 +350,8 @@ function UserRegistration() {
                                     </header>
                                     <div className='flex lg:flex-row md:flex-col flex-col gap-3 mt-5'>
                                         <Cards
-                                            activeState={"active"}
+                                            // cardState={'active'}
+                                            cardState={businessType === 'single' ? 'active' : 'disabled'}
                                             cardIcon={
                                                 <svg width="22" height="18" viewBox="0 0 22 18" fill="none" xmlns="http://www.w3.org/2000/svg">
                                                     <path d="M12.8496 1.25049V3.67049" stroke="#130F26" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
@@ -343,10 +362,11 @@ function UserRegistration() {
                                             }
                                             cardHeader={"Single"}
                                             cardCaption={"Manage your products and sales with Klusta"}
-                                            onClick={() => setBusinessType('single')}
+                                            onClick={() => handleSelectBusiness('single')}
                                         />
                                         <Cards
-                                            activeState={"disabled"}
+                                            cardState={businessType === 'multiple' ? 'active' : 'disabled'}
+                                            // cardState={'disabled'}
                                             cardIcon={
                                                 <svg width="22" height="18" viewBox="0 0 22 18" fill="none" xmlns="http://www.w3.org/2000/svg">
                                                     <path d="M16.8877 7.89673C18.2827 7.70073 19.3567 6.50473 19.3597 5.05573C19.3597 3.62773 18.3187 2.44373 16.9537 2.21973" stroke="#130F26" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
@@ -358,8 +378,8 @@ function UserRegistration() {
                                                 </svg>
                                             }
                                             cardHeader={"Multiple"}
-                                            cardCaption={"Manage multiple businesses with Fullgap"}
-                                        // onClick={() => setBusinessType('multiple')}
+                                            cardCaption={"Manage multiple businesses with Klusta"}
+                                            onClick={() => handleSelectBusiness('multiple')}
                                         />
                                     </div>
                                 </section>
@@ -385,25 +405,25 @@ function UserRegistration() {
                                     <ul className='flex w-full justify-between my-3'>
                                         <li>
                                             <span className='text-center'>
-                                                <h3 className={`${values.password.length >= 8 && 'text-primary-100'} font-bold text-sub-heading-3`}>8+</h3>
+                                                <h3 className={`${values.password.length >= 8 && 'text-primary-100'} font-bold text-sub-heading-3 transition-all duration-300`}>8+</h3>
                                                 <p className='text-paragraph-2 text-black-30'>Characters</p>
                                             </span>
                                         </li>
                                         <li>
                                             <span className='text-center'>
-                                                <h3 className={`${containsCapitalLetter(values.password) && 'text-primary-100'} font-bold text-sub-heading-3`}>AA</h3>
+                                                <h3 className={`${containsCapitalLetter(values.password) && 'text-primary-100'} font-bold text-sub-heading-3 transition-all duration-300`}>AA</h3>
                                                 <p className='text-paragraph-2 text-black-30'>Uppercase</p>
                                             </span>
                                         </li>
                                         <li>
                                             <span className='text-center'>
-                                                <h3 className={`${containsLowercaseLetters(values.password) && 'text-primary-100'} font-bold text-sub-heading-3`}>Aa</h3>
+                                                <h3 className={`${containsLowercaseLetters(values.password) && 'text-primary-100'} font-bold text-sub-heading-3 transition-all duration-300`}>Aa</h3>
                                                 <p className='text-paragraph-2 text-black-30'>Lowercase</p>
                                             </span>
                                         </li>
                                         <li>
                                             <span className='text-center'>
-                                                <h3 className={`${containsNumber(values.password) && 'text-primary-100'} font-bold text-sub-heading-3`}>123</h3>
+                                                <h3 className={`${containsNumber(values.password) && 'text-primary-100'} font-bold text-sub-heading-3 transition-all duration-300`}>123</h3>
                                                 <p className='text-paragraph-2 text-black-30'>Numbers</p>
                                             </span>
                                         </li>
@@ -423,20 +443,13 @@ function UserRegistration() {
                             }
 
 
-                            <div className='flex flex-col gap-10 mt-10'>
-
+                            <div className='flex flex-col gap-2 mt-10'>
                                 <span className='text-center'>
-
-
                                     {activeStep === steps.length ? (
                                         <React.Fragment>
-                                            <Typography sx={{ mt: 2, mb: 1 }}>
-                                                All steps completed - you&apos;re finished
+                                            <Typography sx={{ mt: 0, mb: 5 }}>
+                                                Registration completed - please hold on...
                                             </Typography>
-                                            <Box sx={{ display: 'flex', flexDirection: 'row', pt: 2 }}>
-                                                <Box sx={{ flex: '1 1 auto' }} />
-                                                <Button onClick={handleReset}>Reset</Button>
-                                            </Box>
                                         </React.Fragment>
                                     ) : (
                                         <React.Fragment>
@@ -444,13 +457,21 @@ function UserRegistration() {
 
                                                 <button
                                                     type="submit"
-                                                    className={`${!areValuesFilled() ? 'cursor-no-drop bg-opacity-80' : 'hover:bg-primary-90'} bg-primary-100 transition-all duration-300 text-white w-full py-4 rounded-sm text-paragraph-2 font-bold`}
+                                                    className={`${!areValuesFilled() ? 'cursor-no-drop bg-opacity-80' : 'hover:bg-primary-90'} ${activeStep === 2 && 'hidden'} bg-primary-100 transition-all duration-300 text-white w-full py-4 rounded-sm text-paragraph-2 font-bold`}
                                                     onClick={handleNext}
                                                     disabled={!areValuesFilled()}
                                                 >
                                                     {activeStep === steps.length - 1 ? 'Finish' : 'Next'}
                                                 </button>
 
+                                                <button
+                                                    type="submit"
+                                                    className={`${!areAllValuesFilled() ? 'cursor-no-drop bg-opacity-80' : 'hover:bg-primary-90'} ${activeStep === 2 ? 'block' : 'hidden'} bg-primary-100 transition-all duration-300 text-white w-full py-4 rounded-sm text-paragraph-2 font-bold`}
+                                                    onClick={handleSubmit}
+                                                    disabled={!areAllValuesFilled()}
+                                                >
+                                                    Finish
+                                                </button>
 
                                                 <button className={`${activeStep > 0 ? 'block' : 'hidden'} bg-white text-primary-100 w-full py-4 rounded-sm text-paragraph-2 font-bold border`}
                                                     color="inherit"
@@ -472,19 +493,9 @@ function UserRegistration() {
                                         <span className='text-primary-100 text-paragraph-2'>Sign In</span>
                                     </NavLink>
                                 </p>
-
-
-                                {/* Render Snackbar if there's an alert */}
-                                {alert && (
-                                    <CustomizedSnackbars
-                                        open={alert !== null} // Open Snackbar when alert is not null
-                                        message={alert?.message} // Pass the alert message
-                                        severity={alert?.severity} // Pass the alert severity
-                                        onClose={() => setAlert(null)} // Clear the alert when Snackbar is closed
-                                    />
-                                )}
                             </div>
                         </Box>
+                        {/* <<<<<<<<<<=====================>>>>>>>>>> End */}
                     </div>
                 </div>
             </div>
