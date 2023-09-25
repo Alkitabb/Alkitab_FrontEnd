@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-// import Navbar from '../components/Navbar'
 import Box from '@mui/material/Box';
 import { Link } from '@mui/material';
 import FormInput from '../../reusableComponents/FormInput';
@@ -11,13 +10,11 @@ import CustomizedSnackbars from '../../reusableComponents/CustomizedSnackbars';
 function UserLogin() {
 
   // Page Title ==========>>>>>>>>>>
-  useEffect(() => {
-    document.title = "Login to your Account"
-  }, [])
+  useEffect(() => { document.title = "Login to your Account" }, [])
 
   // Form Validation ==========>>>>>>>>>>
   const onSubmit = () => {
-    if (values.email === 'test@mail.com' && values.password === 'testt') {
+    if (values.email === 'test@mail.com' && values.password === 'testtt') {
       handleAlert('Login successful', 'success');
     } else {
       handleAlert('Email or Password is incorrect, Try again', 'error');
@@ -35,7 +32,7 @@ function UserLogin() {
   });
   console.log(errors);
 
-  
+
   const areAllValuesFilled = () => {
     for (const key in values) {
       if (values[key] === '') {
@@ -44,22 +41,36 @@ function UserLogin() {
     }
     return true
   }
+  const areValuesValid = () => {
+    let isValid = true;
+    for (const key in values) {
+      if (errors[key]) {
+        isValid = false;
+      }
+    }
+    return isValid
+  }
 
 
 
   // SnackBar Alert ==========>>>>>>>>>>
   const [alert, setAlert] = useState(null);
-
   const handleAlert = (message, severity) => {
-
     setAlert({ message, severity });
-
   };
 
 
   return (
     <>
-      {/* <Navbar /> */}
+      {/* Render Snackbar if there's an alert */}
+      {alert && (
+        <CustomizedSnackbars
+          open={alert !== null} // Open Snackbar when alert is not null
+          message={alert?.message} // Pass the alert message
+          severity={alert?.severity} // Pass the alert severity
+          onClose={() => setAlert(null)} // Clear the alert when Snackbar is closed
+        />
+      )}
 
       <div className='bg-white h-screen grid place-content-center relative'>
         <div className="fixed z-30 bottom-0 text-center w-full p-5 text-paragraph-2 font-thin">Klusta &copy 2023</div>
@@ -115,9 +126,9 @@ function UserLogin() {
 
                 <button
                   type="submit"
-                  className={`${!areAllValuesFilled() ? 'cursor-no-drop bg-opacity-80' : 'hover:bg-primary-90'}  bg-primary-100 transition-all duration-300 text-white w-full py-4 rounded-sm text-paragraph-2 font-bold`}
+                  className={`${!areAllValuesFilled() || !areValuesValid() ? 'cursor-no-drop bg-opacity-80' : 'hover:bg-primary-90'}  bg-primary-100 transition-all duration-300 text-white w-full py-4 rounded-sm text-paragraph-2 font-bold`}
                   onClick={handleSubmit}
-                  disabled={!areAllValuesFilled()}
+                  disabled={!areAllValuesFilled() || !areValuesValid()}
                 >
                   Sign In
                 </button>
@@ -129,23 +140,8 @@ function UserLogin() {
                     <span className='text-primary-100 text-paragraph-2'>Sign Up</span>
                   </NavLink>
                 </p>
-
-
-                {/* Render Snackbar if there's an alert */}
-                {alert && (
-                  <CustomizedSnackbars
-                    open={alert !== null} // Open Snackbar when alert is not null
-                    message={alert?.message} // Pass the alert message
-                    severity={alert?.severity} // Pass the alert severity
-                    onClose={() => setAlert(null)} // Clear the alert when Snackbar is closed
-                  />
-                )}
               </div>
-
             </Box>
-
-
-
           </div>
 
         </div>

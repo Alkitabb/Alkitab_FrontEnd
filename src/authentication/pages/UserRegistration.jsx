@@ -32,8 +32,8 @@ function UserRegistration() {
     // To set Account Usage type
     const [businessType, setBusinessType] = useState('single')
     const handleSelectBusiness = (buttonName) => {
-        setBusinessType(buttonName)
-    }
+        setBusinessType(buttonName);
+    };
 
     // Form Validation ==========>>>>>>>>>>
     const onSubmit = () => {
@@ -60,14 +60,24 @@ function UserRegistration() {
 
 
     const areValuesFilled = () => {
-        // Function to check if any values are empty (except for password and confirmPassword)
-        for (const key in values) {
+        for (const key in values) {// Function to check if any values are empty (except for password and confirmPassword)
             if (key !== 'password' && key !== 'confirmPassword' && values[key] === '') {
                 return false;
             }
         }
         return true; // All values are filled
     };
+
+    const areValuesValid = () => {
+        let isValid = true
+        for (const key in values) {
+            if (key !== 'password' && key !== 'confirmPassword' && errors[key]) {
+                isValid = false;
+                break;
+            }
+        }
+        return isValid;
+    }
 
     const areAllValuesFilled = () => {
         for (const key in values) {
@@ -76,20 +86,31 @@ function UserRegistration() {
             }
         }
         return true;
+    };
+
+    const areAllValuesValid = () => {
+        let isValid = true
+        for (const key in values) {
+            if (errors[key]) {
+                isValid = false;
+                break;
+            }
+        }
+        return isValid;
     }
 
-    // Check if password contains at least one capital letter
+
     const containsCapitalLetter = (password) => {
-        return /[A-Z]/.test(password)
-    }
-    // Check if password contains at least one Number
+        return /[A-Z]/.test(password) // Check if password contains at least one capital letter
+    };
+
     const containsNumber = (password) => {
-        return /[0-9]/.test(password)
-    }
-    // Check if password contains LowerCase
+        return /[0-9]/.test(password) // Check if password contains at least one Number
+    };
+
     const containsLowercaseLetters = (password) => {
-        return /[a-z]/.test(password)
-    }
+        return /[a-z]/.test(password)// Check if password contains LowerCase
+    };
 
 
     const steps = ['Select campaign settings', 'Create an ad group', 'Create an ad'];
@@ -101,10 +122,7 @@ function UserRegistration() {
     };
 
     const handleNext = () => {
-        // Check if any of the form fields are empty
-        if (!areValuesFilled()) {
-            return; // Values are empty, do not proceed
-        }
+        if (!areValuesFilled()) { return; } // Check if any of the form fields are empty
 
         let newSkipped = skipped;
         if (isStepSkipped(activeStep)) {
@@ -269,12 +287,9 @@ function UserRegistration() {
 
             <div className='bg-white h-screen grid place-content-center relative'>
                 <div className="fixed z-30 bottom-0 text-center w-full p-5 text-paragraph-2 font-thin">Klusta &copy 2023</div>
-
                 {/* <<<<<<<<<<========== Form Area ===========>>>>>>>>>> */}
                 <div className='flex flex-col px-[20px] py-[44px] gap-[60px] rounded-xl lg:w-[30vw] md:w-[50vw]'>
-
                     <div className='flex flex-col gap-[20px]'>
-
                         {/* <<<<<<<<<<========== Header Section ==========>>>>>>>>>> */}
                         <header>
                             <Box sx={{ width: '100%' }}>
@@ -457,18 +472,18 @@ function UserRegistration() {
 
                                                 <button
                                                     type="submit"
-                                                    className={`${!areValuesFilled() ? 'cursor-no-drop bg-opacity-80' : 'hover:bg-primary-90'} ${activeStep === 2 && 'hidden'} bg-primary-100 transition-all duration-300 text-white w-full py-4 rounded-sm text-paragraph-2 font-bold`}
+                                                    className={`${!areValuesFilled() || !areValuesValid() ? 'cursor-no-drop bg-opacity-80' : 'hover:bg-primary-90'} ${activeStep === 2 && 'hidden'} bg-primary-100 transition-all duration-300 text-white w-full py-4 rounded-sm text-paragraph-2 font-bold`}
                                                     onClick={handleNext}
-                                                    disabled={!areValuesFilled()}
+                                                    disabled={!areValuesFilled() || !areValuesValid()}
                                                 >
                                                     {activeStep === steps.length - 1 ? 'Finish' : 'Next'}
                                                 </button>
 
                                                 <button
                                                     type="submit"
-                                                    className={`${!areAllValuesFilled() ? 'cursor-no-drop bg-opacity-80' : 'hover:bg-primary-90'} ${activeStep === 2 ? 'block' : 'hidden'} bg-primary-100 transition-all duration-300 text-white w-full py-4 rounded-sm text-paragraph-2 font-bold`}
+                                                    className={`${!areAllValuesFilled() || !areAllValuesValid() ? 'cursor-no-drop bg-opacity-80' : 'hover:bg-primary-90'} ${activeStep === 2 ? 'block' : 'hidden'} bg-primary-100 transition-all duration-300 text-white w-full py-4 rounded-sm text-paragraph-2 font-bold`}
                                                     onClick={handleSubmit}
-                                                    disabled={!areAllValuesFilled()}
+                                                    disabled={!areAllValuesFilled() || !areAllValuesValid()}
                                                 >
                                                     Finish
                                                 </button>
@@ -481,6 +496,7 @@ function UserRegistration() {
                                                 >
                                                     Previous
                                                 </button>
+
                                                 <Box sx={{ flex: '1 1 auto' }} />
 
                                             </Box>
