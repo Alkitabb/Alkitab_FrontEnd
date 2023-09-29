@@ -76,15 +76,15 @@ function UserLogin() {
         <div className="fixed z-30 bottom-0 text-center w-full p-5 text-paragraph-2 font-thin">Klusta &copy 2023</div>
 
         {/* <<<<<<<<<<========== Form Area ===========>>>>>>>>>> */}
-        <div className='bg-white flex flex-col px-[34px] py-[44px] gap-[60px] rounded-xl lg:w-[30vw] md:w-[50vw]'>
-
+        <div className='flex flex-col px-[20px] py-[44px] gap-[60px] rounded-xl lg:w-[30vw] md:w-[50vw] w-[95vw]'>
           <div className='flex flex-col gap-[30px]'>
 
             {/* <<<<<<<<<<========== Header Section ==========>>>>>>>>>> */}
-            <header className='flex flex-col gap-1 text-center'>
+            <header className='flex flex-col text-center'>
               <h3 className='text-sub-heading-2'>Welcome Back!</h3>
               <p className='text-paragraph-1 text-black-30'>Sign in to your Klusta account</p>
             </header>
+
 
             {/* <<<<<<<<<<========== Form Area;The actual form ===========>>>>>>>>>> */}
             {/* <<<<<<<<<<=====================>>>>>>>>>> */}
@@ -93,6 +93,9 @@ function UserLogin() {
               noValidate
               autoComplete="off"
               onSubmit={handleSubmit}
+              sx={{
+                width: '100%'
+            }}
             >
               {/* <<<<<<<<<<========== Input fields ==========>>>>>>>>>>*/}
               <div className='flex flex-col gap-[30px] px-0'>
@@ -116,7 +119,7 @@ function UserLogin() {
                 />
               </div>
 
-              <div className='flex flex-col gap-5 mt-2'>
+              <div className='flex flex-col gap-5 mt-1'>
                 {/* Recover Password ==========>>>>>>>>>>*/}
                 <span className='text-start'>
                   <Link href="#" underline="hover" >

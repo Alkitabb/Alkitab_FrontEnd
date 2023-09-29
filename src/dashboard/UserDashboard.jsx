@@ -22,8 +22,9 @@ import AccountCircle from '@mui/icons-material/AccountCircle';
 import MoreIcon from '@mui/icons-material/MoreVert';
 // import { BsGrid } from 'react-icons/bs'
 import { NavLink, Outlet, useLocation } from 'react-router-dom';
-import { Divider, ListItemButton, ListItemIcon, ListItemText } from '@mui/material';
+import { Divider, ListItemButton, ListItemIcon, ListItemText, Tooltip } from '@mui/material';
 import ListButton from './components/ListButton';
+import PageHistoryPath from './components/PageHistoryPath';
 
 
 
@@ -150,7 +151,7 @@ export default function MiniDrawer() {
   const menuId = 'primary-search-account-menu';
   const renderMenu = (
 
-    <Menu 
+    <Menu
       anchorEl={anchorEl}
       anchorOrigin={{
         vertical: 'top',
@@ -318,7 +319,7 @@ export default function MiniDrawer() {
 
           {/* <<<<<<<<<<========== Mobile Menu ==========>>>>>>>>>> */}
           {/* <<<<<<<<<<====================>>>>>>>>>> */}
-          <Box sx={{ display: { xs: 'flex', md: 'none'} }}>
+          <Box sx={{ display: { xs: 'flex', md: 'none' } }}>
             <IconButton
               aria-label="show more"
               size="large"
@@ -345,32 +346,12 @@ export default function MiniDrawer() {
         ... gives visual path to users on where they currently ar on the software.
         
         ==========>>>>>>>>>> */}
-        <Toolbar variant=''
-          sx={{
-            py: 0.5,
-            display: 'flex',
-            alignItems: 'center',
-            gap: 1
-          }}
-        >
+        <PageHistoryPath />
 
-          {/* <<<<<<<<<<========== This button would help to return to the main page (home page of your vurrent path) ==========>>>>>>>>> */}
-          <NavLink to={'/'} title={'Home'}>
-            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M6.09615 13.8548V11.8102C6.09614 11.2921 6.51744 10.8711 7.03928 10.8679H8.9554C9.47957 10.8679 9.9045 11.2898 9.9045 11.8102V13.8488C9.90449 14.2982 10.2697 14.6634 10.7223 14.6667H12.0295C12.6401 14.6682 13.2262 14.4285 13.6584 14.0005C14.0907 13.5724 14.3337 12.9912 14.3337 12.385V6.57724C14.3336 6.0876 14.115 5.62315 13.7367 5.30901L9.29564 1.78286C8.51933 1.16609 7.41057 1.18602 6.65725 1.83027L2.31167 5.30901C1.91549 5.61389 1.67869 6.07972 1.66699 6.57724V12.3791C1.66699 13.6425 2.69858 14.6667 3.97111 14.6667H5.24852C5.46644 14.6682 5.67598 14.5834 5.83064 14.431C5.9853 14.2785 6.07228 14.0711 6.07227 13.8548H6.09615Z" fill="#7017E0" />
-            </svg>
-          </NavLink>
-
-          <NavLink to={'#'}>
-            <p className='text-label-1'>
-              {'/  ' + location.pathname.slice(1)}
-            </p>
-          </NavLink>
-
-        </Toolbar>
         <Divider />
 
       </AppBar>
+
       {renderMobileMenu}
       {renderMenu}
 
@@ -570,7 +551,7 @@ export default function MiniDrawer() {
                 py: 1.5,
                 width: '100%',
                 borderRadius: 3,
-                backgroundColor: '#DEEEE8',
+                backgroundColor: '#EFEFF0',
                 "&.Mui-selected": {
                   backgroundColor: "#7017E0",
                   color: '#ffffff'
@@ -580,11 +561,16 @@ export default function MiniDrawer() {
                   outline: 'none',
                   color: '#ffffff',
                 },
-                // ":hover": {
-                //     backgroundColor: "#7017E0",
-                //     color: '#ffffff'
-                // },
+                // ...(open
+                //   ? {
+                    "&:hover": {
+                      backgroundColor: "#7017E0",
+                      color: '#ffffff'
+                    }
+                  // }
+                  // : {}), // Apply hover styles conditionally
               }}
+
             // selected={isSelected}
             >
               <ListItemIcon
@@ -608,6 +594,7 @@ export default function MiniDrawer() {
                 py: 1.5,
                 width: '100%',
                 borderRadius: 3,
+                marginBottom: 3,
                 backgroundColor: '#FFF2E2',
                 "&.Mui-selected": {
                   backgroundColor: "#7017E0",
@@ -644,41 +631,43 @@ export default function MiniDrawer() {
             </ListItemButton>
 
             {/* Log Out Button ==========>>>>>>>>>> */}
-            <ListItemButton
+            <Tooltip title={'Logout'} placement="right" arrow
               sx={{
-                py: 1.5,
-                width: '100%',
-                borderRadius: 3,
-                "&.Mui-selected": {
-                  backgroundColor: "#7017E0",
-                  color: '#ffffff'
-                },
-                "&.Mui-focusVisible": {
-                  backgroundColor: "#6D83EC",
-                  outline: 'none',
-                  color: '#ffffff'
-                },
-                // ":hover": {
-                //     backgroundColor: "#7017E0",
-                //     color: '#ffffff'
-                // },
+                display: open ? 'block' : 'none',
               }}
-            // selected={isSelected}
             >
-              <ListItemIcon
+              <ListItemButton
                 sx={{
-                  minWidth: 0,
-                  mr: open ? 3 : 'auto',
-                  justifyContent: 'center',
+                  py: 1.5,
+                  width: '100%',
+                  borderRadius: 3,
+                  "&.Mui-selected": {
+                    backgroundColor: "#7017E0",
+                    color: '#ffffff'
+                  },
+                  "&.Mui-focusVisible": {
+                    backgroundColor: "#6D83EC",
+                    outline: 'none',
+                    color: '#ffffff'
+                  },
                 }}
+              // selected={isSelected}
               >
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path opacity="0.4" d="M2 6.447C2 3.996 4.03024 2 6.52453 2H11.4856C13.9748 2 16 3.99 16 6.437V17.553C16 20.005 13.9698 22 11.4744 22H6.51537C4.02515 22 2 20.01 2 17.563V16.623V6.447Z" fill="#CC5F5F" />
-                  <path d="M21.7792 11.4548L18.9334 8.5458C18.6393 8.2458 18.166 8.2458 17.8728 8.5478C17.5807 8.8498 17.5816 9.3368 17.8748 9.6368L19.434 11.2298H17.9391H9.54875C9.13483 11.2298 8.79883 11.5748 8.79883 11.9998C8.79883 12.4258 9.13483 12.7698 9.54875 12.7698H19.434L17.8748 14.3628C17.5816 14.6628 17.5807 15.1498 17.8728 15.4518C18.0199 15.6028 18.2118 15.6788 18.4046 15.6788C18.5955 15.6788 18.7873 15.6028 18.9334 15.4538L21.7792 12.5458C21.9204 12.4008 22.0003 12.2048 22.0003 11.9998C22.0003 11.7958 21.9204 11.5998 21.7792 11.4548Z" fill="#CC5F5F" />
-                </svg>
-              </ListItemIcon>
-              <ListItemText primary={'Logout'} sx={{ opacity: open ? 1 : 0, color: '#CC5F5F' }} />
-            </ListItemButton>
+                <ListItemIcon
+                  sx={{
+                    minWidth: 0,
+                    mr: open ? 3 : 'auto',
+                    justifyContent: 'center',
+                  }}
+                >
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path opacity="0.4" d="M2 6.447C2 3.996 4.03024 2 6.52453 2H11.4856C13.9748 2 16 3.99 16 6.437V17.553C16 20.005 13.9698 22 11.4744 22H6.51537C4.02515 22 2 20.01 2 17.563V16.623V6.447Z" fill="#CC5F5F" />
+                    <path d="M21.7792 11.4548L18.9334 8.5458C18.6393 8.2458 18.166 8.2458 17.8728 8.5478C17.5807 8.8498 17.5816 9.3368 17.8748 9.6368L19.434 11.2298H17.9391H9.54875C9.13483 11.2298 8.79883 11.5748 8.79883 11.9998C8.79883 12.4258 9.13483 12.7698 9.54875 12.7698H19.434L17.8748 14.3628C17.5816 14.6628 17.5807 15.1498 17.8728 15.4518C18.0199 15.6028 18.2118 15.6788 18.4046 15.6788C18.5955 15.6788 18.7873 15.6028 18.9334 15.4538L21.7792 12.5458C21.9204 12.4008 22.0003 12.2048 22.0003 11.9998C22.0003 11.7958 21.9204 11.5998 21.7792 11.4548Z" fill="#CC5F5F" />
+                  </svg>
+                </ListItemIcon>
+                <ListItemText primary={'Logout'} sx={{ opacity: open ? 1 : 0, color: '#CC5F5F' }} />
+              </ListItemButton>
+            </Tooltip>
 
           </ListItem>
         </List>

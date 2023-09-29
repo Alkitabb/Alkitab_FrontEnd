@@ -1,7 +1,7 @@
 import * as React from 'react';
 import PropTypes from 'prop-types';
-// import Tabs from '@mui/material/Tabs';
-// import Tab from '@mui/material/Tab';
+import Tabs from '@mui/material/Tabs';
+import Tab from '@mui/material/Tab';
 import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
 // import { InputAdornment, TextField } from '@mui/material';
@@ -35,20 +35,20 @@ CustomTabPanel.propTypes = {
   value: PropTypes.number.isRequired,
 };
 
-// function a11yProps(index) {
-//   return {
-//     id: `simple-tab-${index}`,
-//     'aria-controls': `simple-tabpanel-${index}`,
-//   };
-// }
+function a11yProps(index) {
+  return {
+    id: `simple-tab-${index}`,
+    'aria-controls': `simple-tabpanel-${index}`,
+  };
+}
 
 export default function Settings() {
 
-  const [value, ] = React.useState(0);
+  const [value, setValue] = React.useState(0);
 
-  // const handleChange = (event, newValue) => {
-  //   setValue(newValue);
-  // };
+  const handleChange = (event, newValue) => {
+    setValue(newValue);
+  };
 
 
 
@@ -64,15 +64,19 @@ export default function Settings() {
   // console.log(formik.values);
 
   return (
-    <section className='lg:px-10 md:px-10 px-3 py-2 bg-white rounded-xl w-full border-primary-10 border border-opacity-20'>
+    <section className='lg:px-10 md:px-10 px-3 py-2 bg-white rounded-xl w-full'>
 
-      {/* <Box>
-        <Tabs value={value} onChange={handleChange} aria-label="basic tabs example">
+      <Box>
+        <Tabs value={value} onChange={handleChange} aria-label="basic tabs example" 
+        indicatorColor="secondary"
+        textColor="inherit"
+        variant='fullWidth'
+        >
           <Tab sx={{ py: 0 }} label="Account" {...a11yProps(0)} />
           <Tab sx={{ py: 0 }} label="Business" {...a11yProps(1)} />
           <Tab sx={{ py: 0 }} label="Security" {...a11yProps(2)} />
         </Tabs>
-      </Box> */}
+      </Box>
 
       <Box
         sx={{

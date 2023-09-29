@@ -19,7 +19,7 @@ function ImageUpload({ variant }) {
     const handleImageDelete = () => { setSelectedImage(null) }
 
     return (
-        <div className={`${variant ? 'lg:w-full md:w-[372px] h-[302px] px-8' : 'w-[172px] h-[172px] '} bg-background flex flex-col justify-center items-center gap-3 rounded-xl border border-[#E0E3E7] relative`}>
+        <div className={`${variant ? 'lg:w-full md:w-[372px] h-[302px] px-8' : 'w-[172px] h-[172px] '} bg-background flex flex-col justify-center items-center gap-3 rounded-2xl border border-[#E0E3E7] relative`}>
 
             <span className={`${selectedImage ? 'flex' : 'hidden'} absolute gap-1 top-3 right-3 transition-all duration-300`}>
                 <label label htmlFor="image-upload-input" title='Upload avatar' className='cursor-pointer'>

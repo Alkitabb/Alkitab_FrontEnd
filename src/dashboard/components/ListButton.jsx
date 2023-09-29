@@ -1,4 +1,4 @@
-import { Badge, ListItemButton, ListItemIcon, ListItemText } from '@mui/material';
+import { Badge, ListItemButton, ListItemIcon, ListItemText, Tooltip } from '@mui/material';
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 
@@ -7,42 +7,45 @@ function ListButton({ to, inactiveIcon, activeIcon, open, location, primaryItemT
 
     return (
         <NavLink to={to}>
-            <ListItemButton
+            <Tooltip title={primaryItemText} placement="right" arrow
                 sx={{
-                    py: 1.5,
-                    borderRadius: 3,
-                    "&.Mui-selected": {
-                        backgroundColor: "#6D5CD4",
-                        color: '#ffffff'
-                    },
-                    "&.Mui-hover": {
-                        backgroundColor: "#6D83EC",
-                        outline: 'none',
-                        color: '#ffffff'
-                    },
-                    // ":hover": {
-                    //     backgroundColor: "#7017E0",
-                    //     color: '#ffffff'
-                    // },
+                    display: open ? 'block' : 'none',
                 }}
-                selected={isSelected}
-                onClick={onClick}
             >
-                <ListItemIcon
+                <ListItemButton
                     sx={{
-                        minWidth: 0,
-                        mr: open ? 3 : 'auto',
-                        justifyContent: 'center',
+                        py: 1.5,
+                        borderRadius: 2,
+                        marginBottom: 1,
+                        "&.Mui-selected": {
+                            backgroundColor: "#6D5CD4",
+                            color: '#ffffff'
+                        },
+                        "&.Mui-hover": {
+                            backgroundColor: "#6D83EC",
+                            outline: 'none',
+                            color: '#ffffff'
+                        },
                     }}
+                    selected={isSelected}
+                    onClick={onClick}
                 >
-                    <Badge badgeContent={notification ? notification : null} color='warning'>
-                        {isSelected ? activeIcon : inactiveIcon}
-                    </Badge>
-                </ListItemIcon>
+                    <ListItemIcon
+                        sx={{
+                            minWidth: 0,
+                            mr: open ? 3 : 'auto',
+                            justifyContent: 'center',
+                        }}
+                    >
+                        <Badge badgeContent={notification ? notification : null} color='warning'>
+                            {isSelected ? activeIcon : inactiveIcon}
+                        </Badge>
+                    </ListItemIcon>
 
-                <ListItemText primary={primaryItemText} secondary={secondaryItemText} sx={{ opacity: open ? 1 : 0 }} />
-            </ListItemButton>
-        </NavLink>
+                    <ListItemText primary={primaryItemText} secondary={secondaryItemText} sx={{ opacity: open ? 1 : 0 }} />
+                </ListItemButton>
+            </Tooltip>
+        </NavLink >
     );
 }
 
