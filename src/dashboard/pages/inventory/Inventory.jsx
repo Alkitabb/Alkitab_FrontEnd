@@ -84,8 +84,8 @@ function Inventory() {
 
                   <div className='text-center'>
                     <span className='flex flex-col gap-2'>
-                      <h3 className='text-paragraph-2 lg:text-sub-heading-3 font-medium'>No Items Yet?</h3>
-                      <p className='text-black-30 text-label-1 lg:text-paragraph-2'>Add products to your store.</p>
+                      <h3 className='text-paragraph-2 lg:text-sub-heading-3 text-black-30 leading-tight font-bold'>No Items Yet?</h3>
+                      <p className='text-black-10 text-label-1 lg:text-paragraph-2 flex flex-wrap w-[80%] mx-auto leading-tight'>Add products to your store.</p>
                     </span>
 
                     {/* Button ==========>>>>>>>>>> */}

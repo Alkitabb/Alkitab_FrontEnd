@@ -402,7 +402,7 @@ function Staffs() {
 
           <div style={{ height: '100%', width: '100%', border: 'none' }} className='bg-white rounded-xl'>
             <header className='p-5'>
-              <h3 className="text-sub-heading-3 font-medium">Staff</h3>
+              <h3 className="text-sub-heading-2 text-black-50 leading-tight font-bold">Staff Information.</h3>
             </header>
             <DataGrid
               rows={rows}
@@ -428,8 +428,8 @@ function Staffs() {
 
               <div className='text-center'>
                 <span className='flex flex-col gap-2'>
-                  <h3 className='text-paragraph-2 lg:text-sub-heading-3 font-medium'>No Staffs Yet?</h3>
-                  <p className='text-black-30 text-label-1 lg:text-paragraph-2'>Onboard new staffs to your Business.</p>
+                  <h3 className='text-paragraph-2 lg:text-sub-heading-3 text-black-30 leading-tight font-bold'>No Staffs Yet?</h3>
+                  <p className='text-black-10 text-label-1 lg:text-paragraph-2 flex flex-wrap w-[80%] mx-auto leading-tight'>Onboard new staffs to your Business.</p>
                 </span>
 
                 {/* Button ==========>>>>>>>>>> */}
