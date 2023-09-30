@@ -319,7 +319,7 @@ function UserRegistration() {
                                 activeStep === 0 &&
                                 <section className='gap-[30px] flex flex-col'>
                                     <header className='flex flex-col gap-1 text-center'>
-                                        <h3 className='text-sub-heading-2'>Create your  <span className='text-primary-100'> Klusta </span> account</h3>
+                                        <h3 className='text-sub-heading-2 text-black-50'>Create your  <span className='text-primary-100'> Klusta </span> account</h3>
                                         <p className='text-paragraph-1 text-black-30'>Enter your name as it appears on your government-issued ID (for easy identity verification)</p>
                                     </header>
                                     <div className='flex flex-col gap-[30px] px-0 mt-5'>
@@ -333,23 +333,13 @@ function UserRegistration() {
                                             inputType={'text'}
                                         />
 
-                                        {/*  Last Name Input ==========>>>>>>>>>>*/}
-                                        {/* <FormInput
-                                            name='lastName'
-                                            value={values.lastName}
-                                            onChange={handleChange}
-                                            onBlur={handleBlur}
-                                            label='Last Name'
-                                            inputType={'text'}
-                                        /> */}
-
                                         {/*  Email Input ==========>>>>>>>>>>*/}
                                         <FormInput
                                             name='email'
                                             value={values.email}
                                             onChange={handleChange}
                                             onBlur={handleBlur}
-                                            label='Business Email'
+                                            label='Email Address'
                                             inputType={'email'}
                                         />
 

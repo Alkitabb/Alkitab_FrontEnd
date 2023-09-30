@@ -6,7 +6,7 @@ import Quill from '../../../../reusableComponents/Quill';
 import ImageUpload from '../../../../reusableComponents/ImageUpload';
 
 
-function AddInventory() {
+function AddInventory({onClick}) {
 
 
     //<<<<<<<<<<============ Fotm Switch ==========>>>>>>>>>> Start
@@ -29,7 +29,7 @@ function AddInventory() {
                         <path d="M6 9L12 15L18 9" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
                     </svg>
                 </button>
-                <button className='bg-primary-90 hover:bg-primary-100 transition-all duration-300 rounded-[12px] py-2 px-3 lg:px-6 text-label-1 lg:text-paragraph-2 text-white'>
+                <button className='bg-primary-90 hover:bg-primary-100 transition-all duration-300 rounded-[12px] py-2 px-3 lg:px-6 text-label-1 lg:text-paragraph-2 text-white' onClick={onClick}>
                     Save and Publish
                 </button>
             </header>

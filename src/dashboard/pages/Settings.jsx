@@ -68,9 +68,9 @@ export default function Settings() {
 
       <Box>
         <Tabs value={value} onChange={handleChange} aria-label="basic tabs example" 
-        indicatorColor="secondary"
+        indicatorColor="primary"
         textColor="inherit"
-        variant='fullWidth'
+        variant='standard'
         >
           <Tab sx={{ py: 0 }} label="Account" {...a11yProps(0)} />
           <Tab sx={{ py: 0 }} label="Business" {...a11yProps(1)} />

@@ -81,7 +81,7 @@ function UserLogin() {
 
             {/* <<<<<<<<<<========== Header Section ==========>>>>>>>>>> */}
             <header className='flex flex-col text-center'>
-              <h3 className='text-sub-heading-2'>Welcome Back!</h3>
+              <h3 className='text-sub-heading-2 text-black-50'>Welcome Back!</h3>
               <p className='text-paragraph-1 text-black-30'>Sign in to your Klusta account</p>
             </header>
 

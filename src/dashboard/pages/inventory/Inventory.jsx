@@ -76,32 +76,32 @@ function Inventory() {
           {/* <<<<<<<<<<===================>>>>>>>>> */}
           <section className='mt-3'>
             {
-                <section className='p-5 py-20 bg-white rounded-xl w-full h-full grid place-content-center'>
-                  <div className='max-w-[262px] w-full flex flex-col gap-5'>
+              <section className='p-5 py-20 bg-white rounded-xl w-full h-full grid place-content-center'>
+                <div className='max-w-[262px] w-full flex flex-col gap-5'>
 
-                    {/* Images ==========>>>>>>>>>> */}
-                    <span className='w-[150px] h-[150px] bg-center bg-contain mx-auto bg-[url("https://res.cloudinary.com/dnzi0xxtx/image/upload/v1696027026/portfolioImages/inventoryApp/e-commerce___shopping_shop_store_product_item_clothes_clothing_accessories_soapzt.png")]'></span>
+                  {/* Images ==========>>>>>>>>>> */}
+                  <span className='w-[150px] h-[150px] bg-center bg-contain mx-auto bg-[url("https://res.cloudinary.com/dnzi0xxtx/image/upload/v1696027026/portfolioImages/inventoryApp/e-commerce___shopping_shop_store_product_item_clothes_clothing_accessories_soapzt.png")]'></span>
 
-                    <div className='text-center'>
-                      <span className='flex flex-col gap-2'>
-                        <h3 className='text-paragraph-2 lg:text-sub-heading-3 font-medium'>No Items Yet?</h3>
-                        <p className='text-black-30 text-label-1 lg:text-paragraph-2'>Add products to your store.</p>
+                  <div className='text-center'>
+                    <span className='flex flex-col gap-2'>
+                      <h3 className='text-paragraph-2 lg:text-sub-heading-3 font-medium'>No Items Yet?</h3>
+                      <p className='text-black-30 text-label-1 lg:text-paragraph-2'>Add products to your store.</p>
+                    </span>
+
+                    {/* Button ==========>>>>>>>>>> */}
+                    <button className='bg-primary-90 hover:bg-primary-100 transition-all duration-300 rounded-[12px] py-2 px-6 text-label-1 lg:text-paragraph-2 text-white mt-4' onClick={() => setPage(2)}>
+                      <span className='flex items-center gap-2 lg:gap-3'>
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                          <path d="M12 5V19" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                          <path d="M5 12H19" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                        </svg>
+                        Add Product
                       </span>
+                    </button>
 
-                      {/* Button ==========>>>>>>>>>> */}
-                      <button className='bg-primary-90 hover:bg-primary-100 transition-all duration-300 rounded-[12px] py-2 px-6 text-label-1 lg:text-paragraph-2 text-white mt-4' onClick={() => setPage(2)}>
-                        <span className='flex items-center gap-2 lg:gap-3'>
-                          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M12 5V19" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                            <path d="M5 12H19" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                          </svg>
-                          Add Product
-                        </span>
-                      </button>
-                      
-                    </div>
                   </div>
-                </section>
+                </div>
+              </section>
             } </section>
           {/* <<<<<<<<<<===================>>>>>>>>> End */}
 
@@ -109,7 +109,7 @@ function Inventory() {
       }
       {
         page === 2 &&
-        <AddInventory />
+        <AddInventory onClick={() => setPage(1)} />
       }
     </>
 
