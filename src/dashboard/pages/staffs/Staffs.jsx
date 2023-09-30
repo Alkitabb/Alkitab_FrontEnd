@@ -73,7 +73,8 @@ function Staffs() {
         `${params.row.staffStreet || ''} ${params.row.staffCity || ''} ${params.row.staffCountry || ''}`,
     },
     { field: 'staffSince', headerName: 'Staff Since', width: 130 },
-    { field: 'staffStatus', headerName: 'Staff Status', width: 130 },
+    { field: 'staffPassword', headerName: 'Password', width: 130 },
+    { field: 'staffStatus', headerName: 'Status', width: 130 },
   ];
 
 
@@ -89,10 +90,9 @@ function Staffs() {
       staffCity: staff.staffCity,
       staffCountry: staff.staffCountry,
       staffSince: staff.staffSince,
+      staffPassword: staff.staffPassword,
     }
   ));
-
-
 
   // <<<<<<<<<<=========== Dialog Customization ==========>>>>>>>>>>
   // <<<<<<<<<<=====================>>>>>>>>>>
@@ -105,16 +105,7 @@ function Staffs() {
   };
 
   const handleClose = () => {
-
     setOpen(false);
-
-    // Clear form values ==========>>>>>>>>>>
-    // values.staffName = '';
-    // values.staffEmail = '';
-    // values.staffPhoneNumber = '';
-    // values.staffSince = '';
-    // values.staffStatus = '';
-    // ==========>>>>>>>>>>
   };
   // <<<<<<<<<<=====================>>>>>>>>>> End
 
@@ -142,7 +133,7 @@ function Staffs() {
               <path d="M12 5V19" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
               <path d="M5 12H19" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
             </svg>
-            Create a New Staff
+            Onboard a New Staff
           </span>
         </button>
 
@@ -155,8 +146,6 @@ function Staffs() {
           onClose={handleClose}
           aria-labelledby="responsive-dialog-title"
           className='w-full lg:w-[500px] mx-auto place-content-center grid'
-          // fullWidth
-          // Adding Blur to the back drop ==========>>>>>>>>>>
           BackdropProps={{
             style: {
               backdropFilter: 'blur(3px)',
@@ -165,7 +154,6 @@ function Staffs() {
           }}
           PaperProps={{
             style: {
-              // background: '#000',
               borderRadius: '12px',
               boxShadow: 'none',
             }
@@ -176,7 +164,9 @@ function Staffs() {
     // <<<<<<<<<<=====================>>>>>>>>>> */}
           <DialogTitle className='text-sub-heading-3 font-medium' id="responsive-dialog-title">
             <span className='flex items-center justify-between'>
-              {"Add a New Staff"}
+              <p className='text-sub-heading-2 text-black-50 leading-tight font-bold'>
+                Onboard new staff.
+              </p>
               <button className='bg-secondary-30 hover:bg-secondary-50 p-1 rounded-md transition-all duration-300' onClick={handleClose}>
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <path d="M18 6L6 18" stroke="#1C1D22" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
@@ -209,7 +199,6 @@ function Staffs() {
                 onChange={handleChange}
                 onBlur={handleBlur}
                 className={errors.staffName && touched.staffName ? "error" : ""}
-              // label={errors.staffName? errors : null}
               />
 
               <FormInput
@@ -254,7 +243,16 @@ function Staffs() {
 
               </section>
 
-
+              <FormInput
+                placeholder={'Account Password'}
+                inputType={'password'}
+                name={'staffPassword'}
+                label={'Account Password'}
+                value={values.staffPassword}
+                onChange={handleChange}
+                onBlur={handleBlur}
+                className={errors.staffPassword && touched.staffPassword ? "error" : ""}
+              />
 
               {/* <<<<<<<<<<========== Switch to show address form ==========>>>>>>>>>> */}
               {/* <<<<<<<<<<====================>>>>>>>>>> */}
@@ -265,7 +263,7 @@ function Staffs() {
                   onChange={handleSwitchChange}
                   inputProps={{ 'aria-label': 'controlled' }}
                   size='small'
-                  color='secondary'
+                  color='warning'
                 />
               </span>
 
@@ -426,12 +424,12 @@ function Staffs() {
             <div className='max-w-[262px] w-full flex flex-col gap-5'>
 
               {/* Images ==========>>>>>>>>>> */}
-              <span className='w-[140px] h-[140px] bg-center bg-contain mx-auto bg-[url("https://res.cloudinary.com/dnzi0xxtx/image/upload/v1692783193/portfolioImages/inventoryApp/staffIcon_h0syk7.png")]'></span>
+              <span className='w-[155px] h-[155px] bg-center bg-contain mx-auto bg-[url("https://res.cloudinary.com/dnzi0xxtx/image/upload/v1696023195/portfolioImages/inventoryApp/achievements___teamwork_team_working_together_assistance_man_woman_people_flag_target_zncmvp.png")]'></span>
 
               <div className='text-center'>
                 <span className='flex flex-col gap-2'>
                   <h3 className='text-paragraph-2 lg:text-sub-heading-3 font-medium'>No Staffs Yet?</h3>
-                  <p className='text-black-30 text-label-1 lg:text-paragraph-2'>Add products to your store and start selling to see orders here.</p>
+                  <p className='text-black-30 text-label-1 lg:text-paragraph-2'>Onboard new staffs to your Business.</p>
                 </span>
 
                 {/* Button ==========>>>>>>>>>> */}

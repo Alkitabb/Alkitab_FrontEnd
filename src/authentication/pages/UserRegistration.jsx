@@ -46,8 +46,8 @@ function UserRegistration() {
 
     const { values, handleBlur, handleSubmit, handleChange, errors } = useFormik({
         initialValues: {
-            firstName: '',
-            lastName: '',
+            businessName: '',
+            // lastName: '',
             email: '',
             password: '',
             confirmPassword: '',
@@ -100,15 +100,15 @@ function UserRegistration() {
     }
 
 
-    const containsCapitalLetter = (password) => {
+    const containsCapitalLetter = password => {
         return /[A-Z]/.test(password) // Check if password contains at least one capital letter
     };
 
-    const containsNumber = (password) => {
+    const containsNumber = password => {
         return /[0-9]/.test(password) // Check if password contains at least one Number
     };
 
-    const containsLowercaseLetters = (password) => {
+    const containsLowercaseLetters = password => {
         return /[a-z]/.test(password)// Check if password contains LowerCase
     };
 
@@ -325,23 +325,23 @@ function UserRegistration() {
                                     <div className='flex flex-col gap-[30px] px-0 mt-5'>
                                         {/*  First Name Input ==========>>>>>>>>>>*/}
                                         <FormInput
-                                            name='firstName'
-                                            value={values.firstName}
+                                            name='businessName'
+                                            value={values.businessName}
                                             onChange={handleChange}
                                             onBlur={handleBlur}
-                                            label='First Name'
+                                            label='Business Name'
                                             inputType={'text'}
                                         />
 
                                         {/*  Last Name Input ==========>>>>>>>>>>*/}
-                                        <FormInput
+                                        {/* <FormInput
                                             name='lastName'
                                             value={values.lastName}
                                             onChange={handleChange}
                                             onBlur={handleBlur}
                                             label='Last Name'
                                             inputType={'text'}
-                                        />
+                                        /> */}
 
                                         {/*  Email Input ==========>>>>>>>>>>*/}
                                         <FormInput
@@ -349,7 +349,7 @@ function UserRegistration() {
                                             value={values.email}
                                             onChange={handleChange}
                                             onBlur={handleBlur}
-                                            label='Email'
+                                            label='Business Email'
                                             inputType={'email'}
                                         />
 

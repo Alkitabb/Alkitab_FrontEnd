@@ -561,14 +561,6 @@ export default function MiniDrawer() {
                   outline: 'none',
                   color: '#ffffff',
                 },
-                // ...(open
-                //   ? {
-                    "&:hover": {
-                      backgroundColor: "#7017E0",
-                      color: '#ffffff'
-                    }
-                  // }
-                  // : {}), // Apply hover styles conditionally
               }}
 
             // selected={isSelected}

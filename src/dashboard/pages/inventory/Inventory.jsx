@@ -1,58 +1,10 @@
 import React, { useState } from 'react'
 import DashboardSummaryCard from '../../components/DashboardSummaryCard'
-// import { DataGrid } from '@mui/x-data-grid';
-// import { useFormik } from 'formik';
-// import { useTheme } from '@mui/material/styles';
-// import FormSelect from '../../../reusableComponents/FormAutoCompleteInput';
 import AddInventory from './pages/AddInventory';
 
 
 // const [rows, setRows] = useState([]);
-function Staffs() {
-
-  // <<<<<<<<<<========== Adding Date for when the staff was added ==========>>>>>>>>>> Start
-  // <<<<<<<<<<====================>>>>>>>>>>
-
-  // const date = new Date();
-  // const dateStaffWassAdded = date
-  
-  // <<<<<<<<<<====================>>>>>>>>>> End
-
-
-  // const columns = [
-  //   { field: 'id', headerName: 'ID', width: 70 },
-  //   { field: 'name', headerName: 'Full Name', width: 150 },
-  //   { field: 'email', headerName: 'Email', width: 150 },
-  //   {
-  //     field: 'phoneNumber', headerName: 'Phone', width: 130,
-  //     valueGetter: (params) =>
-  //       `+(${params.row.dailCode || ''}) ${params.row.phoneNumber || ''}`,
-  //   },
-  //   {
-  //     field: 'address', headerName: 'Address', sortable: false, width: 150,
-  //     valueGetter: (params) =>
-  //       `${params.row.staffStreet || ''} ${params.row.staffCity || ''} ${params.row.staffCountry || ''}`,
-  //   },
-  //   { field: 'staffSince', headerName: 'Staff Since', width: 130 },
-  //   { field: 'staffStatus', headerName: 'Staff Status', width: 130 },
-  // ];
-
-
-
-  // const rows = staffInformation.map((staff, i) => (
-  //   {
-  //     id: i + 1,
-  //     name: staff.staffName,
-  //     email: staff.staffEmail,
-  //     dailCode: staff.dailCode,
-  //     phoneNumber: staff.staffPhoneNumber,
-  //     staffStreet: staff.staffStreet,
-  //     staffCity: staff.staffCity,
-  //     staffCountry: staff.staffCountry,
-  //     staffSince: staff.staffSince,
-  //   }
-  // ));
-
+function Inventory() {
 
   const [page, setPage] = useState(1)
   console.log(page);
@@ -99,7 +51,7 @@ function Staffs() {
             {/* <<<<<<<<<<========== Staff Summary card =========>>>>>>>>> */}
             {/* <<<<<<<<<<===================>>>>>>>>> */}
             <DashboardSummaryCard
-              cardInfoOneTitle={'Staffs'}
+              cardInfoOneTitle={'Inventory'}
               infoOneVolume={'1,250'}
               infoOnePercentage={'+20.00%'}
               cardInfoTwoTitle={'Purchasing'}
@@ -124,37 +76,16 @@ function Staffs() {
           {/* <<<<<<<<<<===================>>>>>>>>> */}
           <section className='mt-3'>
             {
-              // staffInformation.length > 0 ?
-              //   <div style={{ height: '100%', width: '100%', border: 'none' }} className='bg-white rounded-xl'>
-              //     <header className='p-5'>
-              //       <h3 className="text-sub-heading-3 font-medium">Inventory Items</h3>
-              //     </header>
-              //     <DataGrid
-              //       rows={rows}
-              //       columns={columns}
-              //       initialState={{
-              //         pagination: {
-              //           paginationModel: { page: 0, pageSize: 5 },
-              //         },
-              //       }}
-              //       pageSizeOptions={[5, 10, 15]}
-              //       checkboxSelection
-              //       sx={{
-              //         width: '100%'
-              //       }}
-              //     />
-              //   </div>
-              //   :
                 <section className='p-5 py-20 bg-white rounded-xl w-full h-full grid place-content-center'>
                   <div className='max-w-[262px] w-full flex flex-col gap-5'>
 
                     {/* Images ==========>>>>>>>>>> */}
-                    <span className='w-[140px] h-[140px] bg-center bg-contain mx-auto bg-[url("https://res.cloudinary.com/dnzi0xxtx/image/upload/v1692783193/portfolioImages/inventoryApp/staffIcon_h0syk7.png")]'></span>
+                    <span className='w-[150px] h-[150px] bg-center bg-contain mx-auto bg-[url("https://res.cloudinary.com/dnzi0xxtx/image/upload/v1696027026/portfolioImages/inventoryApp/e-commerce___shopping_shop_store_product_item_clothes_clothing_accessories_soapzt.png")]'></span>
 
                     <div className='text-center'>
                       <span className='flex flex-col gap-2'>
                         <h3 className='text-paragraph-2 lg:text-sub-heading-3 font-medium'>No Items Yet?</h3>
-                        <p className='text-black-30 text-label-1 lg:text-paragraph-2'>Add products to your store to see Products here.</p>
+                        <p className='text-black-30 text-label-1 lg:text-paragraph-2'>Add products to your store.</p>
                       </span>
 
                       {/* Button ==========>>>>>>>>>> */}
@@ -164,9 +95,10 @@ function Staffs() {
                             <path d="M12 5V19" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
                             <path d="M5 12H19" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
                           </svg>
-                          Add Item
+                          Add Product
                         </span>
                       </button>
+                      
                     </div>
                   </div>
                 </section>
@@ -184,4 +116,4 @@ function Staffs() {
   )
 }
 
-export default Staffs
+export default Inventory
