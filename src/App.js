@@ -9,7 +9,7 @@ import Inventory from './dashboard/pages/inventory/Inventory'
 import Notifications from './dashboard/pages/Notifications'
 import Settings from './dashboard/pages/Settings'
 import Dashboard from './dashboard/pages/Dashboard'
-import InternetConnectionChecker from './reusableComponents/InternetConnectionChecker'
+import InternetConnectionChecker from './reusableComponents/internetConnection/InternetConnectionChecker'
 import ErrorPage from './reusableComponents/ErrorPage'
 // import AddInventory from './dashboard/pages/inventory/pages/AddInventory'
 
@@ -27,8 +27,6 @@ function App() {
 
         {/* Error Page */}
         <Route path='*' element={<ErrorPage />} />
-
-
 
         {/* <<<<<<<<<<========== Dashboard ==========>>>>>>>>>> Start */}
         {/* <<<<<<<<<<===============================>>>>>>>>>> */}

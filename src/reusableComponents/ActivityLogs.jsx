@@ -6,7 +6,7 @@ function ActivityLogs() {
             <header>
                 <h3 className="text-sub-heading-3 text-black-50 font-bold">Activity Logs</h3>
             </header>
-            <section className='h-full grid place-content-center'>
+            <section className='h-full w-full grid place-content-center'>
                 <div className='w-[180px] h-[180px] bg-center bg-contain mx-auto bg-[url("https://res.cloudinary.com/dnzi0xxtx/image/upload/v1696102516/portfolioImages/inventoryApp/product_development___idea_thought_innovation_teamwork_working_together_document_people_2x_1_ddr9ye.png")] bg-no-repeat'></div>
 
                 <div className='text-center'>
@@ -16,8 +16,6 @@ function ActivityLogs() {
                     </span>
                 </div>
             </section>
-
-
         </div>
     )
 }

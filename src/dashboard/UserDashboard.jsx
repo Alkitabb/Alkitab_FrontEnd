@@ -7,24 +7,22 @@ import Toolbar from '@mui/material/Toolbar';
 import List from '@mui/material/List';
 import CssBaseline from '@mui/material/CssBaseline';
 import Typography from '@mui/material/Typography';
-// import Divider from '@mui/material/Divider';
 import IconButton from '@mui/material/IconButton';
 import MenuIcon from '@mui/icons-material/Menu';
 import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 import ListItem from '@mui/material/ListItem';
-// import MailIcon from '@mui/icons-material/Mail';
 import Badge from '@mui/material/Badge';
 import NotificationsIcon from '@mui/icons-material/Notifications';
 import MenuItem from '@mui/material/MenuItem';
 import Menu from '@mui/material/Menu';
 import AccountCircle from '@mui/icons-material/AccountCircle';
 import MoreIcon from '@mui/icons-material/MoreVert';
-// import { BsGrid } from 'react-icons/bs'
 import { NavLink, Outlet, useLocation } from 'react-router-dom';
-import { Divider, ListItemButton, ListItemIcon, ListItemText, Tooltip } from '@mui/material';
+import { Avatar, Divider, ListItemButton, ListItemIcon, ListItemText, Tooltip } from '@mui/material';
 import ListButton from './components/ListButton';
 import PageHistoryPath from './components/PageHistoryPath';
+import { useOnlineStatus } from '../reusableComponents/internetConnection/OnlineStatusContext';
 
 
 
@@ -113,6 +111,9 @@ const Drawer = styled(MuiDrawer, { shouldForwardProp: (prop) => prop !== 'open' 
 
 
 export default function MiniDrawer() {
+  const { isOnline, handleOnlineChange } = useOnlineStatus(); // Use the context hook
+
+
   const theme = useTheme();
   const [open, setOpen] = React.useState(true);
   const handleDrawerOpen = () => {
@@ -276,7 +277,7 @@ export default function MiniDrawer() {
 
 
           <Box sx={{ flexGrow: 1 }} />
-          <Box sx={{ display: { xs: 'none', md: 'flex' } }}>
+          <Box sx={{ display: { xs: 'none', md: 'flex', alignItems: 'center' } }}>
 
             {/* <<<<<<<<<<========== Notifications ==========>>>>>>>>>> */}
             {/* <<<<<<<<<<====================>>>>>>>>>> */}
@@ -285,7 +286,7 @@ export default function MiniDrawer() {
               size="large"
               color="inherit"
             >
-              <Badge badgeContent={1} color="warning">
+              <Badge badgeContent={0} color="warning">
                 <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <path d="M16.4749 9.70444C15.8662 8.99357 15.5896 8.37753 15.5896 7.33095V6.9751C15.5896 5.61127 15.2757 4.73254 14.5932 3.85382C13.5414 2.48915 11.7706 1.66666 10.0372 1.66666H9.96347C8.26645 1.66666 6.55121 2.45138 5.48115 3.76066C4.76143 4.65701 4.4111 5.5735 4.4111 6.9751V7.33095C4.4111 8.37753 4.15269 8.99357 3.52573 9.70444C3.06441 10.2281 2.91699 10.9012 2.91699 11.6297C2.91699 12.3591 3.15635 13.0498 3.63671 13.6113C4.26367 14.2844 5.14904 14.7141 6.05345 14.7888C7.36287 14.9382 8.67228 14.9944 10.0007 14.9944C11.3284 14.9944 12.6378 14.9004 13.948 14.7888C14.8516 14.7141 15.737 14.2844 16.3639 13.6113C16.8435 13.0498 17.0837 12.3591 17.0837 11.6297C17.0837 10.9012 16.9362 10.2281 16.4749 9.70444Z" fill="#7017E0" />
                   <path opacity="0.4" d="M11.6745 16.0236C11.2579 15.9347 8.71937 15.9347 8.30278 16.0236C7.94664 16.1059 7.56152 16.2972 7.56152 16.7169C7.58223 17.1172 7.81661 17.4706 8.14128 17.6946L8.14045 17.6955C8.56035 18.0228 9.05314 18.2309 9.56912 18.3056C9.84409 18.3434 10.124 18.3417 10.4089 18.3056C10.9241 18.2309 11.4169 18.0228 11.8368 17.6955L11.836 17.6946C12.1606 17.4706 12.395 17.1172 12.4157 16.7169C12.4157 16.2972 12.0306 16.1059 11.6745 16.0236Z" fill="#7017E0" />
@@ -303,15 +304,17 @@ export default function MiniDrawer() {
               aria-haspopup="true"
               onClick={handleProfileMenuOpen}
               color="inherit"
+              sx={{
+                padding: 0.5
+              }}
             >
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <g id="Iconly/Bulk/Profile">
-                  <g id="Profile">
-                    <path id="Fill 1" d="M11.997 15.1743C7.684 15.1743 4 15.8543 4 18.5743C4 21.2953 7.661 21.9993 11.997 21.9993C16.31 21.9993 19.994 21.3203 19.994 18.5993C19.994 15.8783 16.334 15.1743 11.997 15.1743" fill="#7017E0" />
-                    <path id="Fill 4" opacity="0.4" d="M11.9971 12.5835C14.9351 12.5835 17.2891 10.2285 17.2891 7.29151C17.2891 4.35451 14.9351 1.99951 11.9971 1.99951C9.06008 1.99951 6.70508 4.35451 6.70508 7.29151C6.70508 10.2285 9.06008 12.5835 11.9971 12.5835" fill="#7017E0" />
-                  </g>
-                </g>
-              </svg>
+              <Badge color={isOnline ? 'success' : 'danger'} variant="dot" overlap='circular'>
+                <Avatar
+                  alt="Daniel Esuola"
+                  // src="https://images.unsplash.com/photo-1570158268183-d296b2892211?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2787&q=80"
+                  src="/static/images/avatar/1.jpg"
+                />
+              </Badge>
             </IconButton>
 
           </Box>
