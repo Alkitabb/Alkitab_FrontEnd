@@ -1,28 +1,30 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import CustomizedSnackbars from '../CustomizedSnackbars';
 import { useOnlineStatus } from './OnlineStatusContext';
 
-
-
-
-
 function InternetConnectionChecker() {
-  const { isOnline, handleOnlineChange } = useOnlineStatus(); // Use the context hook
+  const { handleOnlineChange } = useOnlineStatus();
+  const [isOnline, setIsOnline] = useState(navigator.onLine);
 
   useEffect(() => {
+    // Handle online event
     const handleOnline = () => {
-      handleOnlineChange(true); // Notify the parent component of online status change
+      setIsOnline(true);
+      handleOnlineChange(true);
       console.log("And we're back :).");
     };
 
+    // Handle offline event
     const handleOffline = () => {
-      handleOnlineChange(false); // Notify the parent component of online status change
+      setIsOnline(false);
+      handleOnlineChange(false);
       console.log('Connection is down.');
     };
 
     window.addEventListener('online', handleOnline);
     window.addEventListener('offline', handleOffline);
 
+    // Clean up event listeners
     return () => {
       window.removeEventListener('online', handleOnline);
       window.removeEventListener('offline', handleOffline);
@@ -30,8 +32,8 @@ function InternetConnectionChecker() {
   }, [handleOnlineChange]);
 
   const handleClose = (event, reason) => {
-    if (reason === 'clickaway') {
-      return;
+    if (reason !== 'clickaway') {
+      // You can add more logic here if needed
     }
   };
 

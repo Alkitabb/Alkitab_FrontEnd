@@ -74,7 +74,7 @@ function Notifications() {
                       {data.notificationIcon}
                     </div>
                     <div>
-                      <h3 className='text-sub-heading-3 text-black-60'>
+                      <h3 className='text-sub-heading-3 text-black-60 flex flex-wrap'>
                         {data.notificationTitle}
                       </h3>
 

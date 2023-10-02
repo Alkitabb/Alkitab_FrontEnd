@@ -3,7 +3,7 @@ import React, { createContext, useContext, useState } from 'react';
 const OnlineStatusContext = createContext();
 
 export function OnlineStatusProvider({ children }) {
-  const [isOnline, setIsOnline] = useState(true);
+  const [isOnline, setIsOnline] = useState(navigator.onLine);
 
   const handleOnlineChange = (online) => {
     setIsOnline(online);
