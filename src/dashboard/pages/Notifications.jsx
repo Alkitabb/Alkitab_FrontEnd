@@ -45,9 +45,9 @@ function Notifications() {
         <div className='w-full py-2 bg-primary-100 bg-opacity-5 rounded-2xl'>
           <span className='flex items-center justify-between w-[90%] mx-auto'>
             <span className='flex flex-col gap-0'>
-              <p className='text-sub-heading-1 text-black-50 leading-tight font-bold'>
+              <h1 className='text-sub-heading-1 text-black-50 leading-tight font-bold'>
                 No new notifications.
-              </p>
+              </h1>
               <p className='text-paragraph-2 text-black-30 leading-snug'>New notifications will appear here...</p>
             </span>
 
@@ -68,26 +68,28 @@ function Notifications() {
           {
             tableData.map((data, index) =>
               <table key={index} className='w-full'>
-                <tr className='border-b border-black-10 border-opacity-25'>
-                  <td className='flex items-center gap-5 py-7 px-5'>
-                    <div>
-                      {data.notificationIcon}
-                    </div>
-                    <div>
-                      <h3 className='text-sub-heading-3 text-black-60 flex flex-wrap'>
-                        {data.notificationTitle}
-                      </h3>
+                <tbody>
+                  <tr className='border-b border-black-10 border-opacity-25'>
+                    <td className='flex items-center gap-5 py-7 px-5'>
+                      <div>
+                        {data.notificationIcon}
+                      </div>
+                      <div>
+                        <h3 className='text-sub-heading-3 text-black-60 flex flex-wrap'>
+                          {data.notificationTitle}
+                        </h3>
 
-                      <p className='text-paragraph-2 text-black-20'>
-                        {data.notificationDate}
-                      </p>
-                    </div>
+                        <p className='text-paragraph-2 text-black-20'>
+                          {data.notificationDate}
+                        </p>
+                      </div>
 
-                    <button className='ms-auto'>
-                      <AiOutlineClose />
-                    </button>
-                  </td>
-                </tr>
+                      <button className='ms-auto'>
+                        <AiOutlineClose />
+                      </button>
+                    </td>
+                  </tr>
+                </tbody>
               </table>
             )
 

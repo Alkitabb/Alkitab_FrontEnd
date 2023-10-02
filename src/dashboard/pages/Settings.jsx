@@ -67,10 +67,10 @@ export default function Settings() {
     <section className='lg:px-10 md:px-10 px-3 py-2 bg-white rounded-xl w-full'>
 
       <Box>
-        <Tabs value={value} onChange={handleChange} aria-label="basic tabs example" 
-        indicatorColor="primary"
-        textColor="inherit"
-        variant='standard'
+        <Tabs value={value} onChange={handleChange} aria-label="basic tabs example"
+          indicatorColor="primary"
+          textColor="inherit"
+          variant='standard'
         >
           <Tab sx={{ py: 0 }} label="Account" {...a11yProps(0)} />
           <Tab sx={{ py: 0 }} label="Business" {...a11yProps(1)} />
@@ -99,19 +99,19 @@ export default function Settings() {
             {/* <<<<<<<<<<====================>>>>>>>>>> */}
             <header>
               <CustomTabPanel value={value} index={0}>
-                <h3 className='text-sub-heading-3 font-medium'>
-                  Account Settings
-                </h3>
+                <h1 className='text-sub-heading-1 text-black-50 leading-tight font-bold'>
+                 User Account Settings
+                </h1>
               </CustomTabPanel>
               <CustomTabPanel value={value} index={1}>
-                <h3 className='text-sub-heading-3 font-medium'>
+                <h1 className='text-sub-heading-1 text-black-50 leading-tight font-bold'>
                   Business Settings
-                </h3>
+                </h1>
               </CustomTabPanel>
               <CustomTabPanel value={value} index={2}>
-                <h3 className='text-sub-heading-3 font-medium'>
+                <h1 className='text-sub-heading-1 text-black-50 leading-tight font-bold'>
                   Security Settings
-                </h3>
+                </h1>
               </CustomTabPanel>
             </header>
 
@@ -235,10 +235,6 @@ export default function Settings() {
             <CustomTabPanel value={value} index={2}>
               Item Three
             </CustomTabPanel>
-
-
-
-
           </div>
 
 

@@ -11,7 +11,7 @@ function InternetConnectionChecker() {
     const handleOnline = () => {
       setIsOnline(true);
       handleOnlineChange(true);
-      console.log("And we're back :).");
+      console.log("And we're back Online :).");
     };
 
     // Handle offline event
