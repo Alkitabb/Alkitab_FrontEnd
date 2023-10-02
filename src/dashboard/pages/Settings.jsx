@@ -72,8 +72,8 @@ export default function Settings() {
           textColor="inherit"
           variant='standard'
         >
-          <Tab sx={{ py: 0 }} label="Account" {...a11yProps(0)} />
-          <Tab sx={{ py: 0 }} label="Business" {...a11yProps(1)} />
+          <Tab sx={{ py: 0 }} label="Profile" {...a11yProps(0)} />
+          <Tab sx={{ py: 0 }} label="Permissions" {...a11yProps(1)} />
           <Tab sx={{ py: 0 }} label="Security" {...a11yProps(2)} />
         </Tabs>
       </Box>
@@ -100,12 +100,12 @@ export default function Settings() {
             <header>
               <CustomTabPanel value={value} index={0}>
                 <h1 className='text-sub-heading-1 text-black-50 leading-tight font-bold'>
-                 User Account Settings
+                 My Account
                 </h1>
               </CustomTabPanel>
               <CustomTabPanel value={value} index={1}>
                 <h1 className='text-sub-heading-1 text-black-50 leading-tight font-bold'>
-                  Business Settings
+                  Permissions
                 </h1>
               </CustomTabPanel>
               <CustomTabPanel value={value} index={2}>
@@ -239,12 +239,10 @@ export default function Settings() {
 
 
           <div className='text-end pt-7'>
-            <button type='submit' onClick={formik.handleSubmit} className='text-white bg-primary-100 hover:bg-primary-90 px-10 py-3 rounded-xl'>
+            {/* <button type='submit' onClick={formik.handleSubmit} className='text-white bg-primary-100 hover:bg-primary-90 px-10 py-3 rounded-xl'>
               Update
-            </button>
+            </button> */}
           </div>
-
-
         </Box>
 
       </Box>

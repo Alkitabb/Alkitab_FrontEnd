@@ -93,7 +93,7 @@ module.exports = {
 
       'go': '#89E100',
       'stop': '#FD2A82',
-      'background': '#F8F9F9',
+      'background': '#FBFBFB',
 
 
     },

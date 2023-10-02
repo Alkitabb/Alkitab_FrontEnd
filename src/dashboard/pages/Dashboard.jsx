@@ -8,6 +8,12 @@ import BarChart from '../charts/Bar'
 function Dashboard() {
   return (
     <section className='flex flex-col gap-3 md:gap-3 sm:gap-3 h-fit'>
+      <span className='flex flex-col gap-0'>
+        <h1 className='text-sub-heading-1 text-black-50 leading-tight font-bold'>
+          Hey, Daniel
+        </h1>
+        <p className='text-paragraph-2 text-black-30 leading-snug'>Welcome back...</p>
+      </span>
       <div className='grid lg:grid-cols-3 gap-3 lg:gap-3 sm:gap-3'>
         {/* <<<<<<<<<<========== Sales Summary card =========>>>>>>>>> */}
         <DashboardSummaryCard
