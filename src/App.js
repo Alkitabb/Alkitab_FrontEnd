@@ -7,7 +7,7 @@ import Sales from './dashboard/pages/Sales'
 import Staffs from './dashboard/pages/staffs/Staffs'
 import Inventory from './dashboard/pages/inventory/Inventory'
 import Notifications from './dashboard/pages/Notifications'
-import Settings from './dashboard/pages/Settings'
+import Settings from './dashboard/pages/userAccount/Settings'
 import Dashboard from './dashboard/pages/Dashboard'
 import InternetConnectionChecker from './reusableComponents/internetConnection/InternetConnectionChecker'
 import ErrorPage from './reusableComponents/ErrorPage'
@@ -46,7 +46,9 @@ function App() {
 
             <Route path='/Notifications' element={<Notifications />} />,
 
-            <Route path='/Settings' element={<Settings />} />,
+            <Route path='/Settings' element={<Settings />}>
+              <Route path='/Settings/' element={<Notifications />} />,
+            </Route>,
           ]}
         />
 
