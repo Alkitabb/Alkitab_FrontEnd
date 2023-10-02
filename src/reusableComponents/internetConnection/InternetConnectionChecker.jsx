@@ -2,6 +2,10 @@ import React, { useEffect } from 'react';
 import CustomizedSnackbars from '../CustomizedSnackbars';
 import { useOnlineStatus } from './OnlineStatusContext';
 
+
+
+
+
 function InternetConnectionChecker() {
   const { isOnline, handleOnlineChange } = useOnlineStatus(); // Use the context hook
 

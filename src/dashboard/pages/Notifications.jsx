@@ -45,7 +45,7 @@ function Notifications() {
         <div className='w-full py-2 bg-primary-100 bg-opacity-5 rounded-2xl'>
           <span className='flex items-center justify-between w-[90%] mx-auto'>
             <span className='flex flex-col gap-0'>
-              <p className='text-sub-heading-2 text-black-50 leading-tight font-bold'>
+              <p className='text-sub-heading-1 text-black-50 leading-tight font-bold'>
                 No new notifications.
               </p>
               <p className='text-paragraph-2 text-black-30 leading-snug'>New notifications will appear here...</p>
@@ -53,7 +53,6 @@ function Notifications() {
 
             <div className='w-[13vw]'>
               <img src="https://res.cloudinary.com/dnzi0xxtx/image/upload/v1696017730/portfolioImages/inventoryApp/data_management___reciept_document_paper_page_woman_people_pages_rfmbis.png" alt="notification" />
-              {/* <span className='w-[180px] h-[180px] bg-center bg-contain mx-auto bg-[url("https://res.cloudinary.com/dnzi0xxtx/image/upload/v1696023194/portfolioImages/inventoryApp/achievements___graph_chart_analytics_statistics_flag_teamwork_team_working_together_oijhqs.png")]'></span> */}
             </div>
           </span>
         </div>

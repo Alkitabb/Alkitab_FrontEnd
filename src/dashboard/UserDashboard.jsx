@@ -111,7 +111,7 @@ const Drawer = styled(MuiDrawer, { shouldForwardProp: (prop) => prop !== 'open' 
 
 
 export default function MiniDrawer() {
-  const { isOnline, handleOnlineChange } = useOnlineStatus(); // Use the context hook
+  const { isOnline } = useOnlineStatus(); // Use the context hook
 
 
   const theme = useTheme();
@@ -308,7 +308,7 @@ export default function MiniDrawer() {
                 padding: 0.5
               }}
             >
-              <Badge color={isOnline ? 'success' : 'danger'} variant="dot" overlap='circular'>
+              <Badge color={isOnline ? 'success' : 'error'} variant="dot" overlap='circular'>
                 <Avatar
                   alt="Daniel Esuola"
                   // src="https://images.unsplash.com/photo-1570158268183-d296b2892211?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2787&q=80"
