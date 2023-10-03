@@ -7,6 +7,7 @@ import Box from '@mui/material/Box';
 // import { InputAdornment, TextField } from '@mui/material';
 import { useFormik } from 'formik';
 import Profile from './pages/Profile';
+import Permissions from './pages/Permissions';
 
 function CustomTabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -72,7 +73,7 @@ export default function Settings() {
           variant='standard'
         >
           <Tab sx={{ py: 0 }} label="Profile" {...a11yProps(0)} />
-          <Tab sx={{ py: 0 }} label="Permissions" {...a11yProps(1)} />
+          {/* <Tab sx={{ py: 0 }} label="Permissions" {...a11yProps(1)} /> */}
           <Tab sx={{ py: 0 }} label="Security" {...a11yProps(2)} />
         </Tabs>
       </Box>
@@ -96,7 +97,7 @@ export default function Settings() {
 
             {/* <<<<<<<<<<========== Page Header Section ==========>>>>>>>>>> */}
             {/* <<<<<<<<<<====================>>>>>>>>>> */}
-            <header>
+            {/* <header>
               <CustomTabPanel value={value} index={0}>
                 <span className='text-sub-heading-1 text-black-50 leading-tight font-bold'>
                   My Account
@@ -112,16 +113,16 @@ export default function Settings() {
                   Security Settings
                 </span>
               </CustomTabPanel>
-            </header>
+            </header> */}
 
             {/* Tab One for Account setting ==========>>>>>>>>>> */}
             <CustomTabPanel value={value} index={0} >
               <Profile />
             </CustomTabPanel>
 
-            <CustomTabPanel value={value} index={1}>
-              Item Two
-            </CustomTabPanel>
+            {/* <CustomTabPanel value={value} index={1}>
+              <Permissions />
+            </CustomTabPanel> */}
 
             <CustomTabPanel value={value} index={2}>
               Item Three

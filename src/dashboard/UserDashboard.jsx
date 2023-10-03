@@ -168,11 +168,14 @@ export default function MiniDrawer() {
       open={isMenuOpen}
       onClose={handleMenuClose}
     >
-      <MenuItem onClick={handleMenuClose}>Profile</MenuItem>
       <NavLink to={'/Settings'}>
         <MenuItem onClick={handleMenuClose}>
-          My account
+          Profile
         </MenuItem>
+      </NavLink>
+
+      <NavLink to={'/Permissions'}>
+        <MenuItem onClick={handleMenuClose}>Permissions</MenuItem>
       </NavLink>
     </Menu>
   );

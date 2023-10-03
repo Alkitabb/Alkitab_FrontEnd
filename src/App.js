@@ -7,10 +7,12 @@ import Sales from './dashboard/pages/Sales'
 import Staffs from './dashboard/pages/staffs/Staffs'
 import Inventory from './dashboard/pages/inventory/Inventory'
 import Notifications from './dashboard/pages/Notifications'
-import Settings from './dashboard/pages/userAccount/Settings'
+// import Settings from './dashboard/pages/Settings'
 import Dashboard from './dashboard/pages/Dashboard'
 import InternetConnectionChecker from './reusableComponents/internetConnection/InternetConnectionChecker'
 import ErrorPage from './reusableComponents/ErrorPage'
+import Settings from './dashboard/pages/userAccount/Settings'
+import Permissions from './dashboard/pages/userAccount/pages/Permissions'
 // import AddInventory from './dashboard/pages/inventory/pages/AddInventory'
 
 function App() {
@@ -44,11 +46,11 @@ function App() {
 
             <Route path='/Inventory' element={<Inventory />} />,
 
-            <Route path='/Notifications' element={<Notifications />} />,
+            <Route path='/Notifications' element={<Notifications />} />, 
 
-            <Route path='/Settings' element={<Settings />}>
-              <Route path='/Settings/' element={<Notifications />} />,
-            </Route>,
+            <Route path='/Settings' element={<Settings />} />,
+            
+            <Route path='/Permissions' element={<Permissions />} />,
           ]}
         />
 
