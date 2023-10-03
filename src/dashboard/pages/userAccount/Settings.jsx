@@ -7,7 +7,7 @@ import Box from '@mui/material/Box';
 // import { InputAdornment, TextField } from '@mui/material';
 import { useFormik } from 'formik';
 import Profile from './pages/Profile';
-import Permissions from './pages/Permissions';
+
 
 function CustomTabPanel(props) {
   const { children, value, index, ...other } = props;

@@ -13,12 +13,12 @@ function Permissions() {
         { access: 'Create and Manage Invoices' },
     ];
 
-    const permissionsDenied = [
-        { access: 'create new saff' },
-        { access: 'create new saff' },
-        { access: 'create new saff' },
-        { access: 'create new saff' },
-    ];
+    // const permissionsDenied = [
+    //     { access: 'create new saff' },
+    //     { access: 'create new saff' },
+    //     { access: 'create new saff' },
+    //     { access: 'create new saff' },
+    // ];
 
     return (
         <div className='lg:px-10 md:px-10 px-3 py-2 bg-background rounded-xl w-full'>

@@ -23,8 +23,10 @@ import { Avatar, Divider, ListItemButton, ListItemIcon, ListItemText, Tooltip } 
 import ListButton from './components/ListButton';
 import PageHistoryPath from './components/PageHistoryPath';
 import { useOnlineStatus } from '../reusableComponents/internetConnection/OnlineStatusContext';
-import Paper from '@mui/material/Paper';
 import MenuList from '@mui/material/MenuList';
+import {BsPersonCheck} from 'react-icons/bs'
+import {GoPerson} from 'react-icons/go'
+import {IoIosLogOut} from 'react-icons/io'
 
 
 
@@ -172,14 +174,29 @@ export default function MiniDrawer() {
       <MenuList sx={{ width: 320, maxWidth: '100%' }}>
         <NavLink to={'/Settings'}>
           <MenuItem onClick={handleMenuClose}>
-            Profile
+            <ListItemIcon>
+            <GoPerson />
+          </ListItemIcon>
+          <ListItemText>Profile</ListItemText>
           </MenuItem>
         </NavLink>
+
         <NavLink to={'/Permissions'}>
-          <MenuItem onClick={handleMenuClose}>Permissions</MenuItem>
+          <MenuItem onClick={handleMenuClose}>
+            <ListItemIcon>
+            <BsPersonCheck />
+          </ListItemIcon>
+          <ListItemText>Permissions</ListItemText>
+          </MenuItem>
         </NavLink>
         <Divider />
-        <MenuItem onClick={handleMenuClose}>Logout</MenuItem>
+
+        <MenuItem onClick={handleMenuClose}>
+            <ListItemIcon>
+            <IoIosLogOut />
+          </ListItemIcon>
+          <ListItemText>Logout</ListItemText>
+          </MenuItem>
       </MenuList>
     </Menu>
   );
@@ -193,7 +210,6 @@ export default function MiniDrawer() {
       anchorOrigin={{
         vertical: 'top',
         horizontal: 'right',
-        boxShadow: '0px 4px 6px rgba(0, 0, 0, 0.1)', // Customize the dropdown's box shadow here
       }}
       id={mobileMenuId}
       keepMounted
@@ -203,6 +219,9 @@ export default function MiniDrawer() {
       }}
       open={isMobileMenuOpen}
       onClose={handleMobileMenuClose}
+      sx={{
+        boxShadow: '0px 4px 6px rgba(0, 0, 0, 0.1)', // Customize the dropdown's box shadow 
+      }}
     >
       <MenuItem>
         <IconButton
