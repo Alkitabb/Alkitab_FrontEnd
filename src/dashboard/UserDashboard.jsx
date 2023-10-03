@@ -23,11 +23,13 @@ import { Avatar, Divider, ListItemButton, ListItemIcon, ListItemText, Tooltip } 
 import ListButton from './components/ListButton';
 import PageHistoryPath from './components/PageHistoryPath';
 import { useOnlineStatus } from '../reusableComponents/internetConnection/OnlineStatusContext';
+import Paper from '@mui/material/Paper';
+import MenuList from '@mui/material/MenuList';
 
 
 
 // Drawer Section ==========>>>>>>>>>>
-const drawerWidth = 296;
+const drawerWidth = 280;
 const openedMixin = (theme) => ({
   width: drawerWidth,
   transition: theme.transitions.create('width', {
@@ -157,7 +159,6 @@ export default function MiniDrawer() {
       anchorOrigin={{
         vertical: 'top',
         horizontal: 'right',
-        boxShadow: '0px 4px 6px rgba(0, 0, 0, 0.1)', // Customize the dropdown's box shadow here
       }}
       id={menuId}
       keepMounted
@@ -168,15 +169,18 @@ export default function MiniDrawer() {
       open={isMenuOpen}
       onClose={handleMenuClose}
     >
-      <NavLink to={'/Settings'}>
-        <MenuItem onClick={handleMenuClose}>
-          Profile
-        </MenuItem>
-      </NavLink>
-
-      <NavLink to={'/Permissions'}>
-        <MenuItem onClick={handleMenuClose}>Permissions</MenuItem>
-      </NavLink>
+      <MenuList sx={{ width: 320, maxWidth: '100%' }}>
+        <NavLink to={'/Settings'}>
+          <MenuItem onClick={handleMenuClose}>
+            Profile
+          </MenuItem>
+        </NavLink>
+        <NavLink to={'/Permissions'}>
+          <MenuItem onClick={handleMenuClose}>Permissions</MenuItem>
+        </NavLink>
+        <Divider />
+        <MenuItem onClick={handleMenuClose}>Logout</MenuItem>
+      </MenuList>
     </Menu>
   );
 
@@ -200,14 +204,6 @@ export default function MiniDrawer() {
       open={isMobileMenuOpen}
       onClose={handleMobileMenuClose}
     >
-      {/* <MenuItem>
-        <IconButton size="large" aria-label="show 4 new mails" color="inherit">
-          <Badge badgeContent={4} color="error">
-            <MailIcon />
-          </Badge>
-        </IconButton>
-        <p>Messages</p>
-      </MenuItem> */}
       <MenuItem>
         <IconButton
           size="large"
@@ -220,6 +216,7 @@ export default function MiniDrawer() {
         </IconButton>
         <p>Notifications</p>
       </MenuItem>
+
       <MenuItem onClick={handleProfileMenuOpen}>
         <IconButton
           size="large"
@@ -250,8 +247,6 @@ export default function MiniDrawer() {
           backgroundColor: 'white',
           color: '#45464E',
           boxShadow: 'none',
-          // width: `calc(100% - ${open ? '' :  89}px)`,
-          // width: '100%', // Set width to 100% on mobile screens
           [theme.breakpoints.up('md')]: {
             width: `calc(100% - ${open ? drawerWidth : 89}px)`, // Set width for larger screens
           },

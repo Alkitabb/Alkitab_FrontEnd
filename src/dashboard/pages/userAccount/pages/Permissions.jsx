@@ -32,7 +32,7 @@ function Permissions() {
                 </header>
 
 
-                <div className='grid lg:grid-cols-2 md:grid-cols-2 grid-cols-1 lg:w-[65%] md:w-[100%] gap-8'>
+                <div className='grid lg:grid-cols-2 md:grid-cols-2 grid-cols-1 lg:w-[70%] md:w-[100%] gap-8'>
                     <div className='border border-[#3C763D] border-opacity-30 rounded h-fit bg-white'>
                         <header className='w-full p-4 bg-[#DFF0D8] text-[#3C763D] border-b-[#3C763D] border-opacity-30'>
                             <p className='text=paragraph-1'>What you can access</p>
@@ -61,7 +61,7 @@ function Permissions() {
                         <div className='p-3'>
                             <div className='text-center p-5'>
                                 <p className='font-medium text-paragraph-1'>You have full access!</p>
-                                <p className='text-black-30 text-paragraph-1'>You can access all the sections of the dashboard. </p>
+                                <p className='text-black-30 text-paragraph-1'>You can access all the sections of the <br /> dashboard. </p>
                             </div>
                             {/* {
                                 permissionsDenied.map((myAccess, index) => [

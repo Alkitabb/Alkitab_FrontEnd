@@ -14,7 +14,7 @@ function ListButton({ to, inactiveIcon, activeIcon, open, location, primaryItemT
             >
                 <ListItemButton
                     sx={{
-                        py: 1.5,
+                        py: 1.3,
                         borderRadius: 2,
                         marginBottom: 1,
                         "&.Mui-selected": {
