@@ -8,10 +8,6 @@ function Section({ title, children, onEditClick }) {
         <header className='text-paragraph-2'>
           <h3 className='text-paragraph-2 font-medium text-black-50'>{title}</h3>
         </header>
-
-        <div>
-          <button onClick={onEditClick}>Edit</button>
-        </div>
       </div>
 
       {children}
@@ -34,7 +30,16 @@ function Profile() {
   return (
     <section className='px-5 flex flex-col gap-5'>
 
-      <Section title='Profile'>
+      <section className='p-5 rounded-xl border border-black-10 border-opacity-30'>
+        <div className='flex justify-between w-full items-center gap-5'>
+          <header className='text-paragraph-2'>
+            <h3 className='text-paragraph-2 font-medium text-black-50'>Profile</h3>
+          </header>
+
+          <div>
+            <button>Edit</button>
+          </div>
+        </div>
         <div className='flex items-center gap-5'>
           <Avatar
             alt="Daniel Esuola"
@@ -47,7 +52,7 @@ function Profile() {
             <p className='text-paragraph-2'>Leeds, United Kingdom</p>
           </div>
         </div>
-      </Section>
+      </section>
 
       <Section title='Personal Information'>
         <div className='grid grid-cols-2'>
