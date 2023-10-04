@@ -1,6 +1,7 @@
 import React from 'react'
 
 function Permissions() {
+    const userRole = 'Admin'
 
     const permissionsGranted = [
         { access: 'View Business Performance Metrics' },
@@ -28,7 +29,7 @@ function Permissions() {
                     <h1 className='text-paragraph-1 text-black-50 font-bold'>
                         Hello, Daniel
                     </h1>
-                    <p className='text-paragraph-1 text-black-30'>Your current role is Admin.</p>
+                    <p className='text-paragraph-1 text-black-30'>Your current role is <span className='font-bold'>{userRole}</span>.</p>
                 </header>
 
 
