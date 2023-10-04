@@ -22,7 +22,7 @@ function Permissions() {
     // ];
 
     return (
-        <div className='lg:px-10 md:px-10 px-3 py-2 bg-background rounded-xl w-full'>
+        <div className='lg:px-10 md:px-10 px-3 py-2 rounded-xl w-full'>
             <div>
                 <header className='flex flex-col gap-0 my-5'>
                     <h1 className='text-paragraph-1 text-black-50 font-medium'>

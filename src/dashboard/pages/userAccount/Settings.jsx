@@ -89,9 +89,8 @@ export default function Settings() {
             width:'100%',
             justifyContent:'space-between'
           }}  label="Security" {...a11yProps(2)} />
-
+          
         </Tabs>
-        
         <TabPanel value={value} index={0}>
           <Profile />
         </TabPanel>
