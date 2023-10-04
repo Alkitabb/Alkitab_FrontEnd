@@ -71,6 +71,7 @@ export default function Settings() {
             width:'100%',
             justifyContent:'space-between'
           }} label="Profile" {...a11yProps(0)} />
+
           <Tab sx={{
             textTransform:'none',
             textAlign:'start',
@@ -79,6 +80,7 @@ export default function Settings() {
             width:'100%',
             justifyContent:'space-between'
           }} label="Preferences" {...a11yProps(1)} />
+
            <Tab sx={{
             textTransform:'none',
             textAlign:'start',
@@ -87,7 +89,9 @@ export default function Settings() {
             width:'100%',
             justifyContent:'space-between'
           }}  label="Security" {...a11yProps(2)} />
+
         </Tabs>
+        
         <TabPanel value={value} index={0}>
           <Profile />
         </TabPanel>

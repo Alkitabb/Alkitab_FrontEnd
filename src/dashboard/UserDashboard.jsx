@@ -27,11 +27,12 @@ import MenuList from '@mui/material/MenuList';
 import {BsPersonCheck} from 'react-icons/bs'
 import {GoPerson} from 'react-icons/go'
 import {IoIosLogOut} from 'react-icons/io'
+import {IoMdNotificationsOutline} from 'react-icons/io'
 
 
 
 // Drawer Section ==========>>>>>>>>>>
-const drawerWidth = 280;
+const drawerWidth = 270;
 const openedMixin = (theme) => ({
   width: drawerWidth,
   transition: theme.transitions.create('width', {
@@ -201,7 +202,7 @@ export default function MiniDrawer() {
     </Menu>
   );
 
-
+// <<<<<<<<<<========== Mobile Menu ==========>>>>>>>>>>
   const mobileMenuId = 'primary-search-account-menu-mobile';
   const renderMobileMenu = (
 
@@ -230,7 +231,7 @@ export default function MiniDrawer() {
           color="inherit"
         >
           <Badge badgeContent={17} color="error">
-            <NotificationsIcon />
+            <IoMdNotificationsOutline />
           </Badge>
         </IconButton>
         <p>Notifications</p>
@@ -244,7 +245,7 @@ export default function MiniDrawer() {
           aria-haspopup="true"
           color="inherit"
         >
-          <AccountCircle />
+          <GoPerson />
         </IconButton>
         <p>Profile</p>
       </MenuItem>
