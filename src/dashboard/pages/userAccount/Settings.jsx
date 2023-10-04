@@ -49,29 +49,44 @@ export default function Settings() {
 
   return (
     <section>
-      <header className='flex flex-col gap-0'>
-        <h1 className='text-sub-heading-1 text-black-50 font-bold'>
-          Account settings
-        </h1>
+      <header className='text-paragraph-2 mb-5'>
+        Account Settings
       </header>
       <Box
         sx={{ flexGrow: 1, bgcolor: 'background.paper', display: 'flex', padding: 2 }}
       >
         <Tabs
           orientation="vertical"
-          variant="scrollable"
+          variant="standard"
           value={value}
           onChange={handleChange}
           aria-label="Vertical tabs example"
-          sx={{ borderRight: 1, borderColor: 'divider', textAlign: 'start' }}
+          sx={{ borderRight: 1, borderColor: 'divider', textAlign: 'left', textTransform:'none', width: '130px' }}
         >
-          <Tab label="Profile" {...a11yProps(0)} />
-          <Tab label="Preferences" {...a11yProps(1)} />
-          <Tab label="Security" {...a11yProps(2)} />
-          {/* <Tab label="Item Four" {...a11yProps(3)} /> */}
-          {/* <Tab label="Item Five" {...a11yProps(4)} /> */}
-          {/* <Tab label="Item Six" {...a11yProps(5)} /> */}
-          {/* <Tab label="Item Seven" {...a11yProps(6)} /> */}
+          <Tab sx={{
+            textTransform:'none',
+            textAlign:'start',
+            display:'flex',
+            flexDirection: 'row',
+            width:'100%',
+            justifyContent:'space-between'
+          }} label="Profile" {...a11yProps(0)} />
+          <Tab sx={{
+            textTransform:'none',
+            textAlign:'start',
+            display:'flex',
+            flexDirection: 'row',
+            width:'100%',
+            justifyContent:'space-between'
+          }} label="Preferences" {...a11yProps(1)} />
+           <Tab sx={{
+            textTransform:'none',
+            textAlign:'start',
+            display:'flex',
+            flexDirection: 'row',
+            width:'100%',
+            justifyContent:'space-between'
+          }}  label="Security" {...a11yProps(2)} />
         </Tabs>
         <TabPanel value={value} index={0}>
           <Profile />
@@ -81,18 +96,6 @@ export default function Settings() {
         </TabPanel>
         <TabPanel value={value} index={2}>
           Item Three
-        </TabPanel>
-        <TabPanel value={value} index={3}>
-          Item Four
-        </TabPanel>
-        <TabPanel value={value} index={4}>
-          Item Five
-        </TabPanel>
-        <TabPanel value={value} index={5}>
-          Item Six
-        </TabPanel>
-        <TabPanel value={value} index={6}>
-          Item Seven
         </TabPanel>
       </Box>
     </section>
