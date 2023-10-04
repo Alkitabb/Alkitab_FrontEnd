@@ -13,10 +13,8 @@ import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 import ListItem from '@mui/material/ListItem';
 import Badge from '@mui/material/Badge';
-import NotificationsIcon from '@mui/icons-material/Notifications';
 import MenuItem from '@mui/material/MenuItem';
 import Menu from '@mui/material/Menu';
-import AccountCircle from '@mui/icons-material/AccountCircle';
 import MoreIcon from '@mui/icons-material/MoreVert';
 import { NavLink, Outlet, useLocation } from 'react-router-dom';
 import { Avatar, Divider, ListItemButton, ListItemIcon, ListItemText, Tooltip } from '@mui/material';
@@ -368,7 +366,6 @@ export default function MiniDrawer() {
         
         ==========>>>>>>>>>> */}
         <PageHistoryPath />
-
         <Divider />
 
       </AppBar>
