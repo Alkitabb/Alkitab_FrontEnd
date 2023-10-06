@@ -2,15 +2,13 @@ import React from 'react';
 import { Avatar } from '@mui/material';
 import Box from '@mui/material/Box';
 import Drawer from '@mui/material/Drawer';
-import Button from '@mui/material/Button';
 import List from '@mui/material/List';
-import Divider from '@mui/material/Divider';
 import ListItem from '@mui/material/ListItem';
-import ListItemButton from '@mui/material/ListItemButton';
-import ListItemIcon from '@mui/material/ListItemIcon';
-import ListItemText from '@mui/material/ListItemText';
-import InboxIcon from '@mui/icons-material/MoveToInbox';
-import MailIcon from '@mui/icons-material/Mail';
+import FormInput from '../../../../reusableComponents/FormInput';
+import ImageUpload from '../../../../reusableComponents/ImageUpload';
+import { useFormik } from 'formik';
+import { AiOutlineClose } from 'react-icons/ai';
+
 
 // Section ==========>>>>>>>>>>
 function Section({ title, children, onEditClick }) {
@@ -40,15 +38,20 @@ function InfoItem({ label, value }) {
 }
 
 
-
-
-
 function Profile() {
+  const { values, handleChange, handleBlur, errors, } = useFormik({
+    initialValues: {
+      firstName: 'Okikiola',
+      lastName: 'Esuola',
+      phoneNumber: '8068437620',
+      email: 'esuoladaniel0002@gmail.com',
+      address: '',
+      address: '',
+    }
+  })
+
   // Profile edit form ==========>>>>>>>>>>
   const [state, setState] = React.useState({
-    top: false,
-    left: false,
-    bottom: false,
     right: false,
   });
 
@@ -62,56 +65,67 @@ function Profile() {
 
   const list = (anchor) => (
     <Box
-      sx={{ width: anchor === 'top' || anchor === 'bottom' ? 'auto' : 250 }}
+      sx={{ width: 400, padding: 4 }}
       role="presentation"
-      onClick={toggleDrawer(anchor, false)}
-      onKeyDown={toggleDrawer(anchor, false)}
+    // onClick={toggleDrawer(anchor, false)}
+    // onKeyDown={toggleDrawer(anchor, false)}
     >
-      <List>
-        {['Inbox', 'Starred', 'Send email', 'Drafts'].map((text, index) => (
-          <ListItem key={text} disablePadding>
-            <ListItemButton>
-              <ListItemIcon>
-                {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-              </ListItemIcon>
-              <ListItemText primary={text} />
-            </ListItemButton>
+      <div className='flex flex-col gap-12'>
+        <div className='text-right w-full'>
+          <button className='ms-auto p-3'>
+            <AiOutlineClose />
+          </button>
+        </div>
+        <h1 className='text-sub-heading-1 text-black-50 leading-tight font-bold'>
+          Basic Data
+        </h1>
+        <ImageUpload variant={'small'} />
+        <List >
+          <ListItem
+            sx={{ display: 'flex', flexDirection: 'column', gap: 5 }}
+            disablePadding>
+            <FormInput
+              name='firstName'
+              value={values.firstName}
+              onChange={handleChange}
+              onBlur={handleBlur}
+              label='First Name'
+              inputType={'text'}
+            />
+            <FormInput
+              name='lastName'
+              value={values.lastName}
+              onChange={handleChange}
+              onBlur={handleBlur}
+              label='Last Name'
+              inputType={'text'}
+            />
+            <FormInput
+              name='phoneNumber'
+              value={values.phoneNumber}
+              onChange={handleChange}
+              onBlur={handleBlur}
+              label='Phone'
+              inputType={'text'}
+            />
+            <FormInput
+              name='email'
+              value={values.email}
+              onChange={handleChange}
+              onBlur={handleBlur}
+              label='Email Address'
+              inputType={'email'}
+            />
           </ListItem>
-        ))}
-      </List>
-      <Divider />
-      <List>
-        {['All mail', 'Trash', 'Spam'].map((text, index) => (
-          <ListItem key={text} disablePadding>
-            <ListItemButton>
-              <ListItemIcon>
-                {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-              </ListItemIcon>
-              <ListItemText primary={text} />
-            </ListItemButton>
-          </ListItem>
-        ))}
-      </List>
+        </List>
+
+      </div>
     </Box>
   );
 
 
   return (
     <section className='px-5 flex flex-col gap-5'>
-      <div>
-        {['left', 'right', 'top', 'bottom'].map((anchor) => (
-          <React.Fragment key={anchor}>
-            <Button onClick={toggleDrawer(anchor, true)}>{anchor}</Button>
-            <Drawer
-              anchor={anchor}
-              open={state[anchor]}
-              onClose={toggleDrawer(anchor, false)}
-            >
-              {list(anchor)}
-            </Drawer>
-          </React.Fragment>
-        ))}
-      </div>
 
       <section className='p-5 rounded-xl border border-black-10 border-opacity-30'>
         <div className='flex justify-between w-full items-center gap-5'>
@@ -119,9 +133,19 @@ function Profile() {
             <h3 className='text-paragraph-2 font-medium text-black-50'>Profile</h3>
           </header>
 
-          <div>
-            <button>Edit</button>
-          </div>
+          {['right'].map((anchor) => (
+            <React.Fragment key={anchor}>
+              <button onClick={toggleDrawer(anchor, true)}>Edit</button>
+              <Drawer
+                anchor={anchor}
+                open={state[anchor]}
+                onClose={toggleDrawer(anchor, false)}
+              >
+                {list(anchor)}
+              </Drawer>
+            </React.Fragment>
+          ))}
+
         </div>
         <div className='flex items-center gap-5'>
           <Avatar
