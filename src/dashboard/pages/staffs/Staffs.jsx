@@ -263,8 +263,8 @@ function Staffs() {
                   onChange={handleSwitchChange}
                   inputProps={{ 'aria-label': 'controlled' }}
                   size='small'
-                  color='warning'
-                />
+                  color='default'
+                /> 
               </span>
 
               {
@@ -424,7 +424,7 @@ function Staffs() {
             <div className='max-w-[262px] w-full flex flex-col gap-5'>
 
               {/* Images ==========>>>>>>>>>> */}
-              <span className='w-[155px] h-[155px] bg-center bg-contain mx-auto bg-[url("https://res.cloudinary.com/dnzi0xxtx/image/upload/v1696023195/portfolioImages/inventoryApp/achievements___teamwork_team_working_together_assistance_man_woman_people_flag_target_zncmvp.png")]'></span>
+              <span className='w-[110px] h-[110px] bg-center bg-contain mx-auto bg-[url("https://res.cloudinary.com/dnzi0xxtx/image/upload/v1692783193/portfolioImages/inventoryApp/staffIcon_h0syk7.png")]'></span>
 
               <div className='text-center'>
                 <span className='flex flex-col gap-2'>
@@ -433,7 +433,7 @@ function Staffs() {
                 </span>
 
                 {/* Button ==========>>>>>>>>>> */}
-                <button className='bg-primary-90 hover:bg-primary-100 transition-all duration-300 rounded-[12px] py-2 px-6 text-label-1 lg:text-paragraph-2 text-white mt-4' onClick={handleClickOpen}>
+                {/* <button className='bg-primary-90 hover:bg-primary-100 transition-all duration-300 rounded-[12px] py-2 px-6 text-label-1 lg:text-paragraph-2 text-white mt-4' onClick={handleClickOpen}>
                   <span className='flex items-center gap-2 lg:gap-3'>
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                       <path d="M12 5V19" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
@@ -441,7 +441,7 @@ function Staffs() {
                     </svg>
                     Add Staff
                   </span>
-                </button>
+                </button> */}
               </div>
             </div>
           </section>

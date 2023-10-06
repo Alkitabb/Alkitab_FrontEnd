@@ -91,7 +91,7 @@ module.exports = {
 
       // Actions ==========>>>>>>>>>>
 
-      'go': '#89E100',
+      'go': '#3C763D',
       'stop': '#FD2A82',
       'background': '#FBFBFB',
 
