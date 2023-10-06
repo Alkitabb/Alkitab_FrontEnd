@@ -77,7 +77,7 @@ function Profile() {
         </div>
 
         <List
-          sx={{ display: 'flex', flexDirection: 'column', gap: 4, height: '70vh', overflowY: 'scroll', padding: 4 }}
+          sx={{ display: 'flex', flexDirection: 'column', gap: 5, height: '70vh', overflowY: 'scroll', padding: 4 }}
         >
           <header className='gap-10 flex flex-col'>
             <h1 className='text-sub-heading-2 text-black-50 leading-tight font-bold'>
@@ -114,16 +114,6 @@ function Profile() {
               onBlur={handleBlur}
               label='Phone'
               inputType={'text'}
-            />
-          </ListItem>
-          <ListItem disablePadding>
-            <FormInput
-              name='email'
-              value={values.email}
-              onChange={handleChange}
-              onBlur={handleBlur}
-              label='Email Address'
-              inputType={'email'}
             />
           </ListItem>
           <ListItem disablePadding>
