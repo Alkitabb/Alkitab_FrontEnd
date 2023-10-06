@@ -66,7 +66,7 @@ function ImageUpload({ variant }) {
                 </span>
             )}
 
-            <label htmlFor="image-upload-input" className={`flex flex-col ${selectedImage ? 'hidden' : ''} ${variant === 'small' ? 'text-[10px]' : ''} text-[#6F7E8C] text-paragraph-2 font-medium items-center gap-2 cursor-pointer`}>
+            <label htmlFor="image-upload-input" className={`flex flex-col ${selectedImage ? 'hidden' : ''} ${variant === 'small' ? 'text-[10px] h-[100px] w-[100px]' : ''} text-[#6F7E8C] text-paragraph-2 font-medium items-center gap-2 cursor-pointer`}>
                 {selectedImage ? (
                     <img className="w-[100px] rounded-xl transition-all duration-300" src={selectedImage} alt="Uploaded" />
                 ) : (
@@ -79,7 +79,7 @@ function ImageUpload({ variant }) {
                     </svg>
                 )}
 
-                Upload Image
+                {/* Upload Image */}
             </label>
 
             {variant === 'large' && !selectedImage && (

@@ -8,13 +8,7 @@ import VisibilityOff from '@mui/icons-material/VisibilityOff';
 import IconButton from '@mui/material/IconButton';
 
 export default function CustomizedInputsStyleOverrides({
-    inputType,
-    icon,
-    name,
-    value,
-    onChange,
-    label,
-    className,
+    inputType, icon, name, value, onChange, label, className,
 }) {
 
     const [showPassword, setShowPassword] = React.useState(false);

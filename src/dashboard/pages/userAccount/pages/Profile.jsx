@@ -65,25 +65,28 @@ function Profile() {
 
   const list = (anchor) => (
     <Box
-      sx={{ width: 400, padding: 4 }}
+      sx={{ width: 420, height: '100vh' }}
       role="presentation"
-    // onClick={toggleDrawer(anchor, false)}
     // onKeyDown={toggleDrawer(anchor, false)}
     >
-      <div className='flex flex-col gap-12'>
-        <div className='text-right w-full'>
-          <button className='ms-auto p-3'>
-            <AiOutlineClose />
+      <div className='flex flex-col'>
+        <div className='text-right flex w-full h-[10vh] px-10'>
+          <button className='ms-auto my-auto' onClick={toggleDrawer(anchor, false)}>
+            <AiOutlineClose fontSize={'1.2em'}/>
           </button>
         </div>
-        <h1 className='text-sub-heading-1 text-black-50 leading-tight font-bold'>
-          Basic Data
-        </h1>
-        <ImageUpload variant={'small'} />
-        <List >
-          <ListItem
-            sx={{ display: 'flex', flexDirection: 'column', gap: 5 }}
-            disablePadding>
+
+        <List
+          sx={{ display: 'flex', flexDirection: 'column', gap: 4, height: '70vh', overflowY: 'scroll', padding: 4 }}
+        >
+          <header className='gap-10 flex flex-col'>
+            <h1 className='text-sub-heading-2 text-black-50 leading-tight font-bold'>
+              Basic Data
+            </h1>
+            <ImageUpload variant={'small'} />
+          </header>
+
+          <ListItem disablePadding>
             <FormInput
               name='firstName'
               value={values.firstName}
@@ -92,6 +95,8 @@ function Profile() {
               label='First Name'
               inputType={'text'}
             />
+          </ListItem>
+          <ListItem disablePadding>
             <FormInput
               name='lastName'
               value={values.lastName}
@@ -100,6 +105,8 @@ function Profile() {
               label='Last Name'
               inputType={'text'}
             />
+          </ListItem>
+          <ListItem disablePadding>
             <FormInput
               name='phoneNumber'
               value={values.phoneNumber}
@@ -108,6 +115,18 @@ function Profile() {
               label='Phone'
               inputType={'text'}
             />
+          </ListItem>
+          <ListItem disablePadding>
+            <FormInput
+              name='email'
+              value={values.email}
+              onChange={handleChange}
+              onBlur={handleBlur}
+              label='Email Address'
+              inputType={'email'}
+            />
+          </ListItem>
+          <ListItem disablePadding>
             <FormInput
               name='email'
               value={values.email}
@@ -118,7 +137,12 @@ function Profile() {
             />
           </ListItem>
         </List>
-
+        <div className='py-5 px-8 h-[20vh] text-center border-t border-black-10 grid place-content-center'>
+          <span>
+            <p className='text-label-2'> You can only change your picture with this form. To change your account information please send an email contact@piggyvest.com</p>
+            <button>Save</button>
+          </span>
+        </div>
       </div>
     </Box>
   );
