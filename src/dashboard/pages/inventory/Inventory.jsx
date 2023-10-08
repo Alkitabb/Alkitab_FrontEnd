@@ -1,12 +1,13 @@
 import React, { useState } from 'react'
 import DashboardSummaryCard from '../../components/DashboardSummaryCard'
 import AddInventory from './pages/AddInventory';
+import Button from '../../../reusableComponents/Button';
 
 
 // const [rows, setRows] = useState([]);
 function Inventory() {
 
-  const [page, setPage] = useState(1)
+  const [page, setPage] = useState(1)    
   console.log(page);
 
   return (
@@ -14,16 +15,15 @@ function Inventory() {
       {
         page === 1 &&
         <section>
-          <header className='flex items-center justify-end mb-4'>
-            <button className='bg-primary-90 hover:bg-primary-100 transition-all duration-300 rounded-[12px] py-2 px-3 lg:px-6 text-label-1 lg:text-paragraph-2 text-white' onClick={() => setPage(2)}>
-              <span className='flex items-center gap-2 lg:gap-3'>
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M12 5V19" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                  <path d="M5 12H19" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                </svg>
-                Add Inventory Item
-              </span>
-            </button>
+          <header className='justify-end mb-4'>
+            <Button btnText={' Add Inventory Item'}
+              btnIcon={<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M12 5V19" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                <path d="M5 12H19" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+              </svg>}
+              className='bg-primary-90 hover:bg-primary-100 transition-all duration-300 rounded-[12px] py-2 px-3 lg:px-6 text-label-1 lg:text-paragraph-2 text-white'
+              onClick={() => setPage(2)}
+            />
           </header>
 
           {/* <<<<<<<<<<========== Dashboard Summary card  Section =========>>>>>>>>> Start */}

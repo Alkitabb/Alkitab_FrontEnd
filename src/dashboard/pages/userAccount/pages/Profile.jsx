@@ -8,6 +8,7 @@ import FormInput from '../../../../reusableComponents/FormInput';
 import ImageUpload from '../../../../reusableComponents/ImageUpload';
 import { useFormik } from 'formik';
 import { AiOutlineClose } from 'react-icons/ai';
+import Button from '../../../../reusableComponents/Button';
 
 
 // Section ==========>>>>>>>>>>
@@ -77,7 +78,7 @@ function Profile() {
         </div>
 
         <List
-          sx={{ display: 'flex', flexDirection: 'column', gap: 5, height: '70vh', overflowY: 'scroll', padding: 4 }}
+          sx={{ display: 'flex', flexDirection: 'column', gap: 5, height: '70vh', overflowY: 'scroll', padding: 4, paddingBottom:10 }}
         >
           <header className='gap-10 flex flex-col'>
             <h1 className='text-sub-heading-2 text-black-50 leading-tight font-bold'>
@@ -92,7 +93,7 @@ function Profile() {
               value={values.firstName}
               onChange={handleChange}
               onBlur={handleBlur}
-              label='First Name'
+              label='First Name' 
               inputType={'text'}
             />
           </ListItem>
@@ -128,9 +129,9 @@ function Profile() {
           </ListItem>
         </List>
         <div className='py-5 px-8 h-[20vh] text-center border-t border-black-10 grid place-content-center'>
-          <span>
+          <span className='flex  flex-col gap-3'>
             <p className='text-label-2'> You can only change your picture with this form. To change your account information please send an email contact@piggyvest.com</p>
-            <button>Save</button>
+            <Button btnText={'Update'}/>
           </span>
         </div>
       </div>
