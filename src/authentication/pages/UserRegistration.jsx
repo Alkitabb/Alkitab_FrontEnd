@@ -45,7 +45,7 @@ function UserRegistration() {
         // location.href("/login")
     };
 
-    const { values, handleBlur, handleSubmit, handleChange, errors } = useFormik({
+    const { values, handleBlur, handleSubmit, handleChange, errors, touched, } = useFormik({
         initialValues: {
             // country: '',
             businessName: '',
@@ -329,7 +329,7 @@ function UserRegistration() {
                             {/* <<<<<<<<<<========== Input fields ==========>>>>>>>>>>*/}
                             {
                                 activeStep === 0 &&
-                                <section className='gap-[30px] flex flex-col'>
+                                <section className='gap-[20px] flex flex-col'>
                                     <header className='flex flex-col gap-1 text-center'>
                                         <h3 className='text-sub-heading-2 text-black-50'>Create your  <span className='text-primary-100'> Klusta </span> account</h3>
                                         {/* <p className='text-paragraph-1 text-black-30'>Enter your name as it appears on your government-issued ID (for easy identity verification)</p> */}
@@ -341,6 +341,7 @@ function UserRegistration() {
                                             onChange={handleChange}
                                             onBlur={handleBlur}
                                         />
+
                                         <FormInput
                                             name='businessName'
                                             value={values.businessName}
@@ -348,6 +349,7 @@ function UserRegistration() {
                                             onBlur={handleBlur}
                                             label='Business Name'
                                             inputType={'text'}
+                                            className={(errors.businessName || touched.businessName) ? 'error' : ''}
                                         />
 
                                         <FormInput
@@ -357,17 +359,15 @@ function UserRegistration() {
                                             onBlur={handleBlur}
                                             label='Email Address'
                                             inputType={'email'}
+                                            className={(errors.email || touched.email) ? 'error' : ''}
                                         />
-
-
-
                                     </div>
                                 </section>
                             }
 
                             {
                                 activeStep === 1 &&
-                                <section className='gap-[30px] flex flex-col'>
+                                <section className='gap-[20px] flex flex-col'>
                                     <header className='flex flex-col gap-1 text-center'>
                                         <h3 className='text-sub-heading-2 text-black-50'>Personal Information</h3>
                                     </header>
@@ -379,6 +379,7 @@ function UserRegistration() {
                                             onBlur={handleBlur}
                                             label='First Name'
                                             inputType={'text'}
+                                            className={(errors.firstName || touched.firstName) ? 'error' : ''}
                                         />
 
                                         <FormInput
@@ -388,6 +389,7 @@ function UserRegistration() {
                                             onBlur={handleBlur}
                                             label='Last Name'
                                             inputType={'text'}
+                                            className={(errors.lastName || touched.lastName) ? 'error' : ''}
                                         />
 
                                         <FormInput
@@ -397,6 +399,7 @@ function UserRegistration() {
                                             onBlur={handleBlur}
                                             label='Phone Number'
                                             inputType={'number'}
+                                            className={(errors.phoneNumber || touched.phoneNumber) ? 'error' : ''}
                                         />
                                     </div>
                                 </section>
@@ -404,7 +407,7 @@ function UserRegistration() {
 
                             {
                                 activeStep === 2 &&
-                                <section className='gap-[30px] flex flex-col'>
+                                <section className='gap-[20px] flex flex-col'>
                                     <header className='flex flex-col gap-1 text-center'>
                                         <h3 className='text-sub-heading-2'>How are you planning to use Klusta?</h3>
                                     </header>
@@ -447,7 +450,7 @@ function UserRegistration() {
 
                             {
                                 activeStep === 3 &&
-                                <section className='gap-[30px] flex flex-col'>
+                                <section className='gap-[20px] flex flex-col'>
                                     <header className='flex flex-col gap-1 text-center'>
                                         <h3 className='text-sub-heading-2'>Create your password</h3>
                                         <p className='text-paragraph-1 text-black-30'>Create a strong and secure password for signing in to your Klusta account.</p>
@@ -460,6 +463,7 @@ function UserRegistration() {
                                         onBlur={handleBlur}
                                         label='Password'
                                         inputType={'password'}
+                                        className={(errors.password || touched.password) ? 'error' : ''}
                                     />
 
                                     <ul className='flex w-full justify-between my-3'>
@@ -497,6 +501,7 @@ function UserRegistration() {
                                         onBlur={handleBlur}
                                         label='Confirm Password'
                                         inputType={'password'}
+                                        className={(errors.confirmPassword || touched.confirmPassword) ? 'error' : ''}
                                     />
 
                                 </section>
@@ -531,6 +536,7 @@ function UserRegistration() {
                                                     type="submit"
                                                     className={`
                                                     ${!areAllValuesFilled() || !areAllValuesValid() ? 'cursor-no-drop bg-opacity-80' : 'hover:bg-primary-90'} 
+
                                                     ${activeStep === 3 ? 'block'
                                                             : 'hidden'} bg-primary-100 transition-all duration-300 text-white w-full py-4 rounded-sm text-paragraph-2 font-bold
                                                     `}
