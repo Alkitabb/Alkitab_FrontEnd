@@ -29,7 +29,8 @@ export default function CustomizedInputsStyleOverrides({
     const borderColor = className === 'error' ? '#E74C3C' : '#E0E3E7';
 
     // Determine the background color based on whether the input has a value or not
-    const backgroundColor = value ? '#F8F9F9' : 'transparent';
+    const backgroundColor = className === 'error' && value ? '#FDEDEC' : (value ? '#F8F9F9' : 'transparent');
+
 
     const customTheme = (outerTheme) =>
         createTheme({
