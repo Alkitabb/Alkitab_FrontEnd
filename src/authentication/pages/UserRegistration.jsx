@@ -17,6 +17,7 @@ import SettingsIcon from '@mui/icons-material/Settings';
 import GroupAddIcon from '@mui/icons-material/GroupAdd';
 import VideoLabelIcon from '@mui/icons-material/VideoLabel';
 import StepConnector, { stepConnectorClasses } from '@mui/material/StepConnector';
+import CountrySelect from '../../reusableComponents/CountrySelector';
 
 
 
@@ -46,9 +47,12 @@ function UserRegistration() {
 
     const { values, handleBlur, handleSubmit, handleChange, errors } = useFormik({
         initialValues: {
+            // country: '',
             businessName: '',
-            // lastName: '',
+            firstName: '',
+            lastName: '',
             email: '',
+            phoneNumber: '',
             password: '',
             confirmPassword: '',
             accountType: businessType
@@ -56,12 +60,20 @@ function UserRegistration() {
         validationSchema: signUpSchema, //Form Validation schema for Login page
         onSubmit,
     });
-    console.log(errors);
+    // console.log(errors);
+    console.log(values);
 
 
     const areValuesFilled = () => {
         for (const key in values) {// Function to check if any values are empty (except for password and confirmPassword)
-            if (key !== 'password' && key !== 'confirmPassword' && values[key] === '') {
+            if (
+                key !== 'password'
+                && key !== 'confirmPassword'
+                && key !== 'firstName'
+                && key !== 'lastName'
+                && key !== 'phoneNumber'
+                && values[key] === ''
+            ) {
                 return false;
             }
         }
@@ -113,7 +125,7 @@ function UserRegistration() {
     };
 
 
-    const steps = ['Select campaign settings', 'Create an ad group', 'Create an ad'];
+    const steps = ['Business Information', 'Personal Information', 'Business Type', 'Password'];
     const [activeStep, setActiveStep] = React.useState(0);
     const [skipped, setSkipped] = React.useState(new Set());
 
@@ -288,7 +300,7 @@ function UserRegistration() {
             <div className='bg-white h-screen grid place-content-center relative'>
                 <div className="fixed z-30 bottom-0 text-center w-full p-5 text-paragraph-2 font-thin">Klusta &copy 2023</div>
                 {/* <<<<<<<<<<========== Form Area ===========>>>>>>>>>> */}
-                <div className='flex flex-col px-[20px] py-[44px] gap-[60px] rounded-xl lg:w-[30vw] md:w-[50vw]'>
+                <div className='flex flex-col p-[20px] gap-[60px] rounded-xl lg:w-[30vw] md:w-[50vw]'>
                     <div className='flex flex-col gap-[20px]'>
                         {/* <<<<<<<<<<========== Header Section ==========>>>>>>>>>> */}
                         <header>
@@ -320,10 +332,15 @@ function UserRegistration() {
                                 <section className='gap-[30px] flex flex-col'>
                                     <header className='flex flex-col gap-1 text-center'>
                                         <h3 className='text-sub-heading-2 text-black-50'>Create your  <span className='text-primary-100'> Klusta </span> account</h3>
-                                        <p className='text-paragraph-1 text-black-30'>Enter your name as it appears on your government-issued ID (for easy identity verification)</p>
+                                        {/* <p className='text-paragraph-1 text-black-30'>Enter your name as it appears on your government-issued ID (for easy identity verification)</p> */}
                                     </header>
-                                    <div className='flex flex-col gap-[30px] px-0 mt-5'>
-                                        {/*  First Name Input ==========>>>>>>>>>>*/}
+                                    <div className='flex flex-col gap-[20px] px-0 mt-5'>
+                                        <CountrySelect
+                                            name='country'
+                                            value={values.country}
+                                            onChange={handleChange}
+                                            onBlur={handleBlur}
+                                        />
                                         <FormInput
                                             name='businessName'
                                             value={values.businessName}
@@ -333,7 +350,6 @@ function UserRegistration() {
                                             inputType={'text'}
                                         />
 
-                                        {/*  Email Input ==========>>>>>>>>>>*/}
                                         <FormInput
                                             name='email'
                                             value={values.email}
@@ -343,12 +359,51 @@ function UserRegistration() {
                                             inputType={'email'}
                                         />
 
+
+
                                     </div>
                                 </section>
                             }
 
                             {
                                 activeStep === 1 &&
+                                <section className='gap-[30px] flex flex-col'>
+                                    <header className='flex flex-col gap-1 text-center'>
+                                        <h3 className='text-sub-heading-2 text-black-50'>Personal Information</h3>
+                                    </header>
+                                    <div className='flex flex-col gap-[20px] px-0 mt-5'>
+                                        <FormInput
+                                            name='firstName'
+                                            value={values.firstName}
+                                            onChange={handleChange}
+                                            onBlur={handleBlur}
+                                            label='First Name'
+                                            inputType={'text'}
+                                        />
+
+                                        <FormInput
+                                            name='lastName'
+                                            value={values.lastName}
+                                            onChange={handleChange}
+                                            onBlur={handleBlur}
+                                            label='Last Name'
+                                            inputType={'text'}
+                                        />
+
+                                        <FormInput
+                                            name='phoneNumber'
+                                            value={values.phoneNumber}
+                                            onChange={handleChange}
+                                            onBlur={handleBlur}
+                                            label='Phone Number'
+                                            inputType={'number'}
+                                        />
+                                    </div>
+                                </section>
+                            }
+
+                            {
+                                activeStep === 2 &&
                                 <section className='gap-[30px] flex flex-col'>
                                     <header className='flex flex-col gap-1 text-center'>
                                         <h3 className='text-sub-heading-2'>How are you planning to use Klusta?</h3>
@@ -391,7 +446,7 @@ function UserRegistration() {
                             }
 
                             {
-                                activeStep === 2 &&
+                                activeStep === 3 &&
                                 <section className='gap-[30px] flex flex-col'>
                                     <header className='flex flex-col gap-1 text-center'>
                                         <h3 className='text-sub-heading-2'>Create your password</h3>
@@ -462,7 +517,10 @@ function UserRegistration() {
 
                                                 <button
                                                     type="submit"
-                                                    className={`${!areValuesFilled() || !areValuesValid() ? 'cursor-no-drop bg-opacity-80' : 'hover:bg-primary-90'} ${activeStep === 2 && 'hidden'} bg-primary-100 transition-all duration-300 text-white w-full py-4 rounded-sm text-paragraph-2 font-bold`}
+                                                    className={`
+                                                    ${!areValuesFilled() || !areValuesValid() ? 'cursor-no-drop bg-opacity-80'
+                                                            : 'hover:bg-primary-90'} ${activeStep === 3 && 'hidden'} bg-primary-100 transition-all duration-300 text-white w-full py-4 rounded-sm text-paragraph-2 font-bold
+                                                    `}
                                                     onClick={handleNext}
                                                     disabled={!areValuesFilled() || !areValuesValid()}
                                                 >
@@ -471,7 +529,11 @@ function UserRegistration() {
 
                                                 <button
                                                     type="submit"
-                                                    className={`${!areAllValuesFilled() || !areAllValuesValid() ? 'cursor-no-drop bg-opacity-80' : 'hover:bg-primary-90'} ${activeStep === 2 ? 'block' : 'hidden'} bg-primary-100 transition-all duration-300 text-white w-full py-4 rounded-sm text-paragraph-2 font-bold`}
+                                                    className={`
+                                                    ${!areAllValuesFilled() || !areAllValuesValid() ? 'cursor-no-drop bg-opacity-80' : 'hover:bg-primary-90'} 
+                                                    ${activeStep === 3 ? 'block'
+                                                            : 'hidden'} bg-primary-100 transition-all duration-300 text-white w-full py-4 rounded-sm text-paragraph-2 font-bold
+                                                    `}
                                                     onClick={handleSubmit}
                                                     disabled={!areAllValuesFilled() || !areAllValuesValid()}
                                                 >
