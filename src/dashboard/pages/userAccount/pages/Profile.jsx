@@ -10,6 +10,9 @@ import { useFormik } from 'formik';
 import { AiOutlineClose } from 'react-icons/ai';
 import Button from '../../../../reusableComponents/Button';
 
+const PROFILE_AVATAR = "https://res.cloudinary.com/dmcmc9e7i/image/upload/v1696836697/Klusta/ffavicon_l5qtuq.png"
+const PROFILE_USERNAME = "Daniel Esuola"
+
 
 // Section ==========>>>>>>>>>>
 function Section({ title, children, onEditClick }) {
@@ -73,12 +76,12 @@ function Profile() {
       <div className='flex flex-col'>
         <div className='text-right flex w-full h-[10vh] px-10'>
           <button className='ms-auto my-auto' onClick={toggleDrawer(anchor, false)}>
-            <AiOutlineClose fontSize={'1.2em'}/>
+            <AiOutlineClose fontSize={'1.2em'} />
           </button>
         </div>
 
         <List
-          sx={{ display: 'flex', flexDirection: 'column', gap: 5, height: '70vh', overflowY: 'scroll', padding: 4, paddingBottom:10 }}
+          sx={{ display: 'flex', flexDirection: 'column', gap: 5, height: '70vh', overflowY: 'scroll', padding: 4, paddingBottom: 10 }}
         >
           <header className='gap-10 flex flex-col'>
             <h1 className='text-sub-heading-2 text-black-50 leading-tight font-bold'>
@@ -93,7 +96,7 @@ function Profile() {
               value={values.firstName}
               onChange={handleChange}
               onBlur={handleBlur}
-              label='First Name' 
+              label='First Name'
               inputType={'text'}
             />
           </ListItem>
@@ -131,7 +134,7 @@ function Profile() {
         <div className='py-5 px-8 h-[20vh] text-center border-t border-black-10 grid place-content-center'>
           <span className='flex  flex-col gap-3'>
             <p className='text-label-2'> You can only change your picture with this form. To change your account information please send an email contact@piggyvest.com</p>
-            <Button btnText={'Update'}/>
+            <Button btnText={'Update'} />
           </span>
         </div>
       </div>
@@ -143,7 +146,7 @@ function Profile() {
     <section className='px-5 flex flex-col gap-5'>
 
       <section className='p-5 rounded-xl border border-black-10 border-opacity-30'>
-        <div className='flex justify-between w-full items-center gap-5'>
+        <div className='flex justify-between w-full items-center gap-5 px-3'>
           <header className='text-paragraph-2'>
             <h3 className='text-paragraph-2 font-medium text-black-50'>Profile</h3>
           </header>
@@ -164,8 +167,8 @@ function Profile() {
         </div>
         <div className='flex items-center gap-5'>
           <Avatar
-            alt="Daniel Esuola"
-            src="https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDEwfHx8ZW58MHx8fHx8&auto=format&fit=crop&w=800&q=60"
+            alt={PROFILE_USERNAME}
+            src={PROFILE_AVATAR}
             sx={{ width: 90, height: 90 }}
           />
           <div className='flex flex-col text-black-30'>

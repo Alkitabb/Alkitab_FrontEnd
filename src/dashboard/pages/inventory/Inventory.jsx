@@ -7,7 +7,7 @@ import Button from '../../../reusableComponents/Button';
 // const [rows, setRows] = useState([]);
 function Inventory() {
 
-  const [page, setPage] = useState(1)    
+  const [page, setPage] = useState(1)
   console.log(page);
 
   return (
@@ -17,11 +17,13 @@ function Inventory() {
         <section>
           <header className='justify-end mb-4'>
             <Button btnText={' Add Inventory Item'}
-              btnIcon={<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M12 5V19" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                <path d="M5 12H19" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-              </svg>}
-              className='bg-primary-90 hover:bg-primary-100 transition-all duration-300 rounded-[12px] py-2 px-3 lg:px-6 text-label-1 lg:text-paragraph-2 text-white'
+              btnIcon={
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M12 5V19" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                  <path d="M5 12H19" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                </svg>
+              }
+              className='bg-primary-90 hover:bg-primary-100 rounded-[12px] py-2 px-3 lg:px-6 text-label-1 lg:text-paragraph-2 text-white ms-auto'
               onClick={() => setPage(2)}
             />
           </header>
