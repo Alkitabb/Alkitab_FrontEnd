@@ -334,9 +334,9 @@ function Staffs() {
           <DialogActions className='mx-auto w-11/12'>
             <span className='flex items-center w-full gap-3 mb-5'>
 
-              <Button onClick={handleClose} btnText={'Cancel'} />
+              <Button onClick={handleClose} btnText={'Cancel'} className={'w-full'}/>
 
-              <Button onClick={onSubmit} type={'submit'} btnText={'Add'} className={'bg-primary-90 text-white border-2 border-primary-100 hover:bg-primary-100'} />
+              <Button onClick={onSubmit} type={'submit'} btnText={'Add'} className={'bg-primary-90 text-white border-2 border-primary-100 hover:bg-primary-100 w-full'} />
 
             </span>
           </DialogActions>

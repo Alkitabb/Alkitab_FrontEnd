@@ -43,14 +43,14 @@ function InfoItem({ label, value }) {
 
 
 function Profile() {
-  const { values, handleChange, handleBlur, errors, } = useFormik({
+  const { values, handleChange, handleBlur, } = useFormik({
     initialValues: {
       firstName: 'Okikiola',
       lastName: 'Esuola',
       phoneNumber: '8068437620',
       email: 'esuoladaniel0002@gmail.com',
       address: '',
-      address: '',
+      // address: '',
     }
   })
 
