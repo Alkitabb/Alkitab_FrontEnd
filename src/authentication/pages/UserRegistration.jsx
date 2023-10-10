@@ -53,9 +53,9 @@ function UserRegistration() {
       initialValues: {
         // country: '',
         businessName: "",
+        email: "",
         firstName: "",
         lastName: "",
-        email: "",
         phoneNumber: "",
         password: "",
         confirmPassword: "",
@@ -64,20 +64,13 @@ function UserRegistration() {
       validationSchema: signUpSchema, //Form Validation schema for Login page
       onSubmit,
     });
-  console.log(errors);
+  // console.log(errors);
   // console.log(values);
 
   const areValuesFilled = () => {
     for (const key in values) {
       // Function to check if any values are empty (except for password and confirmPassword)
-      if (
-        key !== "password" &&
-        key !== "confirmPassword" &&
-        key !== "firstName" &&
-        key !== "lastName" &&
-        key !== "phoneNumber" &&
-        values[key] === ""
-      ) {
+      if (key !== "firstName" && key !== "lastName" && key !== "phoneNumber" && key !== "password" && key !== "confirmPassword" && values[key] === "") {
         return false;
       }
     }
@@ -87,13 +80,14 @@ function UserRegistration() {
   const areValuesValid = () => {
     let isValid = true;
     for (const key in values) {
-      if (key !== "password" && key !== "confirmPassword" && errors[key]) {
+      if (key !== "firstName" && key !== "lastName" && key !== "phoneNumber" && key !== "password" && key !== "confirmPassword" && errors[key]) {
         isValid = false;
         break;
       }
     }
     return isValid;
   };
+  // console.log(areValuesFilled());
 
   const areAllValuesFilled = () => {
     for (const key in values) {
@@ -127,12 +121,7 @@ function UserRegistration() {
     return /[a-z]/.test(password); // Check if password contains LowerCase
   };
 
-  const steps = [
-    "Business Information",
-    "Personal Information",
-    "Business Type",
-    "Password",
-  ];
+  const steps = ["Business Information", "Contact Information", "Business Type", "Password",];
   const [activeStep, setActiveStep] = React.useState(0);
   const [skipped, setSkipped] = React.useState(new Set());
 
@@ -356,12 +345,7 @@ function UserRegistration() {
                   </header>
                   <div className="flex flex-col gap-[20px] px-0 mt-5">
                     <ListItem disablePadding>
-                      <CountrySelect
-                        name="country"
-                        value={values.country}
-                        onChange={handleChange}
-                        onBlur={handleBlur}
-                      />
+                      <CountrySelect />
                     </ListItem>
                     <ListItem disablePadding>
                       <FormInput
@@ -384,8 +368,9 @@ function UserRegistration() {
                         onBlur={handleBlur}
                         label="Email Address"
                         inputType={"email"}
-                        touched={touched.email}
-                        error={errors.email && touched.email}
+                        error={errors.email && touched.email} // Use touched prop
+                        helperText={touched.email ? errors.email : ""}
+                        touched={touched.email} // Pass the touched prop
                       />
                     </ListItem>
                   </div>
@@ -396,7 +381,7 @@ function UserRegistration() {
                 <section className="gap-[20px] flex flex-col">
                   <header className="flex flex-col gap-1 text-center">
                     <h3 className="text-sub-heading-2 text-black-50">
-                      Personal Information
+                      Your Contact Information
                     </h3>
                   </header>
                   <div className="flex flex-col gap-[20px] px-0 mt-5">
@@ -408,9 +393,9 @@ function UserRegistration() {
                         onBlur={handleBlur}
                         label="First Name"
                         inputType={"text"}
-                        className={
-                          errors.firstName && touched.firstName ? "error" : ""
-                        }
+                        error={errors.firstName && touched.firstName} // Use touched prop
+                        helperText={touched.firstName ? errors.firstName : ""}
+                        touched={touched.firstName} // Pass the touched prop
                       />
                     </ListItem>
                     <ListItem disablePadding>
@@ -421,9 +406,9 @@ function UserRegistration() {
                         onBlur={handleBlur}
                         label="Last Name"
                         inputType={"text"}
-                        className={
-                          errors.lastName || touched.lastName ? "error" : ""
-                        }
+                        error={errors.lastName && touched.lastName} // Use touched prop
+                        helperText={touched.lastName ? errors.lastName : ""}
+                        touched={touched.lastName} // Pass the touched prop
                       />
                     </ListItem>
                     <ListItem disablePadding>
@@ -434,11 +419,9 @@ function UserRegistration() {
                         onBlur={handleBlur}
                         label="Phone Number"
                         inputType={"number"}
-                        className={
-                          errors.phoneNumber || touched.phoneNumber
-                            ? "error"
-                            : ""
-                        }
+                        error={errors.phoneNumber && touched.phoneNumber} // Use touched prop
+                        helperText={touched.phoneNumber ? errors.phoneNumber : ""}
+                        touched={touched.phoneNumber} // Pass the touched prop
                       />
                     </ListItem>
                   </div>
@@ -595,9 +578,9 @@ function UserRegistration() {
                       onBlur={handleBlur}
                       label="Password"
                       inputType={"password"}
-                      className={
-                        errors.password || touched.password ? "error" : ""
-                      }
+                      error={errors.password && touched.password} // Use touched prop
+                      helperText={touched.password ? errors.password : ""}
+                      touched={touched.password} // Pass the touched prop
                     />
                   </ListItem>
 
@@ -668,11 +651,9 @@ function UserRegistration() {
                       onBlur={handleBlur}
                       label="Confirm Password"
                       inputType={"password"}
-                      className={
-                        errors.confirmPassword || touched.confirmPassword
-                          ? "error"
-                          : ""
-                      }
+                      error={errors.confirmPassword && touched.confirmPassword} // Use touched prop
+                      helperText={touched.confirmPassword ? errors.confirmPassword : ""}
+                      touched={touched.confirmPassword} // Pass the touched prop
                     />
                   </ListItem>
                 </section>
@@ -697,44 +678,25 @@ function UserRegistration() {
                         }}
                       >
                         <button
-                          type="submit"
-                          className={`
-                          ${!areValuesFilled() ||
-                              !areValuesValid()
-                              ? "cursor-no-drop bg-opacity-80"
-                              : "hover:bg-primary-90"
-                            } ${activeStep === 3 && "hidden"
-                            } bg-primary-100 transition-all duration-300 text-white w-full py-4 rounded-sm text-paragraph-2 font-bold
-                                                    `}
+                          type="button"
+                          className={`${!areValuesFilled() || !areValuesValid() ? "cursor-no-drop bg-opacity-80" : "hover:bg-primary-90"} ${activeStep === 3 && "hidden"} bg-primary-100 transition-all duration-300 text-white w-full py-4 rounded-sm text-paragraph-2 font-bold`}
                           onClick={handleNext}
-                          disabled={!areValuesFilled() || !areValuesValid()}
+                          disabled={!areValuesFilled() && !areValuesValid()}
                         >
                           {activeStep === steps.length - 1 ? "Finish" : "Next"}
                         </button>
 
                         <button
                           type="submit"
-                          className={`
-                                                    ${!areAllValuesFilled() ||
-                              !areAllValuesValid()
-                              ? "cursor-no-drop bg-opacity-80"
-                              : "hover:bg-primary-90"
-                            } 
-
-                                                    ${activeStep === 3
-                              ? "block"
-                              : "hidden"
-                            } bg-primary-100 transition-all duration-300 text-white w-full py-4 rounded-sm text-paragraph-2 font-bold
-                                                    `}
+                          className={`${!areAllValuesFilled() && !areAllValuesValid() ? "cursor-no-drop bg-opacity-80" : "hover:bg-primary-90"} ${activeStep === 3 ? "block" : "hidden"} bg-primary-100 transition-all duration-300 text-white w-full py-4 rounded-sm text-paragraph-2 font-bold`}
                           onClick={handleSubmit}
-                          disabled={
-                            !areAllValuesFilled() || !areAllValuesValid()
-                          }
+                          disabled={!areAllValuesFilled() && !areAllValuesValid()}
                         >
                           Finish
                         </button>
 
                         <button
+                          type="button"
                           className={`${activeStep > 0 ? "block" : "hidden"
                             } bg-white text-primary-100 w-full py-4 rounded-sm text-paragraph-2 font-bold border`}
                           color="inherit"
