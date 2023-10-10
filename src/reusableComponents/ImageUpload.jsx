@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-const IMAGE_UPLOAD_SIZE = '172px'; // Change this to your desired size
+// const IMAGE_UPLOAD_SIZE = '172px'; // Change this to your desired size
 const DEFAULT_IMAGE_URL =
     'https://res.cloudinary.com/dnzi0xxtx/image/upload/v1693074768/portfolioImages/inventoryApp/Image_xc9ufw.png';
 

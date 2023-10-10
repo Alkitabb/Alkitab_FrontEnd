@@ -7,7 +7,7 @@ const passwordRule = /^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[!@#$%^&*()_+=\-{}[\]|
 export const signUpSchema = yup.object().shape(
     {
         businessName:
-            yup.string().required("Required").max(15, "Must be 15 or less").min(5),
+            yup.string().required("Required").max(15).min(5),
 
         // lastName:
         //     yup.string().required("Required").max(15, "Must be 15 or less").min(5),

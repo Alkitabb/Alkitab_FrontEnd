@@ -2,10 +2,7 @@
 module.exports = {
   content: ["./src/**/*.{html,js,jsx}"],
   theme: {
-
-
     fontSize: {
-
       // Headers ==========>>>>>>>>>>
       'h1': '4rem',
       'h2': '3.25rem',
@@ -36,13 +33,10 @@ module.exports = {
       '3xl': '1.953rem',
       '4xl': '2.441rem',
       '5xl': '3.052rem',
-
     },
 
     colors: {
-
       // Primary #7017E0 ==========>>>>>>>>>>
-
       // 'primary-100': '#',
       'primary-100': '#6D5CD4',
         'primary-90': '#7559D9',
@@ -55,11 +49,7 @@ module.exports = {
         'primary-20': '#AD58FC',
         'primary-10': '#B556FF',
       
-      
-
-
       // Secondary #FFCC91 ==========>>>>>>>>>>
-
       'secondary-100': '#FFCC91',
       'secondary-90': '#FFD29E',
       'secondary-80': '#FFDAAE',
@@ -71,9 +61,7 @@ module.exports = {
       'secondary-20': '#FEF5EA',
       'secondary-10': '#FEF9F2',
 
-
       // Black #1C1D22 ==========>>>>>>>>>>
-
       'black-100': '#1C1D22',
       'black-90': '#2C2D33',
       'black-80': '#33343A',
@@ -88,14 +76,10 @@ module.exports = {
       // White #FFFFFF ==========>>>>>>>>>>
       'white': '#FFFFFF',
 
-
       // Actions ==========>>>>>>>>>>
-
       'go': '#3C763D',
       'stop': '#FD2A82',
       'background': '#FBFBFB',
-
-
     },
     extend: {
 

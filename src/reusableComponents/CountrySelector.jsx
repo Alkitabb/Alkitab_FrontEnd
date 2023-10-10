@@ -4,6 +4,7 @@ import TextField from '@mui/material/TextField';
 import Autocomplete from '@mui/material/Autocomplete';
 import { outlinedInputClasses } from '@mui/material/OutlinedInput';
 import { createTheme, ThemeProvider, useTheme } from '@mui/material/styles';
+// import { BiLogoDeviantart } from 'react-icons/bi'
 
 export default function CountrySelect() {
     const outerTheme = useTheme();
@@ -14,7 +15,7 @@ export default function CountrySelect() {
 
     // Determine the background color based on whether the input has a value or not
     // const backgroundColor = value ? '#F8F9F9' : 'transparent';
-    const backgroundColor = '#F8F9F9';
+    const backgroundColor = 'transparent';
 
     const customTheme = (outerTheme) =>
         createTheme({
@@ -56,7 +57,6 @@ export default function CountrySelect() {
 
     return (
         <ThemeProvider theme={customTheme(outerTheme)}>
-
             <Autocomplete
                 id="country-select-demo"
                 sx={{ width: '100%' }}
@@ -83,10 +83,14 @@ export default function CountrySelect() {
                             ...params.inputProps,
                             autoComplete: 'new-password', // disable autocomplete and autofill
                         }}
+                    // InputProps={{
+                    //     startAdornment={<InputAdornment InputAdornment position="start" > $</InputAdornment>}
+                    // }}
                     />
+
                 )}
             />
-        </ThemeProvider>
+        </ThemeProvider >
     );
 }
 

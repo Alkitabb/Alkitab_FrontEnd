@@ -1,13 +1,14 @@
 import * as React from 'react';
 import TextField from '@mui/material/TextField';
 import { outlinedInputClasses } from '@mui/material/OutlinedInput';
-import { createTheme, ThemeProvider, useTheme } from '@mui/material/styles';
+import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { InputAdornment } from '@mui/material';
 import Visibility from '@mui/icons-material/Visibility';
 import VisibilityOff from '@mui/icons-material/VisibilityOff';
 import IconButton from '@mui/material/IconButton';
+import { useTheme } from '@mui/system';
 
-export default function CustomizedInputsStyleOverrides({
+export default function FormInput({
     inputType,
     icon,
     name,
@@ -16,6 +17,8 @@ export default function CustomizedInputsStyleOverrides({
     label,
     className,
     helperText,
+    error,
+    touched
 }) {
     const [showPassword, setShowPassword] = React.useState(false);
     const handleClickShowPassword = () => setShowPassword((show) => !show);
@@ -23,14 +26,15 @@ export default function CustomizedInputsStyleOverrides({
         event.preventDefault();
     };
 
+
     const outerTheme = useTheme();
 
-    // Determine the border color based on the className prop
-    const borderColor = className === 'error' ? '#E74C3C' : '#E0E3E7';
+    // Determine the border color based on the error prop
+    const borderColor = error && touched ? '#CB4335' : '#E0E3E7';
+
 
     // Determine the background color based on whether the input has a value or not
-    const backgroundColor = className === 'error' && value ? '#FDEDEC' : (value ? '#F8F9F9' : 'transparent');
-
+    const backgroundColor = error && touched && value ? '#FDEDEC' : (value ? '#F8F9F9' : 'transparent');
 
     const customTheme = (outerTheme) =>
         createTheme({
@@ -69,6 +73,7 @@ export default function CustomizedInputsStyleOverrides({
             },
         });
 
+
     return (
         <ThemeProvider theme={customTheme(outerTheme)}>
             <TextField
@@ -97,7 +102,7 @@ export default function CustomizedInputsStyleOverrides({
                             </InputAdornment>
                         ),
                 }}
-                helperText={helperText}
+                helperText={error && touched && helperText}
             />
         </ThemeProvider>
     );
