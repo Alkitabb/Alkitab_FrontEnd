@@ -329,7 +329,7 @@ export default function MiniDrawer() {
                 <Avatar
                   alt="Daniel Esuola"
                   // src="https://images.unsplash.com/photo-1570158268183-d296b2892211?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2787&q=80"
-                  src="https://res.cloudinary.com/dmcmc9e7i/image/upload/v1696836697/Klusta/ffavicon_l5qtuq.png"
+                  src="https://res.cloudinary.com/dmcmc9e7i/image/upload/v1696836697/Onka/ffavicon_l5qtuq.png"
                 />
               </Badge>
             </IconButton>

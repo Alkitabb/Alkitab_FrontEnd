@@ -10,7 +10,7 @@ import { useFormik } from 'formik';
 import { AiOutlineClose } from 'react-icons/ai';
 import Button from '../../../../reusableComponents/Button';
 
-const PROFILE_AVATAR = "https://res.cloudinary.com/dmcmc9e7i/image/upload/v1696836697/Klusta/ffavicon_l5qtuq.png"
+const PROFILE_AVATAR = "https://res.cloudinary.com/dmcmc9e7i/image/upload/v1696836697/Onka/ffavicon_l5qtuq.png"
 const PROFILE_USERNAME = "Daniel Esuola"
 
 
