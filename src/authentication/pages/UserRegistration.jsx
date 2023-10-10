@@ -356,7 +356,7 @@ function UserRegistration() {
                         label="Business Name"
                         inputType={"text"}
                         error={errors.businessName && touched.businessName} // Use touched prop
-                        helperText={touched.businessName ? errors.businessName : ""}
+                        helperText={touched.businessName && errors.businessName}
                         touched={touched.businessName} // Pass the touched prop
                       />
                     </ListItem>
@@ -369,7 +369,7 @@ function UserRegistration() {
                         label="Email Address"
                         inputType={"email"}
                         error={errors.email && touched.email} // Use touched prop
-                        helperText={touched.email ? errors.email : ""}
+                        helperText={touched.email && errors.email}
                         touched={touched.email} // Pass the touched prop
                       />
                     </ListItem>
@@ -394,7 +394,7 @@ function UserRegistration() {
                         label="First Name"
                         inputType={"text"}
                         error={errors.firstName && touched.firstName} // Use touched prop
-                        helperText={touched.firstName ? errors.firstName : ""}
+                        helperText={touched.firstName && errors.firstName}
                         touched={touched.firstName} // Pass the touched prop
                       />
                     </ListItem>
@@ -407,7 +407,7 @@ function UserRegistration() {
                         label="Last Name"
                         inputType={"text"}
                         error={errors.lastName && touched.lastName} // Use touched prop
-                        helperText={touched.lastName ? errors.lastName : ""}
+                        helperText={touched.lastName && errors.lastName}
                         touched={touched.lastName} // Pass the touched prop
                       />
                     </ListItem>
@@ -420,7 +420,7 @@ function UserRegistration() {
                         label="Phone Number"
                         inputType={"number"}
                         error={errors.phoneNumber && touched.phoneNumber} // Use touched prop
-                        helperText={touched.phoneNumber ? errors.phoneNumber : ""}
+                        helperText={touched.phoneNumber && errors.phoneNumber}
                         touched={touched.phoneNumber} // Pass the touched prop
                       />
                     </ListItem>
@@ -579,7 +579,7 @@ function UserRegistration() {
                       label="Password"
                       inputType={"password"}
                       error={errors.password && touched.password} // Use touched prop
-                      helperText={touched.password ? errors.password : ""}
+                      helperText={touched.password && errors.password}
                       touched={touched.password} // Pass the touched prop
                     />
                   </ListItem>
@@ -652,7 +652,7 @@ function UserRegistration() {
                       label="Confirm Password"
                       inputType={"password"}
                       error={errors.confirmPassword && touched.confirmPassword} // Use touched prop
-                      helperText={touched.confirmPassword ? errors.confirmPassword : ""}
+                      helperText={touched.confirmPassword && errors.confirmPassword}
                       touched={touched.confirmPassword} // Pass the touched prop
                     />
                   </ListItem>

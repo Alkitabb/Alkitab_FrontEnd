@@ -22,7 +22,7 @@ function UserLogin() {
     console.log(values)
   };
 
-  const { values, handleBlur, handleSubmit, handleChange, errors } = useFormik({
+  const { values, handleBlur, handleSubmit, handleChange, errors, touched } = useFormik({
     initialValues: {
       email: '',
       password: '',
@@ -107,6 +107,9 @@ function UserLogin() {
                   onBlur={handleBlur}
                   label='Email'
                   inputType={'email'}
+                  error={errors.email && touched.email} // Use touched prop
+                  helperText={touched.email && errors.email}
+                  touched={touched.email} // Pass the touched prop
                 />
                 {/*  Password Input ==========>>>>>>>>>>*/}
                 <FormInput
@@ -116,6 +119,9 @@ function UserLogin() {
                   onBlur={handleBlur}
                   label='Password'
                   inputType={'password'}
+                  error={errors.password && touched.password} // Use touched prop
+                  helperText={touched.password && errors.password}
+                  touched={touched.email} // Pass the touched prop
                 />
               </div>
 
