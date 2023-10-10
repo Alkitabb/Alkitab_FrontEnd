@@ -298,433 +298,439 @@ function UserRegistration() {
         />
       )}
 
-      <div className="bg-white h-screen grid place-content-center relative">
+      <div className="bg-white h-screen grid lg:grid-cols-2 relative">
         <div className="fixed z-30 bottom-0 text-center w-full p-5 text-paragraph-2 font-thin">
           Onka &copy 2023
         </div>
         {/* <<<<<<<<<<========== Form Area ===========>>>>>>>>>> */}
-        <div className="flex flex-col p-[20px] gap-[60px] rounded-xl lg:w-[30vw] md:w-[50vw]">
-          <div className="flex flex-col gap-[20px]">
-            {/* <<<<<<<<<<========== Header Section ==========>>>>>>>>>> */}
-            <header>
-              <Box sx={{ width: "100%" }}>
-                <Stepper
-                  alternativeLabel
-                  activeStep={activeStep}
-                  connector={<QontoConnector />}
-                >
-                  {steps.map((label) => (
-                    <Step key={label}>
-                      <StepLabel StepIconComponent={QontoStepIcon}></StepLabel>
-                    </Step>
-                  ))}
-                </Stepper>
+        <div className="w-full grid place-content-center">
+          <div className="flex flex-col p-[20px] gap-[60px] rounded-xl lg:w-[30vw] md:w-[50vw]">
+            <div className="flex flex-col gap-[20px]">
+              {/* <<<<<<<<<<========== Header Section ==========>>>>>>>>>> */}
+              <header>
+                <Box sx={{ width: "100%" }}>
+                  <Stepper
+                    alternativeLabel
+                    activeStep={activeStep}
+                    connector={<QontoConnector />}
+                  >
+                    {steps.map((label) => (
+                      <Step key={label}>
+                        <StepLabel StepIconComponent={QontoStepIcon}></StepLabel>
+                      </Step>
+                    ))}
+                  </Stepper>
+                </Box>
+              </header>
+
+              {/* Form Area;The actual form  ===========>>>>>>>>>> Start */}
+              {/* <<<<<<<<<<=====================>>>>>>>>>> */}
+              <Box
+                component="form"
+                noValidate
+                autoComplete="off"
+                onSubmit={handleSubmit}
+                sx={{
+                  width: "100%",
+                }}
+              >
+                {/* <<<<<<<<<<========== Input fields ==========>>>>>>>>>>*/}
+                {activeStep === 0 && (
+                  <section className="gap-[20px] flex flex-col">
+                    <header className="flex flex-col gap-1 text-center">
+                      <h3 className="text-sub-heading-2 text-black-50">
+                        Create your{" "}
+                        <span className="text-primary-100"> Onka </span> account
+                      </h3>
+                      {/* <p className='text-paragraph-1 text-black-30'>Enter your name as it appears on your government-issued ID (for easy identity verification)</p> */}
+                    </header>
+                    <div className="flex flex-col gap-[20px] px-0 mt-5">
+                      <ListItem disablePadding>
+                        <CountrySelect />
+                      </ListItem>
+                      <ListItem disablePadding>
+                        <FormInput
+                          name="businessName"
+                          value={values.businessName}
+                          onChange={handleChange}
+                          onBlur={handleBlur}
+                          label="Business Name"
+                          inputType={"text"}
+                          error={errors.businessName && touched.businessName} // Use touched prop
+                          helperText={touched.businessName && errors.businessName}
+                          touched={touched.businessName} // Pass the touched prop
+                        />
+                      </ListItem>
+                      <ListItem disablePadding>
+                        <FormInput
+                          name="email"
+                          value={values.email}
+                          onChange={handleChange}
+                          onBlur={handleBlur}
+                          label="Email Address"
+                          inputType={"email"}
+                          error={errors.email && touched.email} // Use touched prop
+                          helperText={touched.email && errors.email}
+                          touched={touched.email} // Pass the touched prop
+                        />
+                      </ListItem>
+                    </div>
+                  </section>
+                )}
+
+                {activeStep === 1 && (
+                  <section className="gap-[20px] flex flex-col">
+                    <header className="flex flex-col gap-1 text-center">
+                      <h3 className="text-sub-heading-2 text-black-50">
+                        Your Contact Information
+                      </h3>
+                    </header>
+                    <div className="flex flex-col gap-[20px] px-0 mt-5">
+                      <ListItem disablePadding>
+                        <FormInput
+                          name="firstName"
+                          value={values.firstName}
+                          onChange={handleChange}
+                          onBlur={handleBlur}
+                          label="First Name"
+                          inputType={"text"}
+                          error={errors.firstName && touched.firstName} // Use touched prop
+                          helperText={touched.firstName && errors.firstName}
+                          touched={touched.firstName} // Pass the touched prop
+                        />
+                      </ListItem>
+                      <ListItem disablePadding>
+                        <FormInput
+                          name="lastName"
+                          value={values.lastName}
+                          onChange={handleChange}
+                          onBlur={handleBlur}
+                          label="Last Name"
+                          inputType={"text"}
+                          error={errors.lastName && touched.lastName} // Use touched prop
+                          helperText={touched.lastName && errors.lastName}
+                          touched={touched.lastName} // Pass the touched prop
+                        />
+                      </ListItem>
+                      <ListItem disablePadding>
+                        <FormInput
+                          name="phoneNumber"
+                          value={values.phoneNumber}
+                          onChange={handleChange}
+                          onBlur={handleBlur}
+                          label="Phone Number"
+                          inputType={"number"}
+                          error={errors.phoneNumber && touched.phoneNumber} // Use touched prop
+                          helperText={touched.phoneNumber && errors.phoneNumber}
+                          touched={touched.phoneNumber} // Pass the touched prop
+                        />
+                      </ListItem>
+                    </div>
+                  </section>
+                )}
+
+                {activeStep === 2 && (
+                  <section className="gap-[20px] flex flex-col">
+                    <header className="flex flex-col gap-1 text-center">
+                      <h3 className="text-sub-heading-2">
+                        How are you planning to use Onka?
+                      </h3>
+                    </header>
+                    <div className="flex lg:flex-row md:flex-col flex-col gap-3 mt-5">
+                      <ListItem disablePadding>
+                        <Cards
+                          // cardState={'active'}
+                          cardState={
+                            businessType === "single" ? "active" : "disabled"
+                          }
+                          cardIcon={
+                            <svg
+                              width="22"
+                              height="18"
+                              viewBox="0 0 22 18"
+                              fill="none"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <path
+                                d="M12.8496 1.25049V3.67049"
+                                stroke="#130F26"
+                                strokeWidth="1.5"
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                              />
+                              <path
+                                d="M12.8496 14.7603V16.7843"
+                                stroke="#130F26"
+                                strokeWidth="1.5"
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                              />
+                              <path
+                                d="M12.8496 11.3249V6.50391"
+                                stroke="#130F26"
+                                strokeWidth="1.5"
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                              />
+                              <path
+                                fillRule="evenodd"
+                                clipRule="evenodd"
+                                d="M17.7021 17C19.5242 17 21 15.5426 21 13.7431V11.1506C19.7943 11.1506 18.8233 10.1917 18.8233 9.00103C18.8233 7.81035 19.7943 6.85039 21 6.85039L20.999 4.25686C20.999 2.45745 19.5221 1 17.7011 1H4.29892C2.47789 1 1.00104 2.45745 1.00104 4.25686L1 6.93485C2.20567 6.93485 3.17668 7.81035 3.17668 9.00103C3.17668 10.1917 2.20567 11.1506 1 11.1506V13.7431C1 15.5426 2.4758 17 4.29787 17H17.7021Z"
+                                stroke="#130F26"
+                                strokeWidth="1.5"
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                              />
+                            </svg>
+                          }
+                          cardHeader={"Solo"}
+                          cardCaption={
+                            "Manage your products and sales with Onka"
+                          }
+                          onClick={() => handleSelectBusiness("single")}
+                        />
+                      </ListItem>
+                      <ListItem disablePadding>
+                        <Cards
+                          cardState={
+                            businessType === "multiple" ? "active" : "disabled"
+                          }
+                          // cardState={'disabled'}
+                          cardIcon={
+                            <svg
+                              width="22"
+                              height="18"
+                              viewBox="0 0 22 18"
+                              fill="none"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <path
+                                d="M16.8877 7.89673C18.2827 7.70073 19.3567 6.50473 19.3597 5.05573C19.3597 3.62773 18.3187 2.44373 16.9537 2.21973"
+                                stroke="#130F26"
+                                strokeWidth="1.5"
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                              />
+                              <path
+                                d="M18.7285 11.2505C20.0795 11.4525 21.0225 11.9255 21.0225 12.9005C21.0225 13.5715 20.5785 14.0075 19.8605 14.2815"
+                                stroke="#130F26"
+                                strokeWidth="1.5"
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                              />
+                              <path
+                                fillRule="evenodd"
+                                clipRule="evenodd"
+                                d="M10.8867 11.6641C7.67273 11.6641 4.92773 12.1511 4.92773 14.0961C4.92773 16.0401 7.65573 16.5411 10.8867 16.5411C14.1007 16.5411 16.8447 16.0591 16.8447 14.1131C16.8447 12.1671 14.1177 11.6641 10.8867 11.6641Z"
+                                stroke="#130F26"
+                                strokeWidth="1.5"
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                              />
+                              <path
+                                fillRule="evenodd"
+                                clipRule="evenodd"
+                                d="M10.8864 8.888C12.9954 8.888 14.7054 7.179 14.7054 5.069C14.7054 2.96 12.9954 1.25 10.8864 1.25C8.77741 1.25 7.06741 2.96 7.06741 5.069C7.05941 7.171 8.75641 8.881 10.8584 8.888H10.8864Z"
+                                stroke="#130F26"
+                                strokeWidth="1.5"
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                              />
+                              <path
+                                d="M4.88509 7.89673C3.48909 7.70073 2.41609 6.50473 2.41309 5.05573C2.41309 3.62773 3.45409 2.44373 4.81909 2.21973"
+                                stroke="#130F26"
+                                strokeWidth="1.5"
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                              />
+                              <path
+                                d="M3.044 11.2505C1.693 11.4525 0.75 11.9255 0.75 12.9005C0.75 13.5715 1.194 14.0075 1.912 14.2815"
+                                stroke="#130F26"
+                                strokeWidth="1.5"
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                              />
+                            </svg>
+                          }
+                          cardHeader={"Multiple"}
+                          cardCaption={"Manage multiple businesses with Onka"}
+                          onClick={() => handleSelectBusiness("multiple")}
+                        />
+                      </ListItem>
+                    </div>
+                  </section>
+                )}
+
+                {activeStep === 3 && (
+                  <section className="gap-[20px] flex flex-col">
+                    <header className="flex flex-col gap-1 text-center">
+                      <h3 className="text-sub-heading-2">Create your password</h3>
+                      <p className="text-paragraph-1 text-black-30">
+                        Create a strong and secure password for signing in to your
+                        Onka account.
+                      </p>
+                    </header>
+                    <ListItem disablePadding>
+                      {/*  Password Input ==========>>>>>>>>>>*/}
+                      <FormInput
+                        name="password"
+                        value={values.password}
+                        onChange={handleChange}
+                        onBlur={handleBlur}
+                        label="Password"
+                        inputType={"password"}
+                        error={errors.password && touched.password} // Use touched prop
+                        helperText={touched.password && errors.password}
+                        touched={touched.password} // Pass the touched prop
+                      />
+                    </ListItem>
+
+                    <ul className="flex w-full justify-between my-3">
+                      <li>
+                        <span className="text-center">
+                          <h3
+                            className={`${values.password.length >= 8 && "text-primary-100"
+                              } font-bold text-sub-heading-3 transition-all duration-300`}
+                          >
+                            8+
+                          </h3>
+                          <p className="text-paragraph-2 text-black-30">
+                            Characters
+                          </p>
+                        </span>
+                      </li>
+                      <li>
+                        <span className="text-center">
+                          <h3
+                            className={`${containsCapitalLetter(values.password) &&
+                              "text-primary-100"
+                              } font-bold text-sub-heading-3 transition-all duration-300`}
+                          >
+                            AA
+                          </h3>
+                          <p className="text-paragraph-2 text-black-30">
+                            Uppercase
+                          </p>
+                        </span>
+                      </li>
+                      <li>
+                        <span className="text-center">
+                          <h3
+                            className={`${containsLowercaseLetters(values.password) &&
+                              "text-primary-100"
+                              } font-bold text-sub-heading-3 transition-all duration-300`}
+                          >
+                            Aa
+                          </h3>
+                          <p className="text-paragraph-2 text-black-30">
+                            Lowercase
+                          </p>
+                        </span>
+                      </li>
+                      <li>
+                        <span className="text-center">
+                          <h3
+                            className={`${containsNumber(values.password) &&
+                              "text-primary-100"
+                              } font-bold text-sub-heading-3 transition-all duration-300`}
+                          >
+                            123
+                          </h3>
+                          <p className="text-paragraph-2 text-black-30">
+                            Numbers
+                          </p>
+                        </span>
+                      </li>
+                    </ul>
+
+                    {/*  Confirm Password Input ==========>>>>>>>>>>*/}
+                    <ListItem disablePadding>
+                      <FormInput
+                        name="confirmPassword"
+                        value={values.confirmPassword}
+                        onChange={handleChange}
+                        onBlur={handleBlur}
+                        label="Confirm Password"
+                        inputType={"password"}
+                        error={errors.confirmPassword && touched.confirmPassword} // Use touched prop
+                        helperText={touched.confirmPassword && errors.confirmPassword}
+                        touched={touched.confirmPassword} // Pass the touched prop
+                      />
+                    </ListItem>
+                  </section>
+                )}
+
+                <div className="flex flex-col gap-2 mt-10">
+                  <span className="text-center">
+                    {activeStep === steps.length ? (
+                      <React.Fragment>
+                        <Typography sx={{ mt: 0, mb: 5 }}>
+                          Registration completed - please hold on...
+                        </Typography>
+                      </React.Fragment>
+                    ) : (
+                      <React.Fragment>
+                        <Box
+                          sx={{
+                            display: "flex",
+                            flexDirection: "column",
+                            pt: 0,
+                            gap: 1.5,
+                          }}
+                        >
+                          <button
+                            type="button"
+                            className={`${!areValuesFilled() || !areValuesValid() ? "cursor-no-drop bg-opacity-80" : "hover:bg-primary-90"} ${activeStep === 3 && "hidden"} bg-primary-100 transition-all duration-300 text-white w-full py-4 rounded-sm text-paragraph-2 font-bold`}
+                            onClick={handleNext}
+                            disabled={!areValuesFilled() && !areValuesValid()}
+                          >
+                            {activeStep === steps.length - 1 ? "Finish" : "Next"}
+                          </button>
+
+                          <button
+                            type="submit"
+                            className={`${!areAllValuesFilled() && !areAllValuesValid() ? "cursor-no-drop bg-opacity-80" : "hover:bg-primary-90"} ${activeStep === 3 ? "block" : "hidden"} bg-primary-100 transition-all duration-300 text-white w-full py-4 rounded-sm text-paragraph-2 font-bold`}
+                            onClick={handleSubmit}
+                            disabled={!areAllValuesFilled() && !areAllValuesValid()}
+                          >
+                            Finish
+                          </button>
+
+                          <button
+                            type="button"
+                            className={`${activeStep > 0 ? "block" : "hidden"
+                              } bg-white text-primary-100 w-full py-4 rounded-sm text-paragraph-2 font-bold border`}
+                            color="inherit"
+                            disabled={activeStep === 0}
+                            onClick={handleBack}
+                            sx={{ mr: 1 }}
+                          >
+                            Previous
+                          </button>
+
+                          <Box sx={{ flex: "1 1 auto" }} />
+                        </Box>
+                      </React.Fragment>
+                    )}
+                  </span>
+                  <p className="text-paragraph-2 text-black-30 flex justify-center gap-1">
+                    Already have an account?
+                    <NavLink to="/login" underline="hover">
+                      <span className="text-primary-100 text-paragraph-2">
+                        Sign In
+                      </span>
+                    </NavLink>
+                  </p>
+                </div>
               </Box>
-            </header>
-
-            {/* Form Area;The actual form  ===========>>>>>>>>>> Start */}
-            {/* <<<<<<<<<<=====================>>>>>>>>>> */}
-            <Box
-              component="form"
-              noValidate
-              autoComplete="off"
-              onSubmit={handleSubmit}
-              sx={{
-                width: "100%",
-              }}
-            >
-              {/* <<<<<<<<<<========== Input fields ==========>>>>>>>>>>*/}
-              {activeStep === 0 && (
-                <section className="gap-[20px] flex flex-col">
-                  <header className="flex flex-col gap-1 text-center">
-                    <h3 className="text-sub-heading-2 text-black-50">
-                      Create your{" "}
-                      <span className="text-primary-100"> Onka </span> account
-                    </h3>
-                    {/* <p className='text-paragraph-1 text-black-30'>Enter your name as it appears on your government-issued ID (for easy identity verification)</p> */}
-                  </header>
-                  <div className="flex flex-col gap-[20px] px-0 mt-5">
-                    <ListItem disablePadding>
-                      <CountrySelect />
-                    </ListItem>
-                    <ListItem disablePadding>
-                      <FormInput
-                        name="businessName"
-                        value={values.businessName}
-                        onChange={handleChange}
-                        onBlur={handleBlur}
-                        label="Business Name"
-                        inputType={"text"}
-                        error={errors.businessName && touched.businessName} // Use touched prop
-                        helperText={touched.businessName && errors.businessName}
-                        touched={touched.businessName} // Pass the touched prop
-                      />
-                    </ListItem>
-                    <ListItem disablePadding>
-                      <FormInput
-                        name="email"
-                        value={values.email}
-                        onChange={handleChange}
-                        onBlur={handleBlur}
-                        label="Email Address"
-                        inputType={"email"}
-                        error={errors.email && touched.email} // Use touched prop
-                        helperText={touched.email && errors.email}
-                        touched={touched.email} // Pass the touched prop
-                      />
-                    </ListItem>
-                  </div>
-                </section>
-              )}
-
-              {activeStep === 1 && (
-                <section className="gap-[20px] flex flex-col">
-                  <header className="flex flex-col gap-1 text-center">
-                    <h3 className="text-sub-heading-2 text-black-50">
-                      Your Contact Information
-                    </h3>
-                  </header>
-                  <div className="flex flex-col gap-[20px] px-0 mt-5">
-                    <ListItem disablePadding>
-                      <FormInput
-                        name="firstName"
-                        value={values.firstName}
-                        onChange={handleChange}
-                        onBlur={handleBlur}
-                        label="First Name"
-                        inputType={"text"}
-                        error={errors.firstName && touched.firstName} // Use touched prop
-                        helperText={touched.firstName && errors.firstName}
-                        touched={touched.firstName} // Pass the touched prop
-                      />
-                    </ListItem>
-                    <ListItem disablePadding>
-                      <FormInput
-                        name="lastName"
-                        value={values.lastName}
-                        onChange={handleChange}
-                        onBlur={handleBlur}
-                        label="Last Name"
-                        inputType={"text"}
-                        error={errors.lastName && touched.lastName} // Use touched prop
-                        helperText={touched.lastName && errors.lastName}
-                        touched={touched.lastName} // Pass the touched prop
-                      />
-                    </ListItem>
-                    <ListItem disablePadding>
-                      <FormInput
-                        name="phoneNumber"
-                        value={values.phoneNumber}
-                        onChange={handleChange}
-                        onBlur={handleBlur}
-                        label="Phone Number"
-                        inputType={"number"}
-                        error={errors.phoneNumber && touched.phoneNumber} // Use touched prop
-                        helperText={touched.phoneNumber && errors.phoneNumber}
-                        touched={touched.phoneNumber} // Pass the touched prop
-                      />
-                    </ListItem>
-                  </div>
-                </section>
-              )}
-
-              {activeStep === 2 && (
-                <section className="gap-[20px] flex flex-col">
-                  <header className="flex flex-col gap-1 text-center">
-                    <h3 className="text-sub-heading-2">
-                      How are you planning to use Onka?
-                    </h3>
-                  </header>
-                  <div className="flex lg:flex-row md:flex-col flex-col gap-3 mt-5">
-                    <ListItem disablePadding>
-                      <Cards
-                        // cardState={'active'}
-                        cardState={
-                          businessType === "single" ? "active" : "disabled"
-                        }
-                        cardIcon={
-                          <svg
-                            width="22"
-                            height="18"
-                            viewBox="0 0 22 18"
-                            fill="none"
-                            xmlns="http://www.w3.org/2000/svg"
-                          >
-                            <path
-                              d="M12.8496 1.25049V3.67049"
-                              stroke="#130F26"
-                              strokeWidth="1.5"
-                              strokeLinecap="round"
-                              strokeLinejoin="round"
-                            />
-                            <path
-                              d="M12.8496 14.7603V16.7843"
-                              stroke="#130F26"
-                              strokeWidth="1.5"
-                              strokeLinecap="round"
-                              strokeLinejoin="round"
-                            />
-                            <path
-                              d="M12.8496 11.3249V6.50391"
-                              stroke="#130F26"
-                              strokeWidth="1.5"
-                              strokeLinecap="round"
-                              strokeLinejoin="round"
-                            />
-                            <path
-                              fillRule="evenodd"
-                              clipRule="evenodd"
-                              d="M17.7021 17C19.5242 17 21 15.5426 21 13.7431V11.1506C19.7943 11.1506 18.8233 10.1917 18.8233 9.00103C18.8233 7.81035 19.7943 6.85039 21 6.85039L20.999 4.25686C20.999 2.45745 19.5221 1 17.7011 1H4.29892C2.47789 1 1.00104 2.45745 1.00104 4.25686L1 6.93485C2.20567 6.93485 3.17668 7.81035 3.17668 9.00103C3.17668 10.1917 2.20567 11.1506 1 11.1506V13.7431C1 15.5426 2.4758 17 4.29787 17H17.7021Z"
-                              stroke="#130F26"
-                              strokeWidth="1.5"
-                              strokeLinecap="round"
-                              strokeLinejoin="round"
-                            />
-                          </svg>
-                        }
-                        cardHeader={"Single"}
-                        cardCaption={
-                          "Manage your products and sales with Onka"
-                        }
-                        onClick={() => handleSelectBusiness("single")}
-                      />
-                    </ListItem>
-                    <ListItem disablePadding>
-                      <Cards
-                        cardState={
-                          businessType === "multiple" ? "active" : "disabled"
-                        }
-                        // cardState={'disabled'}
-                        cardIcon={
-                          <svg
-                            width="22"
-                            height="18"
-                            viewBox="0 0 22 18"
-                            fill="none"
-                            xmlns="http://www.w3.org/2000/svg"
-                          >
-                            <path
-                              d="M16.8877 7.89673C18.2827 7.70073 19.3567 6.50473 19.3597 5.05573C19.3597 3.62773 18.3187 2.44373 16.9537 2.21973"
-                              stroke="#130F26"
-                              strokeWidth="1.5"
-                              strokeLinecap="round"
-                              strokeLinejoin="round"
-                            />
-                            <path
-                              d="M18.7285 11.2505C20.0795 11.4525 21.0225 11.9255 21.0225 12.9005C21.0225 13.5715 20.5785 14.0075 19.8605 14.2815"
-                              stroke="#130F26"
-                              strokeWidth="1.5"
-                              strokeLinecap="round"
-                              strokeLinejoin="round"
-                            />
-                            <path
-                              fillRule="evenodd"
-                              clipRule="evenodd"
-                              d="M10.8867 11.6641C7.67273 11.6641 4.92773 12.1511 4.92773 14.0961C4.92773 16.0401 7.65573 16.5411 10.8867 16.5411C14.1007 16.5411 16.8447 16.0591 16.8447 14.1131C16.8447 12.1671 14.1177 11.6641 10.8867 11.6641Z"
-                              stroke="#130F26"
-                              strokeWidth="1.5"
-                              strokeLinecap="round"
-                              strokeLinejoin="round"
-                            />
-                            <path
-                              fillRule="evenodd"
-                              clipRule="evenodd"
-                              d="M10.8864 8.888C12.9954 8.888 14.7054 7.179 14.7054 5.069C14.7054 2.96 12.9954 1.25 10.8864 1.25C8.77741 1.25 7.06741 2.96 7.06741 5.069C7.05941 7.171 8.75641 8.881 10.8584 8.888H10.8864Z"
-                              stroke="#130F26"
-                              strokeWidth="1.5"
-                              strokeLinecap="round"
-                              strokeLinejoin="round"
-                            />
-                            <path
-                              d="M4.88509 7.89673C3.48909 7.70073 2.41609 6.50473 2.41309 5.05573C2.41309 3.62773 3.45409 2.44373 4.81909 2.21973"
-                              stroke="#130F26"
-                              strokeWidth="1.5"
-                              strokeLinecap="round"
-                              strokeLinejoin="round"
-                            />
-                            <path
-                              d="M3.044 11.2505C1.693 11.4525 0.75 11.9255 0.75 12.9005C0.75 13.5715 1.194 14.0075 1.912 14.2815"
-                              stroke="#130F26"
-                              strokeWidth="1.5"
-                              strokeLinecap="round"
-                              strokeLinejoin="round"
-                            />
-                          </svg>
-                        }
-                        cardHeader={"Multiple"}
-                        cardCaption={"Manage multiple businesses with Onka"}
-                        onClick={() => handleSelectBusiness("multiple")}
-                      />
-                    </ListItem>
-                  </div>
-                </section>
-              )}
-
-              {activeStep === 3 && (
-                <section className="gap-[20px] flex flex-col">
-                  <header className="flex flex-col gap-1 text-center">
-                    <h3 className="text-sub-heading-2">Create your password</h3>
-                    <p className="text-paragraph-1 text-black-30">
-                      Create a strong and secure password for signing in to your
-                      Onka account.
-                    </p>
-                  </header>
-                  <ListItem disablePadding>
-                    {/*  Password Input ==========>>>>>>>>>>*/}
-                    <FormInput
-                      name="password"
-                      value={values.password}
-                      onChange={handleChange}
-                      onBlur={handleBlur}
-                      label="Password"
-                      inputType={"password"}
-                      error={errors.password && touched.password} // Use touched prop
-                      helperText={touched.password && errors.password}
-                      touched={touched.password} // Pass the touched prop
-                    />
-                  </ListItem>
-
-                  <ul className="flex w-full justify-between my-3">
-                    <li>
-                      <span className="text-center">
-                        <h3
-                          className={`${values.password.length >= 8 && "text-primary-100"
-                            } font-bold text-sub-heading-3 transition-all duration-300`}
-                        >
-                          8+
-                        </h3>
-                        <p className="text-paragraph-2 text-black-30">
-                          Characters
-                        </p>
-                      </span>
-                    </li>
-                    <li>
-                      <span className="text-center">
-                        <h3
-                          className={`${containsCapitalLetter(values.password) &&
-                            "text-primary-100"
-                            } font-bold text-sub-heading-3 transition-all duration-300`}
-                        >
-                          AA
-                        </h3>
-                        <p className="text-paragraph-2 text-black-30">
-                          Uppercase
-                        </p>
-                      </span>
-                    </li>
-                    <li>
-                      <span className="text-center">
-                        <h3
-                          className={`${containsLowercaseLetters(values.password) &&
-                            "text-primary-100"
-                            } font-bold text-sub-heading-3 transition-all duration-300`}
-                        >
-                          Aa
-                        </h3>
-                        <p className="text-paragraph-2 text-black-30">
-                          Lowercase
-                        </p>
-                      </span>
-                    </li>
-                    <li>
-                      <span className="text-center">
-                        <h3
-                          className={`${containsNumber(values.password) &&
-                            "text-primary-100"
-                            } font-bold text-sub-heading-3 transition-all duration-300`}
-                        >
-                          123
-                        </h3>
-                        <p className="text-paragraph-2 text-black-30">
-                          Numbers
-                        </p>
-                      </span>
-                    </li>
-                  </ul>
-
-                  {/*  Confirm Password Input ==========>>>>>>>>>>*/}
-                  <ListItem disablePadding>
-                    <FormInput
-                      name="confirmPassword"
-                      value={values.confirmPassword}
-                      onChange={handleChange}
-                      onBlur={handleBlur}
-                      label="Confirm Password"
-                      inputType={"password"}
-                      error={errors.confirmPassword && touched.confirmPassword} // Use touched prop
-                      helperText={touched.confirmPassword && errors.confirmPassword}
-                      touched={touched.confirmPassword} // Pass the touched prop
-                    />
-                  </ListItem>
-                </section>
-              )}
-
-              <div className="flex flex-col gap-2 mt-10">
-                <span className="text-center">
-                  {activeStep === steps.length ? (
-                    <React.Fragment>
-                      <Typography sx={{ mt: 0, mb: 5 }}>
-                        Registration completed - please hold on...
-                      </Typography>
-                    </React.Fragment>
-                  ) : (
-                    <React.Fragment>
-                      <Box
-                        sx={{
-                          display: "flex",
-                          flexDirection: "column",
-                          pt: 0,
-                          gap: 1.5,
-                        }}
-                      >
-                        <button
-                          type="button"
-                          className={`${!areValuesFilled() || !areValuesValid() ? "cursor-no-drop bg-opacity-80" : "hover:bg-primary-90"} ${activeStep === 3 && "hidden"} bg-primary-100 transition-all duration-300 text-white w-full py-4 rounded-sm text-paragraph-2 font-bold`}
-                          onClick={handleNext}
-                          disabled={!areValuesFilled() && !areValuesValid()}
-                        >
-                          {activeStep === steps.length - 1 ? "Finish" : "Next"}
-                        </button>
-
-                        <button
-                          type="submit"
-                          className={`${!areAllValuesFilled() && !areAllValuesValid() ? "cursor-no-drop bg-opacity-80" : "hover:bg-primary-90"} ${activeStep === 3 ? "block" : "hidden"} bg-primary-100 transition-all duration-300 text-white w-full py-4 rounded-sm text-paragraph-2 font-bold`}
-                          onClick={handleSubmit}
-                          disabled={!areAllValuesFilled() && !areAllValuesValid()}
-                        >
-                          Finish
-                        </button>
-
-                        <button
-                          type="button"
-                          className={`${activeStep > 0 ? "block" : "hidden"
-                            } bg-white text-primary-100 w-full py-4 rounded-sm text-paragraph-2 font-bold border`}
-                          color="inherit"
-                          disabled={activeStep === 0}
-                          onClick={handleBack}
-                          sx={{ mr: 1 }}
-                        >
-                          Previous
-                        </button>
-
-                        <Box sx={{ flex: "1 1 auto" }} />
-                      </Box>
-                    </React.Fragment>
-                  )}
-                </span>
-                <p className="text-paragraph-2 text-black-30 flex justify-center gap-1">
-                  Already have an account?
-                  <NavLink to="/login" underline="hover">
-                    <span className="text-primary-100 text-paragraph-2">
-                      Sign In
-                    </span>
-                  </NavLink>
-                </p>
-              </div>
-            </Box>
-            {/* <<<<<<<<<<=====================>>>>>>>>>> End */}
+              {/* <<<<<<<<<<=====================>>>>>>>>>> End */}
+            </div>
           </div>
         </div>
+
+        <div className='bg-[url("https://images.unsplash.com/photo-1532102235608-dc8fc689c9ab?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2940&q=80")] bg-cover bg-center bg-no-repeat'>
+         </div>
+         
       </div>
     </>
   );
