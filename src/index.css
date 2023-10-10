@@ -38,6 +38,12 @@ code {
     monospace;
 }
 
+.input-error{
+  border-color: red !important;
+  background-color: red !important;
+  color: red !important;
+}
+
 
 /* Custom scrollbar style */
 /* You can adjust these styles to match your site's design */

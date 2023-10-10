@@ -352,7 +352,7 @@ function UserRegistration() {
                                                 onBlur={handleBlur}
                                                 label='Business Name'
                                                 inputType={'text'}
-                                                error={errors.businessName && touched.businessName} // Use touched prop
+                                                error={errors.businessName || touched.businessName} // Use touched prop
                                                 helperText={touched.businessName ? errors.businessName : ''}
                                                 touched={touched.businessName} // Pass the touched prop
                                             />
@@ -366,7 +366,7 @@ function UserRegistration() {
                                                 label='Email Address'
                                                 inputType={'email'}
                                                 touched={touched.email}
-                                                error={errors.email && touched.email}
+                                                error={errors.email || touched.email}
                                             />
                                         </ListItem>
                                     </div>
