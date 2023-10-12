@@ -329,7 +329,7 @@ export default function MiniDrawer() {
                 <Avatar
                   alt="Daniel Esuola"
                   // src="https://images.unsplash.com/photo-1570158268183-d296b2892211?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2787&q=80"
-                  src="https://res.cloudinary.com/dmcmc9e7i/image/upload/v1696836697/Onka/ffavicon_l5qtuq.png"
+                  src="https://res.cloudinary.com/dmcmc9e7i/image/upload/v1696836697/StoqHive/ffavicon_l5qtuq.png"
                 />
               </Badge>
             </IconButton>
@@ -563,79 +563,6 @@ export default function MiniDrawer() {
           className='transition-all duration-300'
         >
           <ListItem disablePadding sx={{ display: 'flex', flexDirection: 'column', gap: 1 }} >
-
-            {/* Support Button ==========>>>>>>>>>> */}
-            <ListItemButton
-              sx={{
-                py: 1.5,
-                width: '100%',
-                borderRadius: 3,
-                backgroundColor: '#EFEFF0',
-                "&.Mui-selected": {
-                  backgroundColor: "#7017E0",
-                  color: '#ffffff'
-                },
-                "&.Mui-focusVisible": {
-                  backgroundColor: "#6D83EC",
-                  outline: 'none',
-                  color: '#ffffff',
-                },
-              }}
-
-            // selected={isSelected}
-            >
-              <ListItemIcon
-                sx={{
-                  minWidth: 0,
-                  mr: open ? 3 : 'auto',
-                  justifyContent: 'center',
-                }}
-              >
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M3 18V12C3 9.61305 3.94821 7.32387 5.63604 5.63604C7.32387 3.94821 9.61305 3 12 3C14.3869 3 16.6761 3.94821 18.364 5.63604C20.0518 7.32387 21 9.61305 21 12V18" stroke="black" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                  <path d="M21 19C21 19.5304 20.7893 20.0391 20.4142 20.4142C20.0391 20.7893 19.5304 21 19 21H18C17.4696 21 16.9609 20.7893 16.5858 20.4142C16.2107 20.0391 16 19.5304 16 19V16C16 15.4696 16.2107 14.9609 16.5858 14.5858C16.9609 14.2107 17.4696 14 18 14H21V19ZM3 19C3 19.5304 3.21071 20.0391 3.58579 20.4142C3.96086 20.7893 4.46957 21 5 21H6C6.53043 21 7.03914 20.7893 7.41421 20.4142C7.78929 20.0391 8 19.5304 8 19V16C8 15.4696 7.78929 14.9609 7.41421 14.5858C7.03914 14.2107 6.53043 14 6 14H3V19Z" stroke="black" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                </svg>
-              </ListItemIcon>
-              <ListItemText primary={'Contact Support'} sx={{ opacity: open ? 1 : 0 }} />
-            </ListItemButton>
-
-            {/* Gift Awaits you Button ==========>>>>>>>>>> */}
-            <ListItemButton
-              sx={{
-                py: 1.5,
-                width: '100%',
-                borderRadius: 3,
-                marginBottom: 3,
-                backgroundColor: '#FFF2E2',
-                "&.Mui-selected": {
-                  backgroundColor: "#7017E0",
-                  color: '#ffffff'
-                },
-                "&.Mui-focusVisible": {
-                  backgroundColor: "#6D83EC",
-                  outline: 'none',
-                  color: '#ffffff'
-                },
-              }}
-            // selected={isSelected}
-            >
-              <ListItemIcon
-                sx={{
-                  minWidth: 0,
-                  mr: open ? 3 : 'auto',
-                  justifyContent: 'center',
-                }}
-              >
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M20 12V22H4V12" stroke="black" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                  <path d="M22 7H2V12H22V7Z" stroke="black" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                  <path d="M12 22V7" stroke="black" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                  <path d="M12 7H16.5C17.163 7 17.7989 6.73661 18.2678 6.26777C18.7366 5.79893 19 5.16304 19 4.5C19 3.83696 18.7366 3.20107 18.2678 2.73223C17.7989 2.26339 17.163 2 16.5 2C13 2 12 7 12 7Z" stroke="black" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                  <path d="M12 7H7.5C6.83696 7 6.20107 6.73661 5.73223 6.26777C5.26339 5.79893 5 5.16304 5 4.5C5 3.83696 5.26339 3.20107 5.73223 2.73223C6.20107 2.26339 6.83696 2 7.5 2C11 2 12 7 12 7Z" stroke="black" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                </svg>
-              </ListItemIcon>
-              <ListItemText primary={'Free Gift Awaits You!'} secondary={open ? 'Upgrade your account' : ''} sx={{ opacity: open ? 1 : 0 }} />
-            </ListItemButton>
 
             {/* Log Out Button ==========>>>>>>>>>> */}
             <Tooltip title={'Logout'} placement="right" arrow

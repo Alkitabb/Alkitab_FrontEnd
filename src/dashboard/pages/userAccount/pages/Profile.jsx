@@ -10,7 +10,7 @@ import { useFormik } from 'formik';
 import { AiOutlineClose } from 'react-icons/ai';
 import Button from '../../../../reusableComponents/Button';
 
-const PROFILE_AVATAR = "https://res.cloudinary.com/dmcmc9e7i/image/upload/v1696836697/Onka/ffavicon_l5qtuq.png"
+const PROFILE_AVATAR = "https://res.cloudinary.com/dmcmc9e7i/image/upload/v1696836697/StoqHive/ffavicon_l5qtuq.png"
 const PROFILE_USERNAME = "Daniel Esuola"
 
 
@@ -35,7 +35,7 @@ function InfoItem({ label, value }) {
     <div>
       <span className='flex flex-col text-black-30 '>
         <p className='text-paragraph-2'>{label}</p>
-        <h3 className='text-paragraph-1 font-bold text-black-50'>{value}</h3>
+        <h3 className='text-paragraph-1 font-medium text-black-50'>{value}</h3>
       </span>
     </div>
   );

@@ -8,7 +8,7 @@ function CustomizedSnackbars({ open, message, severity, onClose }) {
     onClose();
   };
   return (
-    <Snackbar open={open} autoHideDuration={6000} onClose={onClose ? handleClose : null} anchorOrigin={{ vertical: 'bottom', horizontal: 'right' }}>
+    <Snackbar open={open} autoHideDuration={6000} onClose={onClose ? handleClose : null} anchorOrigin={{ vertical: 'bottom', horizontal: 'center' }}>
       <MuiAlert onClose={handleClose} severity={severity} sx={{ width: '100%' }}>
         {message}
       </MuiAlert>

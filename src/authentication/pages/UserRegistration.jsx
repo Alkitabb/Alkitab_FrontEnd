@@ -24,7 +24,7 @@ import { ListItem } from "@mui/material";
 
 function UserRegistration() {
   useEffect(() => {
-    document.title = "Get started with Onka";
+    document.title = "Get started with StoqHive";
   }, []);
 
   // SnackBar Alert ==========>>>>>>>>>>
@@ -298,9 +298,9 @@ function UserRegistration() {
         />
       )}
 
-      <div className="bg-white h-screen grid lg:grid-cols-2 relative">
+      <div className="bg-white h-screen grid place-content-center relative">
         <div className="fixed z-30 bottom-0 text-center w-full p-5 text-paragraph-2 font-thin">
-          Onka &copy 2023
+          StoqHive &copy 2023
         </div>
         {/* <<<<<<<<<<========== Form Area ===========>>>>>>>>>> */}
         <div className="w-full grid place-content-center">
@@ -340,7 +340,7 @@ function UserRegistration() {
                     <header className="flex flex-col gap-1 text-center">
                       <h3 className="text-sub-heading-2 text-black-50">
                         Create your{" "}
-                        <span className="text-primary-100"> Onka </span> account
+                        <span className="text-primary-100"> StoqHive </span> account
                       </h3>
                       {/* <p className='text-paragraph-1 text-black-30'>Enter your name as it appears on your government-issued ID (for easy identity verification)</p> */}
                     </header>
@@ -433,7 +433,7 @@ function UserRegistration() {
                   <section className="gap-[20px] flex flex-col">
                     <header className="flex flex-col gap-1 text-center">
                       <h3 className="text-sub-heading-2">
-                        How are you planning to use Onka?
+                        How are you planning to use StoqHive?
                       </h3>
                     </header>
                     <div className="flex lg:flex-row md:flex-col flex-col gap-3 mt-5">
@@ -485,7 +485,7 @@ function UserRegistration() {
                           }
                           cardHeader={"Solo"}
                           cardCaption={
-                            "Manage your products and sales with Onka"
+                            "Manage your products and sales with StoqHive"
                           }
                           onClick={() => handleSelectBusiness("single")}
                         />
@@ -553,7 +553,7 @@ function UserRegistration() {
                             </svg>
                           }
                           cardHeader={"Multiple"}
-                          cardCaption={"Manage multiple businesses with Onka"}
+                          cardCaption={"Manage multiple businesses with StoqHive"}
                           onClick={() => handleSelectBusiness("multiple")}
                         />
                       </ListItem>
@@ -567,7 +567,7 @@ function UserRegistration() {
                       <h3 className="text-sub-heading-2">Create your password</h3>
                       <p className="text-paragraph-1 text-black-30">
                         Create a strong and secure password for signing in to your
-                        Onka account.
+                        StoqHive account.
                       </p>
                     </header>
                     <ListItem disablePadding>
@@ -728,9 +728,9 @@ function UserRegistration() {
           </div>
         </div>
 
-        <div className='bg-[url("https://images.unsplash.com/photo-1532102235608-dc8fc689c9ab?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2940&q=80")] bg-cover bg-center bg-no-repeat'>
-         </div>
-         
+        {/* <div className='bg-[url("https://images.unsplash.com/photo-1532102235608-dc8fc689c9ab?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2940&q=80")] bg-cover bg-center bg-no-repeat'>
+         </div> */}
+
       </div>
     </>
   );

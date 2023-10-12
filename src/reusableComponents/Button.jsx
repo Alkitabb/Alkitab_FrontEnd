@@ -12,7 +12,7 @@ export default function Button({ onClick, btnText, btnIcon, className, type }) {
         >
             <span className='flex items-center text-center gap-2 lg:gap-3 mx-auto'>
                 {btnIcon && <span>{btnIcon} </span>}
-                <span>\{btnText}</span>
+                <span>{btnText}</span>
             </span>
         </button>
     )

@@ -73,7 +73,7 @@ function UserLogin() {
       )}
 
       <div className='bg-white h-screen grid place-content-center relative'>
-        <div className="fixed z-30 bottom-0 text-center w-full p-5 text-paragraph-2 font-thin">Onka &copy 2023</div>
+        <div className="fixed z-30 bottom-0 text-center w-full p-5 text-paragraph-2 font-thin">StoqHive &copy 2023</div>
 
         {/* <<<<<<<<<<========== Form Area ===========>>>>>>>>>> */}
         <div className='flex flex-col px-[20px] py-[44px] gap-[60px] rounded-xl lg:w-[30vw] md:w-[50vw] w-[95vw]'>
@@ -82,7 +82,7 @@ function UserLogin() {
             {/* <<<<<<<<<<========== Header Section ==========>>>>>>>>>> */}
             <header className='flex flex-col text-center'>
               <h3 className='text-sub-heading-2 text-black-50'>Welcome Back!</h3>
-              <p className='text-paragraph-1 text-black-30'>Sign in to your Onka account</p>
+              <p className='text-paragraph-1 text-black-30'>Sign in to your StoqHive account</p>
             </header>
 
 
