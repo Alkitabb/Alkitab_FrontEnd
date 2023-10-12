@@ -1,9 +1,9 @@
-import { USER_REGISTRATION } from '../../api/Auth'
-import { AUTHENTICATION_TYPE } from './Types';
+import { USER_REGISTRATION_REQUEST } from '../../api/AuthRequest'
+import { AUTHENTICATION_TYPE } from './ActionTypes';
 
 export const USER_REGISTRATION = (requestObject) => async (dispatch) => {
     try {
-        const USER_DATA = await USER_REGISTRATION(requestObject)
+        const USER_DATA = await USER_REGISTRATION_REQUEST(requestObject)
 
         if (USER_DATA?.success) {
             dispatch({
@@ -12,7 +12,7 @@ export const USER_REGISTRATION = (requestObject) => async (dispatch) => {
             })
         } else {
             dispatch({
-                type: AUTHENTICATION_TYPE.ERROR,
+                type: AUTHENTICATION_TYPE.ERROR, 
                 payload: USER_DATA.error
             })
         }

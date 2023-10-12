@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Route, Routes } from "react-router-dom";
 import UserRegistration from "./authentication/pages/UserRegistration";
 import UserLogin from "./authentication/pages/UserLogin";
@@ -16,6 +16,8 @@ import Permissions from "./dashboard/pages/userAccount/pages/Permissions";
 // import AddInventory from './dashboard/pages/inventory/pages/AddInventory'
 
 function App() {
+  useEffect(() => { document.title = "Stoqhive" }, [])
+  
   return (
     <>
       <InternetConnectionChecker />

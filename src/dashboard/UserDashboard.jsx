@@ -366,8 +366,8 @@ export default function MiniDrawer() {
         ... gives visual path to users on where they currently ar on the software.
         
         ==========>>>>>>>>>> */}
-        <PageHistoryPath />
-        <Divider />
+        {/* <PageHistoryPath /> */}
+        {/* <Divider /> */}
 
       </AppBar>
 
@@ -609,7 +609,7 @@ export default function MiniDrawer() {
       </Drawer>
 
       <Box component="main" sx={{ flexGrow: 1, py: 3, px: 2 }} className='bg-background w-full min-h-screen h-fit'>
-        <DrawerHeader className='mb-5' />
+        <DrawerHeader/>
         <Outlet />
       </Box>
     </Box>

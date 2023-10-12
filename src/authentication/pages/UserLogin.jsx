@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import Box from '@mui/material/Box';
 import { Link } from '@mui/material';
 import FormInput from '../../reusableComponents/FormInput';
@@ -8,9 +8,6 @@ import { loginSchema } from '../../schemas/ValidationSchema';
 import CustomizedSnackbars from '../../reusableComponents/CustomizedSnackbars';
 
 function UserLogin() {
-
-  // Page Title ==========>>>>>>>>>>
-  useEffect(() => { document.title = "Login to your Account" }, [])
 
   // Form Validation ==========>>>>>>>>>>
   const onSubmit = () => {
@@ -95,7 +92,7 @@ function UserLogin() {
               onSubmit={handleSubmit}
               sx={{
                 width: '100%'
-            }}
+              }}
             >
               {/* <<<<<<<<<<========== Input fields ==========>>>>>>>>>>*/}
               <div className='flex flex-col gap-[30px] px-0'>

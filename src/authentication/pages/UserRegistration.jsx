@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import Box from "@mui/material/Box";
 import { NavLink } from "react-router-dom";
 import { signUpSchema } from "../../schemas/ValidationSchema";
@@ -23,9 +23,6 @@ import CountrySelect from "../../reusableComponents/CountrySelector";
 import { ListItem } from "@mui/material";
 
 function UserRegistration() {
-  useEffect(() => {
-    document.title = "Get started with StoqHive";
-  }, []);
 
   // SnackBar Alert ==========>>>>>>>>>>
   const [alert, setAlert] = useState(null);

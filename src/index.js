@@ -5,14 +5,18 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { BrowserRouter } from 'react-router-dom';
 import { OnlineStatusProvider } from './reusableComponents/internetConnection/OnlineStatusContext';
+import { Provider } from 'react-redux';
+import { STORE } from './redux/Store';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <BrowserRouter>
     <React.StrictMode>
-      <OnlineStatusProvider>
-        <App />
-      </OnlineStatusProvider>
+      <Provider store={STORE}>
+        <OnlineStatusProvider>
+          <App />
+        </OnlineStatusProvider>
+      </Provider>
     </React.StrictMode>
   </BrowserRouter>
 );
