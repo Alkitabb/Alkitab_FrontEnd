@@ -48,7 +48,7 @@ function UserRegistration() {
   const { values, handleBlur, handleSubmit, handleChange, errors, touched } =
     useFormik({
       initialValues: {
-        // country: '',
+        country: 'country',
         businessName: "",
         email: "",
         firstName: "",
@@ -63,28 +63,6 @@ function UserRegistration() {
     });
   // console.log(errors);
   // console.log(values);
-
-  const areValuesFilled = () => {
-    for (const key in values) {
-      // Function to check if any values are empty (except for password and confirmPassword)
-      if (key !== "firstName" && key !== "lastName" && key !== "phoneNumber" && key !== "password" && key !== "confirmPassword" && values[key] === "") {
-        return false;
-      }
-    }
-    return true; // All values are filled
-  };
-
-  const areValuesValid = () => {
-    let isValid = true;
-    for (const key in values) {
-      if (key !== "firstName" && key !== "lastName" && key !== "phoneNumber" && key !== "password" && key !== "confirmPassword" && errors[key]) {
-        isValid = false;
-        break;
-      }
-    }
-    return isValid;
-  };
-  // console.log(areValuesFilled());
 
   const areAllValuesFilled = () => {
     for (const key in values) {
@@ -127,9 +105,6 @@ function UserRegistration() {
   };
 
   const handleNext = () => {
-    if (!areValuesFilled()) {
-      return;
-    } // Check if any of the form fields are empty
 
     let newSkipped = skipped;
     if (isStepSkipped(activeStep)) {
@@ -677,21 +652,23 @@ function UserRegistration() {
                         >
                           <button
                             type="button"
-                            className={`${!areValuesFilled() || !areValuesValid() ? "cursor-no-drop bg-opacity-80" : "hover:bg-primary-90"} ${activeStep === 3 && "hidden"} bg-primary-100 transition-all duration-300 text-white w-full py-4 rounded-sm text-paragraph-2 font-bold`}
+                            className={`${activeStep === 0 && values.businessName && values.email && values.country ? "hover:bg-primary-90" : "cursor-no-drop bg-opacity-80"} $ ${activeStep === 3 && values.password && values.confirmPassword ? "hover:bg-primary-90" : "cursor-no-drop bg-opacity-80"}${activeStep === 3 && "hidden"} bg-primary-100 transition-all duration-300 text-white w-full py-4 rounded-sm text-paragraph-2 font-bold`}
                             onClick={handleNext}
-                            disabled={!areValuesFilled() && !areValuesValid()}
+                          // disabled={
+                          //   // activeStep === 0 && values.businessName && values.email && values.country 
+                          // }
                           >
                             {activeStep === steps.length - 1 ? "Finish" : "Next"}
                           </button>
 
-                          <button
+                          {/* <button
                             type="submit"
-                            className={`${!areAllValuesFilled() && !areAllValuesValid() ? "cursor-no-drop bg-opacity-80" : "hover:bg-primary-90"} ${activeStep === 3 ? "block" : "hidden"} bg-primary-100 transition-all duration-300 text-white w-full py-4 rounded-sm text-paragraph-2 font-bold`}
+                            className={`${!STEP_ONE_VALUES() ? "cursor-no-drop bg-opacity-80" : "hover:bg-primary-90"} ${activeStep === 3 ? "block" : "hidden"} bg-primary-100 transition-all duration-300 text-white w-full py-4 rounded-sm text-paragraph-2 font-bold`}
                             onClick={handleSubmit}
-                            disabled={!areAllValuesFilled() && !areAllValuesValid()}
+                            // disabled={!STEP_ONE_VALUES}
                           >
                             Finish
-                          </button>
+                          </button> */}
 
                           <button
                             type="button"
@@ -723,12 +700,12 @@ function UserRegistration() {
               {/* <<<<<<<<<<=====================>>>>>>>>>> End */}
             </div>
           </div>
-        </div>
+        </div >
 
         {/* <div className='bg-[url("https://images.unsplash.com/photo-1532102235608-dc8fc689c9ab?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2940&q=80")] bg-cover bg-center bg-no-repeat'>
          </div> */}
 
-      </div>
+      </div >
     </>
   );
 }
