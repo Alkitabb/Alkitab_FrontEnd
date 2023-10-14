@@ -652,7 +652,16 @@ function UserRegistration() {
                         >
                           <button
                             type="button"
-                            className={`${activeStep === 0 && values.businessName && values.email && values.country ? "hover:bg-primary-90" : "cursor-no-drop bg-opacity-80"} $ ${activeStep === 3 && values.password && values.confirmPassword ? "hover:bg-primary-90" : "cursor-no-drop bg-opacity-80"}${activeStep === 3 && "hidden"} bg-primary-100 transition-all duration-300 text-white w-full py-4 rounded-sm text-paragraph-2 font-bold`}
+                            className={`${activeStep === 0 ? "block" : 'hidden'} ${activeStep === 0 && values.businessName && values.email && values.country ? "hover:bg-primary-90" : "cursor-no-drop bg-opacity-80"}  bg-primary-100 transition-all duration-300 text-white w-full py-4 rounded-sm text-paragraph-2 font-bold`}
+                            onClick={activeStep === 0 && values.businessName && values.email && values.country ? handleNext : null}
+                            disabled={errors.businessName || errors.email || errors.country}
+                          >
+                            {activeStep === steps.length - 1 ? "Finish" : "Next"}
+                          </button>
+
+                          <button
+                            type="button"
+                            className={`${activeStep === 1 ? "block" : 'hidden'} ${activeStep === 0 && values.businessName && values.email && values.country ? "hover:bg-primary-90" : "cursor-no-drop bg-opacity-80"}  bg-primary-100 transition-all duration-300 text-white w-full py-4 rounded-sm text-paragraph-2 font-bold`}
                             onClick={handleNext}
                           // disabled={
                           //   // activeStep === 0 && values.businessName && values.email && values.country 
