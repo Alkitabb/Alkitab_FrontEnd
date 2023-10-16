@@ -562,6 +562,7 @@ export default function MiniDrawer() {
           }}
           className='transition-all duration-300'
         >
+          <NavLink to={'/login'}>
           <ListItem disablePadding sx={{ display: 'flex', flexDirection: 'column', gap: 1 }} >
 
             {/* Log Out Button ==========>>>>>>>>>> */}
@@ -604,6 +605,7 @@ export default function MiniDrawer() {
             </Tooltip>
 
           </ListItem>
+          </NavLink>
         </List>
 
       </Drawer>
