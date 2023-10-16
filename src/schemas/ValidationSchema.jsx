@@ -16,6 +16,9 @@ export const signUpSchema = yup.object().shape(
         lastName:
             yup.string().required("Required").max(15, "Must be 15 or less").min(5, 'Must be at least 5 Characters'),
 
+        phoneNumber:
+            yup.number().required("Required"),
+
         email:
             yup.string().email("Must be a valid email").required("Required"),
 

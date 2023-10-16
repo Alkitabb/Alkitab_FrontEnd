@@ -661,23 +661,28 @@ function UserRegistration() {
 
                           <button
                             type="button"
-                            className={`${activeStep === 1 ? "block" : 'hidden'} ${activeStep === 0 && values.businessName && values.email && values.country ? "hover:bg-primary-90" : "cursor-no-drop bg-opacity-80"}  bg-primary-100 transition-all duration-300 text-white w-full py-4 rounded-sm text-paragraph-2 font-bold`}
-                            onClick={handleNext}
-                          // disabled={
-                          //   // activeStep === 0 && values.businessName && values.email && values.country 
-                          // }
+                            className={`${activeStep === 1 ? "block" : 'hidden'} ${activeStep === 1 && values.firstName && values.lastName && values.phoneNumber ? "hover:bg-primary-90" : "cursor-no-drop bg-opacity-80"} bg-primary-100 transition-all duration-300 text-white w-full py-4 rounded-sm text-paragraph-2 font-bold`}
+                            onClick={activeStep === 1 && values.firstName && values.lastName && values.phoneNumber ? handleNext : null}
+                            disabled={errors.firstName || errors.lastName || errors.phoneNumber}
                           >
                             {activeStep === steps.length - 1 ? "Finish" : "Next"}
                           </button>
-
-                          {/* <button
-                            type="submit"
-                            className={`${!STEP_ONE_VALUES() ? "cursor-no-drop bg-opacity-80" : "hover:bg-primary-90"} ${activeStep === 3 ? "block" : "hidden"} bg-primary-100 transition-all duration-300 text-white w-full py-4 rounded-sm text-paragraph-2 font-bold`}
-                            onClick={handleSubmit}
-                            // disabled={!STEP_ONE_VALUES}
+                          <button
+                            type="button"
+                            className={`${activeStep === 2 ? "block" : 'hidden'} ${activeStep === 2 && values.accountType ? "hover:bg-primary-90" : "cursor-no-drop bg-opacity-80"} bg-primary-100 transition-all duration-300 text-white w-full py-4 rounded-sm text-paragraph-2 font-bold`}
+                            onClick={activeStep === 2 && values.accountType ? handleNext : null}
+                            disabled={errors.accountType}
                           >
-                            Finish
-                          </button> */}
+                            {activeStep === steps.length - 1 ? "Finish" : "Next"}
+                          </button>
+                          <button
+                            type="button"
+                            className={`${activeStep === 3 ? "block" : 'hidden'} ${activeStep === 3 && values.password && values.confirmPassword ? "hover:bg-primary-90" : "cursor-no-drop bg-opacity-80"} bg-primary-100 transition-all duration-300 text-white w-full py-4 rounded-sm text-paragraph-2 font-bold`}
+                            onClick={activeStep === 3 && values.password && values.confirmPassword ? handleNext : null}
+                            disabled={errors.password || errors.confirmPassword}
+                          >
+                            {activeStep === steps.length - 1 ? "Finish" : "Next"}
+                          </button>
 
                           <button
                             type="button"
