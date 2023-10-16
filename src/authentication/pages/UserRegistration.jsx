@@ -679,7 +679,7 @@ function UserRegistration() {
                             type="button"
                             className={`${activeStep === 3 ? "block" : 'hidden'} ${activeStep === 3 && values.password && values.confirmPassword ? "hover:bg-primary-90" : "cursor-no-drop bg-opacity-80"} bg-primary-100 transition-all duration-300 text-white w-full py-4 rounded-sm text-paragraph-2 font-bold`}
                             onClick={activeStep === 3 && values.password && values.confirmPassword ? handleNext : null}
-                            disabled={errors.password || errors.confirmPassword}
+                            disabled={!areAllValuesFilled() || !areAllValuesValid()}
                           >
                             {activeStep === steps.length - 1 ? "Finish" : "Next"}
                           </button>
