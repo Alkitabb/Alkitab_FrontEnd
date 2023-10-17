@@ -22,10 +22,10 @@ import ListButton from './components/ListButton';
 // import PageHistoryPath from './components/PageHistoryPath';
 import { useOnlineStatus } from '../reusableComponents/internetConnection/OnlineStatusContext';
 import MenuList from '@mui/material/MenuList';
-import {BsPersonCheck} from 'react-icons/bs'
-import {GoPerson} from 'react-icons/go'
-import {IoIosLogOut} from 'react-icons/io'
-import {IoMdNotificationsOutline} from 'react-icons/io'
+import { BsPersonCheck } from 'react-icons/bs'
+import { GoPerson } from 'react-icons/go'
+import { IoIosLogOut } from 'react-icons/io'
+import { IoMdNotificationsOutline } from 'react-icons/io'
 
 
 
@@ -175,33 +175,33 @@ export default function MiniDrawer() {
         <NavLink to={'/Settings'}>
           <MenuItem onClick={handleMenuClose}>
             <ListItemIcon>
-            <GoPerson />
-          </ListItemIcon>
-          <ListItemText>Profile</ListItemText>
+              <GoPerson />
+            </ListItemIcon>
+            <ListItemText>Profile</ListItemText>
           </MenuItem>
         </NavLink>
 
         <NavLink to={'/Permissions'}>
           <MenuItem onClick={handleMenuClose}>
             <ListItemIcon>
-            <BsPersonCheck />
-          </ListItemIcon>
-          <ListItemText>Permissions</ListItemText>
+              <BsPersonCheck />
+            </ListItemIcon>
+            <ListItemText>Permissions</ListItemText>
           </MenuItem>
         </NavLink>
         <Divider />
 
         <MenuItem onClick={handleMenuClose}>
-            <ListItemIcon>
+          <ListItemIcon>
             <IoIosLogOut />
           </ListItemIcon>
           <ListItemText>Logout</ListItemText>
-          </MenuItem>
+        </MenuItem>
       </MenuList>
     </Menu>
   );
 
-// <<<<<<<<<<========== Mobile Menu ==========>>>>>>>>>>
+  // <<<<<<<<<<========== Mobile Menu ==========>>>>>>>>>>
   const mobileMenuId = 'primary-search-account-menu-mobile';
   const renderMobileMenu = (
 
@@ -563,55 +563,55 @@ export default function MiniDrawer() {
           className='transition-all duration-300'
         >
           <NavLink to={'/login'}>
-          <ListItem disablePadding sx={{ display: 'flex', flexDirection: 'column', gap: 1 }} >
+            <ListItem disablePadding sx={{ display: 'flex', flexDirection: 'column', gap: 1 }} >
 
-            {/* Log Out Button ==========>>>>>>>>>> */}
-            <Tooltip title={'Logout'} placement="right" arrow
-              sx={{
-                display: open ? 'block' : 'none',
-              }}
-            >
-              <ListItemButton
+              {/* Log Out Button ==========>>>>>>>>>> */}
+              <Tooltip title={'Logout'} placement="right" arrow
                 sx={{
-                  py: 1.5,
-                  width: '100%',
-                  borderRadius: 3,
-                  "&.Mui-selected": {
-                    backgroundColor: "#7017E0",
-                    color: '#ffffff'
-                  },
-                  "&.Mui-focusVisible": {
-                    backgroundColor: "#6D83EC",
-                    outline: 'none',
-                    color: '#ffffff'
-                  },
+                  display: open ? 'block' : 'none',
                 }}
-              // selected={isSelected}
               >
-                <ListItemIcon
+                <ListItemButton
                   sx={{
-                    minWidth: 0,
-                    mr: open ? 3 : 'auto',
-                    justifyContent: 'center',
+                    py: 1.5,
+                    width: '100%',
+                    borderRadius: 3,
+                    "&.Mui-selected": {
+                      backgroundColor: "#7017E0",
+                      color: '#ffffff'
+                    },
+                    "&.Mui-focusVisible": {
+                      backgroundColor: "#6D83EC",
+                      outline: 'none',
+                      color: '#ffffff'
+                    },
                   }}
+                // selected={isSelected}
                 >
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path opacity="0.4" d="M2 6.447C2 3.996 4.03024 2 6.52453 2H11.4856C13.9748 2 16 3.99 16 6.437V17.553C16 20.005 13.9698 22 11.4744 22H6.51537C4.02515 22 2 20.01 2 17.563V16.623V6.447Z" fill="#CC5F5F" />
-                    <path d="M21.7792 11.4548L18.9334 8.5458C18.6393 8.2458 18.166 8.2458 17.8728 8.5478C17.5807 8.8498 17.5816 9.3368 17.8748 9.6368L19.434 11.2298H17.9391H9.54875C9.13483 11.2298 8.79883 11.5748 8.79883 11.9998C8.79883 12.4258 9.13483 12.7698 9.54875 12.7698H19.434L17.8748 14.3628C17.5816 14.6628 17.5807 15.1498 17.8728 15.4518C18.0199 15.6028 18.2118 15.6788 18.4046 15.6788C18.5955 15.6788 18.7873 15.6028 18.9334 15.4538L21.7792 12.5458C21.9204 12.4008 22.0003 12.2048 22.0003 11.9998C22.0003 11.7958 21.9204 11.5998 21.7792 11.4548Z" fill="#CC5F5F" />
-                  </svg>
-                </ListItemIcon>
-                <ListItemText primary={'Logout'} sx={{ opacity: open ? 1 : 0, color: '#CC5F5F' }} />
-              </ListItemButton>
-            </Tooltip>
+                  <ListItemIcon
+                    sx={{
+                      minWidth: 0,
+                      mr: open ? 3 : 'auto',
+                      justifyContent: 'center',
+                    }}
+                  >
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path opacity="0.4" d="M2 6.447C2 3.996 4.03024 2 6.52453 2H11.4856C13.9748 2 16 3.99 16 6.437V17.553C16 20.005 13.9698 22 11.4744 22H6.51537C4.02515 22 2 20.01 2 17.563V16.623V6.447Z" fill="#CC5F5F" />
+                      <path d="M21.7792 11.4548L18.9334 8.5458C18.6393 8.2458 18.166 8.2458 17.8728 8.5478C17.5807 8.8498 17.5816 9.3368 17.8748 9.6368L19.434 11.2298H17.9391H9.54875C9.13483 11.2298 8.79883 11.5748 8.79883 11.9998C8.79883 12.4258 9.13483 12.7698 9.54875 12.7698H19.434L17.8748 14.3628C17.5816 14.6628 17.5807 15.1498 17.8728 15.4518C18.0199 15.6028 18.2118 15.6788 18.4046 15.6788C18.5955 15.6788 18.7873 15.6028 18.9334 15.4538L21.7792 12.5458C21.9204 12.4008 22.0003 12.2048 22.0003 11.9998C22.0003 11.7958 21.9204 11.5998 21.7792 11.4548Z" fill="#CC5F5F" />
+                    </svg>
+                  </ListItemIcon>
+                  <ListItemText primary={'Logout'} sx={{ opacity: open ? 1 : 0, color: '#CC5F5F' }} />
+                </ListItemButton>
+              </Tooltip>
 
-          </ListItem>
+            </ListItem>
           </NavLink>
         </List>
 
       </Drawer>
 
       <Box component="main" sx={{ flexGrow: 1, py: 3, px: 2 }} className='bg-background w-full min-h-screen h-fit'>
-        <DrawerHeader/>
+        <DrawerHeader />
         <Outlet />
       </Box>
     </Box>
